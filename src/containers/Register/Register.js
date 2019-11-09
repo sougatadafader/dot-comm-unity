@@ -3,7 +3,7 @@ import {Link, Redirect} from 'react-router-dom'
 import './Register.style.css';
 import UserService from "../../services/UserService";
 
-class register extends React.Component{
+class Register extends React.Component{
 
     constructor(props) {
         super(props);
@@ -118,7 +118,7 @@ class register extends React.Component{
                         <div className="row">
                             <div className="col-12 bot30">
                                 <Link to={"/"} className="nav-link float-left text-light">Cancel</Link>
-                                <Link to={"/login"}
+                                <Link to={"/signIn"}
                                       className="nav-link float-right text-light">Sign In</Link>
                             </div>
                         </div>
@@ -127,4 +127,4 @@ class register extends React.Component{
                 </div>
             </div>
         )}}
-export default register;
+export default Register;

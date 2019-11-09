@@ -16,6 +16,7 @@ export default class UserService {
         }).then(response =>response.json())
     }
 
+
     static login = user =>{
         const url=baseUrl+"api/login";
         return fetch(url,{
@@ -93,5 +94,4 @@ export default class UserService {
                 'Content-Type': 'application/json'
             }})
     }
-
 }

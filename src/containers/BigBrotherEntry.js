@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch,Redirect} from "react-router-dom
 import Home from './Home';
 import UserService from "../services/UserService";
 import Register from "../containers/Register/Register";
-
+import SignIn from "../containers/SignIn/SignIn";
 
 class BigBrotherEntry extends React.Component {
 
@@ -11,7 +11,6 @@ class BigBrotherEntry extends React.Component {
         loaded: true,
         sessionUser:null
     };
-
 
     componentDidMount(){
         UserService.findUserInSession().then(
@@ -31,6 +30,7 @@ class BigBrotherEntry extends React.Component {
                 <div>
                     <Switch>
                         <Route exact path="/register" component={Register} />
+                        <Route exact path="/signIn" component={SignIn} />
                         <Route exact path="/" render={props => <Home/>}/>
                         <Redirect to="/"/>
                     </Switch>

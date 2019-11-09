@@ -1,7 +1,7 @@
 import React from "react";
 
 import Carousel from "react-multi-carousel";
-import { Image } from "semantic-ui-react";
+import { Image, Card, Button, Progress } from "semantic-ui-react";
 
 const responsive = {
     desktop: {
@@ -41,7 +41,7 @@ const Simple = ({ deviceType }) => {
     return (
         <Carousel
             infinite={true}
-            autoPlay={true}
+            autoPlay={false}
             autoPlaySpeed={2000}
             ssr
             partialVisbile
@@ -51,11 +51,30 @@ const Simple = ({ deviceType }) => {
         >
             {images.slice(0, 5).map(image => {
                 return (
-                    <Image
-                        draggable={false}
-                        style={{ width: "100%", height: "100%" }}
-                        src={image}
-                    />
+                    <Card>
+                        <Image src={image} draggable={false}
+                               style={{ width: "100%", height: "100%" }} wrapped ui={false} />
+                        <Card.Content>
+                            <Card.Header>Matthew</Card.Header>
+                            <Card.Meta>
+                                <Progress percent='50' indicating />
+                            </Card.Meta>
+                            <Card.Meta>
+                               $10,000 raised for $100,000
+                            </Card.Meta>
+                            <Card.Meta>
+                                <span className='date'>January 2019</span>
+                            </Card.Meta>
+                            <Card.Description>
+                                Please help raise money for this cause.
+                            </Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
+                            <a>
+                                <Button positive>Donate</Button>
+                            </a>
+                        </Card.Content>
+                    </Card>
                 );
             })}
         </Carousel>
