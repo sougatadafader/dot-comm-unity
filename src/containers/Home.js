@@ -11,8 +11,8 @@ export default class extends Component {
     render() {
         return(
             <div>
-            <Header/>
-                <Message compact className="ml-4 bg-danger text-white" content='Our top Campaigns' />
+                <Header/>
+                <Message compact className="ml-4 bg-danger text-white" content='Top Campaigns' />
                 <WithScrollbar/>
                 <div>Hello from Home</div>
             </div>
