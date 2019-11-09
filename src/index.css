@@ -12,7 +12,10 @@ code {
     monospace;
 }
 
-
+.main-header
+{
+	width:100%;
+}
 .header-pos-center
 {
 	width:1170px;
