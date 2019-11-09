@@ -6,12 +6,12 @@ import { Image, Card, Button, Progress } from "semantic-ui-react";
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 3,
+        items: 5,
         paritialVisibilityGutter: 60
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2,
+        items: 3,
         paritialVisibilityGutter: 50
     },
     mobile: {
