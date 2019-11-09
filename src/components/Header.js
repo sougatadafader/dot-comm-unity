@@ -36,7 +36,7 @@ class Header extends React.Component{
         let username = this.state.sessionUser.username;
         let role = this.state.sessionUser.userRole;
         return(
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light header-pos-center">
                 <Link to={"/"} className=" navbar-brand" href="#">BigBrother.</Link>
                 <SearchComponent/>
                 <div className="collapse navbar-collapse d-flex flex-row-reverse bd-highlight" id="navbarNav">
