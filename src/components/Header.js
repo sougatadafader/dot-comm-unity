@@ -53,7 +53,7 @@ class Header extends React.Component{
                                         <Dropdown.Item>Account Settings</Dropdown.Item>
                                         <Dropdown.Item>Manage Campaigns</Dropdown.Item>
                                         <Dropdown.Item>Donation History</Dropdown.Item>
-                                        <Dropdown.Item>Logout</Dropdown.Item>
+                                        <Dropdown.Item onClick={this.handleLogout}>Logout</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>:
                         <Button.Group>

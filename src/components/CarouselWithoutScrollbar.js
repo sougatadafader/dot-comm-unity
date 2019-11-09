@@ -41,7 +41,7 @@ const Simple = ({ deviceType }) => {
     return (
         <Carousel
             infinite={true}
-            autoPlay={false}
+            autoPlay={true}
             autoPlaySpeed={2000}
             ssr
             partialVisbile
@@ -60,7 +60,7 @@ const Simple = ({ deviceType }) => {
                                 <Progress percent='50' indicating />
                             </Card.Meta>
                             <Card.Meta>
-                               $10,000 raised for $100,000
+                               $10,000 raised for $20,000
                             </Card.Meta>
                             <Card.Meta>
                                 <span className='date'>January 2019</span>
