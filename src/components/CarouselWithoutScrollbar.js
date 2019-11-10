@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom';
 import Carousel from "react-multi-carousel";
 import { Image, Card, Button, Progress } from "semantic-ui-react";
 
@@ -70,7 +70,7 @@ const Simple = ({ deviceType }) => {
                             </Card.Description>
                         </Card.Content>
                         <Card.Content extra>
-                            <a>
+                            <a href="#">
                                 <Button positive>Donate</Button>
                             </a>
                         </Card.Content>

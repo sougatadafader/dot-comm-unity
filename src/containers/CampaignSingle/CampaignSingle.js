@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link, Redirect} from 'react-router-dom';
 import Header from '../../components/Header';
 
 class CampaignSingle extends React.Component
