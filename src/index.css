@@ -104,6 +104,11 @@ code {
   margin-top:15px;
 }
 
+.comment-entry textarea
+{
+  width:100%;
+}
+
 .donation-progress span
 {
   font-size:0.8rem;
@@ -113,6 +118,7 @@ code {
 {
   background-color:#ccf1e0 !important;
   margin-top:15px;
+  height:0.6rem;
 }
 
 .progress-bar

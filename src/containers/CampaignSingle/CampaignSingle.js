@@ -64,6 +64,12 @@ class CampaignSingle extends React.Component
                                             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                         </div>
                                     </div>
+                                    <div className="media single-comment comment-entry">
+                                        <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
+                                        <div className="media-body">
+                                            <textarea cols="20" placeholder="Add your comment here..."></textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
