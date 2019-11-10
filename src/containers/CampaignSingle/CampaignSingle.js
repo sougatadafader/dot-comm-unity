@@ -34,7 +34,7 @@ class CampaignSingle extends React.Component
                                 <h3 className="volunteer-title">Organized By</h3>
                                 <div className="media">
                                     <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                    <div class="media-body">
+                                    <div className="media-body">
                                         <h5>Sougata Dafader</h5>
                                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
@@ -45,21 +45,21 @@ class CampaignSingle extends React.Component
                                 <div className="comment-list">
                                     <div className="media single-comment">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div class="media-body">
+                                        <div className="media-body">
                                             <h5>Sougata Dafader</h5>
                                             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                         </div>
                                     </div>
                                     <div className="media single-comment">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div class="media-body">
+                                        <div className="media-body">
                                             <h5>Sougata Dafader</h5>
                                             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                         </div>
                                     </div>
                                     <div className="media single-comment">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div class="media-body">
+                                        <div className="media-body">
                                             <h5>Sougata Dafader</h5>
                                             Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                         </div>
@@ -67,14 +67,26 @@ class CampaignSingle extends React.Component
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <div class="donation-progress-card card-ui">
+                        <div className="col-4">
+                            <div className="donation-progress-card card-ui">
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
                                 <div className="progress">
                                     <div className="progress-bar" role="progress-bar" style={{width:'25%'}}></div>
                                 </div>
                                 <div className="donate-btn-container">
                                     <a className="donate-btn" href="#">Donate now</a>
+                                </div>
+                            </div>
+                            <div className="donation-list-card card-ui">
+                                <h3 className="donation-list-title">All Donations</h3>
+                                <div className="dontation-list-container">
+                                    <div className="media">
+                                        <div className="user-dp-circle half-size-dp" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
+                                        <div className="media-body">
+                                            <span className="donation-detail donation-amount">100$</span>
+                                            <span className="donation-detail donation-date">2 Nov 2019</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
