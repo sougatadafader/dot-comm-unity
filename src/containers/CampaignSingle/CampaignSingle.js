@@ -67,7 +67,15 @@ class CampaignSingle extends React.Component
                         </div>
                     </div>
                     <div class="col-4">
-
+                        <div class="donation-progress-card card-ui">
+                            <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
+                            <div className="progress">
+                                <div className="progress-bar" role="progress-bar" style={{width:'25%'}}></div>
+                            </div>
+                            <div className="donate-btn-container">
+                                <a className="donate-btn" href="#">Donate now</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -100,3 +100,39 @@ code {
 {
   margin-top:15px;
 }
+
+.donation-progress span
+{
+  font-size:0.8rem;
+}
+
+.progress
+{
+  background:#ccf1e0;
+  margin-top:15px;
+}
+
+.progress-bar
+{
+  background:#00b964;
+}
+
+.donate-btn-container
+{
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+.donate-btn
+{
+  width:100%;
+  padding:10px;
+  text-align:center;
+  background:#fdb933;
+  color:#000;
+}
+
+.donate-btn:hover
+{
+  background:#f2ac2f;
+}
