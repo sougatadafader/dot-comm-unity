@@ -59,6 +59,22 @@ class CampaignSingle extends React.Component
             ]
         };
     }
+
+    submitComment = (event) => {
+        event.preventDefault();
+        let comment = document.getElementById('comment-body').value;
+        let obj = {
+            user:'Sougata Dafader',
+            userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+            comment:comment
+        };
+        let comments = this.state.comments;
+        comments.push(obj);
+        this.setState({
+            comments:comments
+        });
+    }
+
     render()
     {
         return(
@@ -91,7 +107,9 @@ class CampaignSingle extends React.Component
                                     <div className="media single-comment comment-entry">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
                                         <div className="media-body">
-                                            <textarea cols="20" placeholder="Add your comment here..."></textarea>
+                                            <form>
+                                                <textarea id="comment-body" cols="20" placeholder="Add your comment here..."></textarea>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -116,30 +134,6 @@ class CampaignSingle extends React.Component
                                             (<SingleDonation key={index} donation={donation} />)
                                         )
                                     }
-                                    <div className="media">
-                                        <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div className="media-body">
-                                            <h5>Sougata Dafader</h5>
-                                            <span className="donation-detail donation-amount">100$</span>
-                                            <span className="donation-detail donation-date">2 Nov 2019</span>
-                                        </div>
-                                    </div>
-                                    <div className="media">
-                                        <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div className="media-body">
-                                            <h5>Sougata Dafader</h5>
-                                            <span className="donation-detail donation-amount">100$</span>
-                                            <span className="donation-detail donation-date">2 Nov 2019</span>
-                                        </div>
-                                    </div>
-                                    <div className="media">
-                                        <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div className="media-body">
-                                            <h5>Sougata Dafader</h5>
-                                            <span className="donation-detail donation-amount">100$</span>
-                                            <span className="donation-detail donation-date">2 Nov 2019</span>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
