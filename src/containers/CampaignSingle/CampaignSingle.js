@@ -51,24 +51,14 @@ class CampaignSingle extends React.Component
                                 volunteerAbout="Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus."
                             />
                             
-                            <div className="organiser-card card-ui">
-                                <h3 className="volunteer-title">Organized By</h3>
+                            <div className="comments-card card-ui">
+                                <h3 className="comment-title">Comments</h3>
+                                <div className="comment-list">
                                 {
                                     this.state.comments.map((comment,index)=>
                                         (<SingleComment key={index} user={comment.user} userImg={comment.userImg} comment={comment.comment} />)
                                     )
                                 }
-                                <div className="media">
-                                    <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                    <div className="media-body">
-                                        <h5>Sougata Dafader</h5>
-                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="comments-card card-ui">
-                                <h3 className="comment-title">Comments</h3>
-                                <div className="comment-list">
                                     <div className="media single-comment">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
                                         <div className="media-body">
