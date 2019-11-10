@@ -6,7 +6,7 @@ import { Image, Card, Button, Progress } from "semantic-ui-react";
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 5,
+        items: 4,
         paritialVisibilityGutter: 60
     },
     tablet: {
@@ -55,7 +55,7 @@ const Simple = ({ deviceType }) => {
                         <Image src={image} draggable={false}
                                style={{ width: "100%", height: "100%" }} wrapped ui={false} />
                         <Card.Content>
-                            <Card.Header>Matthew</Card.Header>
+                            <Card.Header><Link to={"/campaign"}>Matthew</Link></Card.Header>
                             <Card.Meta>
                                 <Progress percent='50' indicating />
                             </Card.Meta>
