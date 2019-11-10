@@ -7,7 +7,7 @@ class CampaignSingle extends React.Component
     {
         super(props);
         this.state = {
-
+            dpUrl:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
         };
     }
     render()
@@ -30,14 +30,21 @@ class CampaignSingle extends React.Component
                             </div>
                         </div>
                         <div className="organiser-card card-ui">
-
+                            <h3 className="volunteer-title">Organized By</h3>
+                            <div className="media">
+                                <div className="user-dp-circle" style={{backgroundImage:url(this.state.dpUrl)}}></div>
+                                <div class="media-body">
+                                    <h5>Sougata Dafader</h5>
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                </div>
+                            </div>
                         </div>
                         <div className="comments-card card-ui">
 
                         </div>
                     </div>
                     <div class="col-4">
-                        
+
                     </div>
                 </div>
             </div>
