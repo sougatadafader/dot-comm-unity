@@ -108,7 +108,7 @@ class CampaignSingle extends React.Component
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
                                         <div className="media-body">
                                             <form onSubmit={this.submitComment}>
-                                                <textarea id="comment-body" cols="20" placeholder="Add your comment here..."></textarea>
+                                                <input type="text" id="comment-body" placeholder="Add your comment here..." />
                                             </form>
                                         </div>
                                     </div>
