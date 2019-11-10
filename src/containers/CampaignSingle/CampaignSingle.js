@@ -107,7 +107,7 @@ class CampaignSingle extends React.Component
                                     <div className="media single-comment comment-entry">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
                                         <div className="media-body">
-                                            <form>
+                                            <form onSubmit={this.submitComment}>
                                                 <textarea id="comment-body" cols="20" placeholder="Add your comment here..."></textarea>
                                             </form>
                                         </div>
@@ -119,9 +119,6 @@ class CampaignSingle extends React.Component
                             <div className="donation-progress-card card-ui">
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
                                 <DonationProgress progress="50%" />
-                                <div className="progress">
-                                    <div className="progress-bar" role="progress-bar" style={{width:'50%'}}></div>
-                                </div>
                                 <div className="donate-btn-container">
                                     <a className="donate-btn" href="#">Donate now</a>
                                 </div>
