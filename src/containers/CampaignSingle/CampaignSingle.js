@@ -40,7 +40,30 @@ class CampaignSingle extends React.Component
                             </div>
                         </div>
                         <div className="comments-card card-ui">
-
+                            <h3 className="comment-title">Comments</h3>
+                            <div className="comment-list">
+                                <div className="media single-comment">
+                                    <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
+                                    <div class="media-body">
+                                        <h5>Sougata Dafader</h5>
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                    </div>
+                                </div>
+                                <div className="media single-comment">
+                                    <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
+                                    <div class="media-body">
+                                        <h5>Sougata Dafader</h5>
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                    </div>
+                                </div>
+                                <div className="media single-comment">
+                                    <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
+                                    <div class="media-body">
+                                        <h5>Sougata Dafader</h5>
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-4">

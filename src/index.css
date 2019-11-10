@@ -70,3 +70,33 @@ code {
   padding-top:15px;
   padding-bottom:15px;
 }
+
+.volunteer-title,
+.comment-title
+{
+  font-size:2rem;
+  padding-top:15px;
+  padding-bottom: 15px;
+  margin-bottom:15px;
+  border-bottom:1px solid #ddd;
+}
+.user-dp-circle
+{
+  width:64px;
+  height:64px;
+  margin-right:15px;
+  background-size:cover;
+  background-position: center;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+.media-body
+{
+  text-align: justify;
+}
+.single-comment
+{
+  margin-top:15px;
+}
