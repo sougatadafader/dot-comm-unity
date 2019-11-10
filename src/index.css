@@ -32,6 +32,17 @@ code {
 {
   padding:30px;
   background:#fff;
+  margin-top:30px;
+}
+
+.card-ui:last-child
+{
+  margin-bottom:30px;
+}
+
+.img-responsive
+{
+  max-width:100%;
 }
 
 .campaign-title
