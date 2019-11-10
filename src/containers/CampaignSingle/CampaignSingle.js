@@ -3,6 +3,8 @@ import Header from '../../components/Header';
 import CampaignCard from '../../components/CampaignCard';
 import VolunteerCard from '../../components/VolunteerCard';
 import SingleComment from '../../components/SingleComment';
+import DonationProgress from '../../components/DonationProgress';
+import SingleDonation from '../../components/SingleDonation';
 
 class CampaignSingle extends React.Component
 {
@@ -26,6 +28,33 @@ class CampaignSingle extends React.Component
                     user:"Sougata Dafader",
                     userImg:"https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
                     comment:"Donate Now and get Free Chicken Nuggets"
+                },
+                
+            ],
+            donations:[
+                {
+                    user:'Sougata Dafader',
+                    userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+                    amount:'1000',
+                    date:'2 Nov 2019'
+                },
+                {
+                    user:'Sougata Dafader',
+                    userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+                    amount:'4000',
+                    date:'2 Nov 2019'
+                },
+                {
+                    user:'Sougata Dafader',
+                    userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+                    amount:'4000',
+                    date:'2 Nov 2019'
+                },
+                {
+                    user:'Sougata Dafader',
+                    userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+                    amount:'1000',
+                    date:'2 Nov 2019'
                 }
             ]
         };
@@ -54,32 +83,11 @@ class CampaignSingle extends React.Component
                             <div className="comments-card card-ui">
                                 <h3 className="comment-title">Comments</h3>
                                 <div className="comment-list">
-                                {
-                                    this.state.comments.map((comment,index)=>
-                                        (<SingleComment key={index} user={comment.user} userImg={comment.userImg} comment={comment.comment} />)
-                                    )
-                                }
-                                    <div className="media single-comment">
-                                        <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div className="media-body">
-                                            <h5>Sougata Dafader</h5>
-                                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                                        </div>
-                                    </div>
-                                    <div className="media single-comment">
-                                        <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div className="media-body">
-                                            <h5>Sougata Dafader</h5>
-                                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                                        </div>
-                                    </div>
-                                    <div className="media single-comment">
-                                        <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div className="media-body">
-                                            <h5>Sougata Dafader</h5>
-                                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                                        </div>
-                                    </div>
+                                    {
+                                        this.state.comments.map((comment,index)=>
+                                            (<SingleComment key={index} user={comment.user} userImg={comment.userImg} comment={comment.comment} />)
+                                        )
+                                    }
                                     <div className="media single-comment comment-entry">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
                                         <div className="media-body">
@@ -92,6 +100,7 @@ class CampaignSingle extends React.Component
                         <div className="col-4">
                             <div className="donation-progress-card card-ui">
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
+                                <DonationProgress progress="50%" />
                                 <div className="progress">
                                     <div className="progress-bar" role="progress-bar" style={{width:'50%'}}></div>
                                 </div>
@@ -102,6 +111,11 @@ class CampaignSingle extends React.Component
                             <div className="donation-list-card card-ui">
                                 <h3 className="donation-list-title">All Donations</h3>
                                 <div className="donation-list-container">
+                                    {
+                                        this.state.donations.map((donation,index) =>
+                                            (<SingleDonation key={index} donation={donation} />)
+                                        )
+                                    }
                                     <div className="media">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
                                         <div className="media-body">
