@@ -72,6 +72,7 @@ code {
 {
   padding-top:15px;
   padding-bottom:15px;
+  text-align: justify;
 }
 
 .volunteer-title,
@@ -113,6 +114,8 @@ code {
   border-radius:32px;
   -webkit-border-radius:32px;
   -moz-border-radius:32px;
+  border-style:solid !important;
+  border-width: 1px !important;
 }
 
 .donation-progress span
@@ -124,7 +127,7 @@ code {
 {
   background-color:#ccf1e0 !important;
   margin-top:15px;
-  height:0.6rem;
+  height:0.6rem !important;
 }
 
 .progress-bar

@@ -73,6 +73,7 @@ class CampaignSingle extends React.Component
         this.setState({
             comments:comments
         });
+        document.getElementById('comment-form').reset();
     }
 
     render()
@@ -107,7 +108,7 @@ class CampaignSingle extends React.Component
                                     <div className="media single-comment comment-entry">
                                         <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
                                         <div className="media-body">
-                                            <form onSubmit={this.submitComment}>
+                                            <form onSubmit={this.submitComment} id="comment-form">
                                                 <input type="text" id="comment-body" placeholder="Add your comment here..." />
                                             </form>
                                         </div>
