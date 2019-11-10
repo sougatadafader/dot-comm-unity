@@ -108,31 +108,34 @@ code {
 
 .progress
 {
-  background:#ccf1e0;
+  background-color:#ccf1e0 !important;
   margin-top:15px;
 }
 
 .progress-bar
 {
-  background:#00b964;
+  background-color:#00b964 !important;
 }
 
 .donate-btn-container
 {
-  padding-top:15px;
+  padding-top:30px;
   padding-bottom:15px;
 }
 
 .donate-btn
 {
+  display: block;
   width:100%;
   padding:10px;
   text-align:center;
   background:#fdb933;
   color:#000;
+  font-weight: bold;
 }
 
 .donate-btn:hover
 {
   background:#f2ac2f;
+  color:#000 !important;
 }
