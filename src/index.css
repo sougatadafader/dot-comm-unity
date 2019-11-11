@@ -105,17 +105,35 @@ code {
   margin-top:35px;
 }
 
+#comment-form
+{
+  position: relative;
+}
+
 .comment-entry input
 {
   width:100%;
   height:64px;
   padding:20px;
+  padding-right:30px;
   outline:none !important;
   border-radius:32px;
   -webkit-border-radius:32px;
   -moz-border-radius:32px;
   border-style:solid !important;
   border-width: 1px !important;
+}
+
+#comment-form button
+{
+  position: absolute;
+  top:50%;
+  right:7px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  border:none !important;
 }
 
 .donation-progress span
