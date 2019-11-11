@@ -110,7 +110,7 @@ class CampaignSingle extends React.Component
                                         <div className="media-body">
                                             <form onSubmit={this.submitComment} id="comment-form">
                                                 <input type="text" id="comment-body" placeholder="Add your comment here..." />
-                                                <button type="submit"><img className="img-responsive" src="../../assets/submit-btn-edited.png" /></button>
+                                                <button type="submit"><img className="img-responsive" src="https://i.imgur.com/K1bBU9s.png" /></button>
                                             </form>
                                         </div>
                                     </div>
