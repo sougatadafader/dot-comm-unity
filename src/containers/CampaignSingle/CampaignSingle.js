@@ -83,7 +83,7 @@ class CampaignSingle extends React.Component
                 <Header />
                 <div className="container space--top">
                     <div className="row">
-                        <div className="col-8">
+                        <div className="col-lg-8">
                             <CampaignCard 
                                 title="Helping A Man In Need"
                                 img="https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
@@ -117,7 +117,7 @@ class CampaignSingle extends React.Component
                                 </div>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-lg-4">
                             <div className="donation-progress-card card-ui">
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
                                 <DonationProgress progress="50%" />
