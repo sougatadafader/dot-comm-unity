@@ -134,6 +134,8 @@ code {
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   border:none !important;
+  width:16px;
+  height:16px;
 }
 
 .donation-progress span
