@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Header from '../../components/Header';
 class DependentCreate extends React.Component
 {
     constructor(props)
