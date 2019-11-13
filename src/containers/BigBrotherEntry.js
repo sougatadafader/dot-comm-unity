@@ -5,6 +5,7 @@ import UserService from "../services/UserService";
 import Register from "../containers/Register/Register";
 import SignIn from "../containers/SignIn/SignIn";
 import CampaignSingle from '../containers/CampaignSingle/CampaignSingle';
+import DependentCreate from '../containers/DependentCreate/DependentCreate';
 
 class BigBrotherEntry extends React.Component {
 
@@ -33,6 +34,7 @@ class BigBrotherEntry extends React.Component {
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/signIn" component={SignIn} />
                         <Route exact path="/campaign" component={CampaignSingle} />
+                        <Route exact path="/dependent/create" component={DependentCreate} />
                         <Route exact path="/" render={props => <Home/>}/>
                         <Redirect to="/"/>
                     </Switch>
