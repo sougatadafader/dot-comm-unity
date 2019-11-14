@@ -21,7 +21,7 @@ class DependentCreate extends React.Component
             });
             return;
         }
-        return <Redirect to={'/'} />
+        window.location.href="/";
     }
 
     componentDidMount()
