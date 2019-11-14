@@ -2,12 +2,8 @@ var baseUrl = "//bigbro-server.herokuapp.com/";
 
 export default class RequestService
 {
-    async static getRequest(urlEnd)
-    {
-
-    }
-
-    async static postRequest(urlEnd,data)
+    
+    static async postRequest(urlEnd,data)
     {
         const url = baseUrl+urlEnd;
         let resp = await fetch(url,{
