@@ -40,6 +40,7 @@ class DependentCreate extends React.Component
         let data = {
             firstName:document.querySelector('input[name="firstname"]').value,
             lastName:document.querySelector('input[name="lastname"]').value,
+            imageUrl:document.querySelector('input[name="imageUrl"]').value,
             landmark:document.querySelector('input[name="landmark"]').value,
             zipcode:document.querySelector('input[name="zipcode"]').value
         };
@@ -76,6 +77,12 @@ class DependentCreate extends React.Component
                                         <label className="col-lg-2 col-form-label">Last Name</label>
                                         <div className="col-lg-10">
                                             <input type="text" name="lastname" className="form-control" placeholder="Last Name" required />
+                                        </div>
+                                    </div>
+                                    <div className="form-group row">
+                                        <label className="col-lg-2 col-form-label">Image URL</label>
+                                        <div className="col-lg-10">
+                                            <input type="text" name="imageUrl" className="form-control" placeholder="Image URL" required />
                                         </div>
                                     </div>
                                     <div className="form-group row">
