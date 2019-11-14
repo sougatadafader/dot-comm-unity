@@ -16,11 +16,13 @@ class DependentCreate extends React.Component
         let user = await UserService.findUserInSession();
         if( user !== null )
         {
+            alert('I m here');
             this.setState({
                 sessionUser:user
             });
             return;
         }
+        alert('I m now here');
         window.location.href="/";
     }
 
