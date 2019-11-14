@@ -17,13 +17,11 @@ class DependentCreate extends React.Component
         console.log("User is",user);
         if( Object.keys(user).length > 0 )
         {
-            alert('I m here');
             this.setState({
                 sessionUser:user
             });
             return;
         }
-        alert('I m now here');
         window.location.href="/";
     }
 
