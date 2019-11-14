@@ -6,12 +6,22 @@ class DependentCreate extends React.Component
     constructor(props)
     {
         super(props);
+        this.state = {
+            sessionUser:{}
+        }
     }
 
     async loginCheck()
     {
         let user = await UserService.findUserInSession();
-        console.log("User Value is", user);
+        if( user !== null )
+        {
+            this.setState({
+                sessionUser:user
+            });
+            return;
+        }
+        return <Redirect to={'/'} />
     }
 
     componentDidMount()
