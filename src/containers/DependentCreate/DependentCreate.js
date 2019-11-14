@@ -1,10 +1,22 @@
 import React from 'react';
 import Header from '../../components/Header';
+import UserService from '../../services/UserService';
 class DependentCreate extends React.Component
 {
     constructor(props)
     {
         super(props);
+    }
+
+    async loginCheck()
+    {
+        let user = await UserService.findUserInSession();
+        console.log("User Value is", user);
+    }
+
+    componentDidMount()
+    {
+        this.loginCheck();
     }
 
     render()
