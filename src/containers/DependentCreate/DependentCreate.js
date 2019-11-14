@@ -7,7 +7,8 @@ class DependentCreate extends React.Component
     {
         super(props);
         this.state = {
-            sessionUser:{}
+            sessionUser:{},
+            loading:true
         }
     }
 
@@ -18,7 +19,8 @@ class DependentCreate extends React.Component
         if( Object.keys(user).length > 0 )
         {
             this.setState({
-                sessionUser:user
+                sessionUser:user,
+                loading:false
             });
             return;
         }
@@ -32,6 +34,12 @@ class DependentCreate extends React.Component
 
     render()
     {
+        if(this.state.loading)
+        {
+            return(
+                <div></div>
+            );
+        }
         return(
             <div className="bigbro-container">
                 <Header />
