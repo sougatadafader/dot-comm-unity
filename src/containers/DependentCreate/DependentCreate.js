@@ -15,7 +15,7 @@ class DependentCreate extends React.Component
     {
         let user = await UserService.findUserInSession();
         console.log("User is",user);
-        if( user != null && user != '' )
+        if( Object.keys(user).length > 0 )
         {
             alert('I m here');
             this.setState({
