@@ -14,7 +14,7 @@ class DependentCreate extends React.Component
     async loginCheck()
     {
         let user = await UserService.findUserInSession();
-        if( user !== null )
+        if( user !== null && user !== '' )
         {
             alert('I m here');
             this.setState({
