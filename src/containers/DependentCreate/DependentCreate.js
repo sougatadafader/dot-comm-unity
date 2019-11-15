@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
+import DependentGridItem from '../../components/DependentGridItem';
 class DependentCreate extends React.Component
 {
     constructor(props)
@@ -55,6 +56,11 @@ class DependentCreate extends React.Component
         console.log('Data is',data);
         let urlEnd = 'api/dependent';
         let createdObj = await RequestService.postRequest(urlEnd,data);
+        let dependents = this.state.dependents;
+        dependents.push(createdObj);
+        this.setState({
+            dependents:dependents
+        });
         console.log(createdObj);
         document.getElementById('dependent-create-form').reset();
     }
@@ -110,7 +116,15 @@ class DependentCreate extends React.Component
                                 </form>
                             </div>
                             <div className="dependent-list card-ui">
-
+                                <div className="container-fluid">
+                                    <div className="row">
+                                        {
+                                            this.state.dependents.map((dependent,index)=>
+                                                (<DependentGridItem key={index} dependent={dependent} />)
+                                            )
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-lg-4">
