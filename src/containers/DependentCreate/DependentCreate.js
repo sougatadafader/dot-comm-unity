@@ -9,7 +9,8 @@ class DependentCreate extends React.Component
         super(props);
         this.state = {
             sessionUser:{},
-            loading:true
+            loading:true,
+            dependents:[]
         }
     }
 
@@ -28,6 +29,13 @@ class DependentCreate extends React.Component
             this.setState({
                 sessionUser:user,
                 loading:false
+            });
+            let userId = user.id;
+            let depUrlEnd = 'api/user/'+userId+'/dependents';
+            let dependents = await RequestService.getRequest(depUrlEnd);
+            console.log('Dependents = ',dependents);
+            this.setState({
+                dependents:dependents
             });
             return;
         }
