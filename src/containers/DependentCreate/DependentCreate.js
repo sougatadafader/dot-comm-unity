@@ -48,6 +48,7 @@ class DependentCreate extends React.Component
         let urlEnd = 'api/dependent';
         let createdObj = await RequestService.postRequest(urlEnd,data);
         console.log(createdObj);
+        document.getElementById('dependent-create-form').reset();
     }
 
     render()
@@ -63,10 +64,10 @@ class DependentCreate extends React.Component
                 <Header />
                 <div className="container space--top">
                     <div className="row">
-                        <div className="col-lg-12">
+                        <div className="col-lg-8">
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Create A Person In Need</h3>
-                                <form onSubmit={this.createDependent}>
+                                <form onSubmit={this.createDependent} id="dependent-create-form">
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">First Name</label>
                                         <div className="col-lg-10">
@@ -100,6 +101,12 @@ class DependentCreate extends React.Component
                                     <button type="submit" className="btn btn-primary">Create</button>
                                 </form>
                             </div>
+                            <div className="dependent-list card-ui">
+
+                            </div>
+                        </div>
+                        <div className="col-lg-4">
+                            <div className="card-ui"></div>
                         </div>
                     </div>
                 </div>
