@@ -81,7 +81,7 @@ class DependentCreate extends React.Component
                         <div className="col-lg-8">
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Create A Person In Need</h3>
-                                <form onSubmit={this.createDependent} id="dependent-create-form">
+                                <form onSubmit={this.createDependent.bind(this)} id="dependent-create-form">
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">First Name</label>
                                         <div className="col-lg-10">
