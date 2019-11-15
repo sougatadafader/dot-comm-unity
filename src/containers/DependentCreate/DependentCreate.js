@@ -116,6 +116,7 @@ class DependentCreate extends React.Component
                                 </form>
                             </div>
                             <div className="dependent-list card-ui">
+                                <h3 className="dependent-list-title">List Of Dependent People</h3>
                                 <div className="container-fluid">
                                     <div className="row">
                                         {
