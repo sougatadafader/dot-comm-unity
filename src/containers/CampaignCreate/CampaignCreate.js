@@ -15,7 +15,8 @@ class CampaignCreate extends React.Component
             selectedCampaign:{
                 header:'',
                 text:'',
-                imageUrl:''
+                imageUrl:'',
+                targetValue:''
             },
             depId:'',
             dependents:[],
@@ -86,11 +87,14 @@ class CampaignCreate extends React.Component
         });
     }
 
-    createCampaign(evt)
+    async createCampaign(evt)
     {
         evt.preventDefault();
         console.log("Campaign",this.state.selectedCampaign);
         console.log("Dependent ID",this.state.depId);
+        let url = 'api/dependent/'+this.state.depId+'/campaign';
+        let campaign = await RequestService.postRequest(url,this.state.selectedCampaign);
+        console.log("Created Campaign",campaign);
     }
 
     async refreshList(evt)
@@ -169,6 +173,14 @@ class CampaignCreate extends React.Component
                                         name="imageUrl"
                                         placeholder="Image URL"
                                         val={this.state.selectedCampaign.imageUrl}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <InputControl
+                                        label="Target Value"
+                                        type="number"
+                                        name="targetValue"
+                                        placeholder="Target Value in USD. Example: 10000"
+                                        val={this.state.selectedCampaign.targetValue}
                                         inputChanged={this.inputChanged}
                                     />
                                     <button type="submit" className="btn btn-primary">Create</button>
