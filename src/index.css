@@ -220,14 +220,13 @@ code {
 
 .dependent-grid-item
 {
-  margin-bottom:30px;
+  margin-bottom:0px;
 }
 
 .dependent-grid-image
 {
   float:left;
   width:40%;
-  margin-bottom:15px;
   height:400px;
   background-size:cover;
   background-position: center;
