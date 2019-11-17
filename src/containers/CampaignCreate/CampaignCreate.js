@@ -82,7 +82,7 @@ class CampaignCreate extends React.Component
                                 <h3 className="campaign-create-title">Create A Campaign</h3>
                                 <form onSubmit={this.createCampaign}>
                                     <InputControl
-                                        label="Campaign Title"
+                                        label="Title"
                                         type="text"
                                         name="header"
                                         placeholder="Campaign Title"
