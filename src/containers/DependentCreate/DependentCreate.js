@@ -75,21 +75,24 @@ class DependentCreate extends React.Component
 
         console.log("State Data = ",this.state.selectedDependent);
 
-        /*console.log('Data is',data);
+        
         let urlEnd = 'api/dependent';
-        let createdObj = await RequestService.postRequest(urlEnd,data);
+        let createdObj = await RequestService.postRequest(urlEnd,this.state.selectedDependent);
         let dependents = this.state.dependents;
         dependents.push(createdObj);
         this.setState({
             dependents:dependents
         });
         console.log(createdObj);
-        document.getElementById('dependent-create-form').reset();*/
+        document.getElementById('dependent-create-form').reset();
     }
 
     editDependent(dependent)
     {
-
+        this.setState({
+            selectedDependent:dependent
+        });
+        window.scrollTo(0,0);
     }
 
     render()
