@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header';
 import InputControl from '../../components/InputControl';
+import DropDownControl from '../../components/DropDownControl';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 
@@ -17,7 +18,9 @@ class CampaignCreate extends React.Component
                 imageUrl:''
             },
             depId:'',
-            dependents:[]
+            dependents:[],
+            dependentOptions:[],
+            dependentOptionsLoading:true
         };
         this.createCampaign = this.createCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
@@ -41,8 +44,21 @@ class CampaignCreate extends React.Component
             let depUrlEnd = 'api/user/'+userId+'/dependents';
             let dependents = await RequestService.getRequest(depUrlEnd);
             console.log('Dependents = ',dependents);
+            let options = [];
+            for(let i=0;i<dependents.length;i++)
+            {
+                let value = dependents[i].id;
+                let displayText = dependents[i].firstName+' '+dependents[i].lastName;
+                let obj ={
+                    value:value,
+                    displayText:displayText
+                };
+                options.push(obj);
+            }
             this.setState({
-                dependents:dependents
+                dependents:dependents,
+                dependentOptions:options,
+                dependentOptionsLoading:false
             });
             return;
         }
@@ -82,6 +98,15 @@ class CampaignCreate extends React.Component
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Create A Campaign</h3>
                                 <form onSubmit={this.createCampaign}>
+                                    <DropDownControl
+                                        name="depId"
+                                        title="Dependent"
+                                        val=""
+                                        values={this.state.dependentOptions}
+                                        info=""
+                                        refreshList=""
+                                        loadingList={this.state.dependentOptionsLoading}
+                                    />
                                     <InputControl
                                         label="Title"
                                         type="text"
