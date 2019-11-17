@@ -65,13 +65,13 @@ class DependentCreate extends React.Component
     async createDependent(evt)
     {
         evt.preventDefault();
-        let data = {
-            firstName:document.querySelector('input[name="firstname"]').value,
-            lastName:document.querySelector('input[name="lastname"]').value,
+        /*let data = {
+            firstName:document.querySelector('input[name="firstName"]').value,
+            lastName:document.querySelector('input[name="lastName"]').value,
             imageUrl:document.querySelector('input[name="imageUrl"]').value,
             landmark:document.querySelector('input[name="landmark"]').value,
             zipcode:document.querySelector('input[name="zipcode"]').value
-        };
+        };*/
 
         console.log("State Data = ",this.state.selectedDependent);
 
