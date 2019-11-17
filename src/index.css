@@ -250,6 +250,17 @@ code {
   background:#1b1b1b;
 }
 
+.dependent-grid-details p
+{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.dependent-grid-details *
+{
+  color:#fff !important;
+}
+
 .clear
 {
   clear:both;
