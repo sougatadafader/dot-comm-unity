@@ -242,12 +242,24 @@ code {
 
 .dependent-grid-details
 {
+  position: relative;
   float:left;
   width:50%;
   padding:15px;
   height:300px;
   overflow:hidden;
   background:#1b1b1b;
+}
+
+.dependent-grid-details-inner
+{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translateY(-50%) translateX(-50%);
+  -webkit-transform:translateY(-50%) translateX(-50%);
+  -moz-transform:translateY(-50%) translateX(-50%);
+  -ms-transform:translateY(-50%) translateX(-50%);
 }
 
 .dependent-grid-details p
