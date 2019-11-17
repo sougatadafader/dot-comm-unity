@@ -3,17 +3,18 @@ import Header from '../../components/Header';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import DependentGridItem from '../../components/DependentGridItem';
-class DependentCreate extends React.Component
+import DependentCreate from '../DependentCreate/DependentCreate';
+
+class DependentEdit extends React.Component
 {
     constructor(props)
     {
         super(props);
         this.state = {
-            sessionUser:{},
             loading:true,
             dependents:[],
-            isEdit:false,
             selectedDependent:{
+                id:'',
                 firstName:'',
                 lastName:'',
                 imageUrl:'',
@@ -26,31 +27,10 @@ class DependentCreate extends React.Component
 
     componentDidMount()
     {
-        this.loginCheck();
+
     }
 
-    async loginCheck()
-    {
-        let user = await UserService.findUserInSession();
-        console.log("User is",user);
-        if( Object.keys(user).length > 0 )
-        {
-            this.setState({
-                sessionUser:user,
-                loading:false
-            });
-            let userId = user.id;
-            let depUrlEnd = 'api/user/'+userId+'/dependents';
-            let dependents = await RequestService.getRequest(depUrlEnd);
-            console.log('Dependents = ',dependents);
-            this.setState({
-                dependents:dependents
-            });
-            return;
-        }
-        window.location.href="/";
-    }
-
+    
     inputChanged(evt)
     {
         const value = evt.target.value;
@@ -62,45 +42,22 @@ class DependentCreate extends React.Component
         });
     }
 
-    async createDependent(evt)
+    editThisDependent()
     {
-        evt.preventDefault();
-        /*let data = {
-            firstName:document.querySelector('input[name="firstName"]').value,
-            lastName:document.querySelector('input[name="lastName"]').value,
-            imageUrl:document.querySelector('input[name="imageUrl"]').value,
-            landmark:document.querySelector('input[name="landmark"]').value,
-            zipcode:document.querySelector('input[name="zipcode"]').value
-        };*/
 
-        console.log("State Data = ",this.state.selectedDependent);
-
-        
-        let urlEnd = 'api/dependent';
-        let createdObj = await RequestService.postRequest(urlEnd,this.state.selectedDependent);
-        let dependents = this.state.dependents;
-        dependents.push(createdObj);
-        this.setState({
-            dependents:dependents,
-            selectedDependent:{
-                firstName:'',
-                lastName:'',
-                imageUrl:'',
-                landmark:'',
-                zipcode:''
-            }
-        });
-        console.log(createdObj);
-        document.getElementById('dependent-create-form').reset();
     }
 
+    editDependent()
+    {
+
+    }
 
     render()
     {
         if(this.state.loading)
         {
             return(
-                <div></div>
+                <div />
             );
         }
         return(
@@ -110,8 +67,9 @@ class DependentCreate extends React.Component
                     <div className="row">
                         <div className="col-lg-8">
                             <div className="campaign-create-card card-ui">
-                                <h3 className="campaign-create-title">Create A Person In Need</h3>
-                                <form onSubmit={this.createDependent.bind(this)} id="dependent-create-form">
+                                <h3 className="campaign-create-title">Update A Person In Need</h3>
+                                <form onSubmit={this.editThisDependent.bind(this)} id="dependent-edit-form">
+                                    <input type="hidden" name="id" defaultValue={this.state.selectedDependent.id} />
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">First Name</label>
                                         <div className="col-lg-10">
@@ -168,4 +126,5 @@ class DependentCreate extends React.Component
     }
 }
 
-export default DependentCreate;
+export default DependentEdit;
+

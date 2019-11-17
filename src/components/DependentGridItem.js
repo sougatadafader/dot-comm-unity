@@ -1,9 +1,10 @@
 import React from 'react';
 
-const DependentGridItem = ({dependent,editDependent}) => {
+const DependentGridItem = ({dependent}) => {
+    let url = '/dependent/'+dependent.id+'/edit';
     return(
         <div className="col-lg-12 dependent-grid-item">
-            <div className="dependent-grid-edit" onClick={() => editDependent(dependent)}><i class="fa fa-edit"></i></div>
+            <div className="dependent-grid-edit"><a href={url}><i class="fa fa-edit"></i></a></div>
             <div className="dependent-grid-image" style={{backgroundImage:`url(${dependent.imageUrl})`}}></div>
             <div className="dependent-grid-details">
                 <div className="dependent-grid-details-inner">
