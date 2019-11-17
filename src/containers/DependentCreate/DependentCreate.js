@@ -81,18 +81,25 @@ class DependentCreate extends React.Component
         let dependents = this.state.dependents;
         dependents.push(createdObj);
         this.setState({
-            dependents:dependents
+            dependents:dependents,
+            selectedDependent:{
+                firstName:'',
+                lastName:'',
+                imageUrl:'',
+                landmark:'',
+                zipcode:''
+            }
         });
         console.log(createdObj);
-        document.getElementById('dependent-create-form').reset();
+        //document.getElementById('dependent-create-form').reset();
     }
 
     editDependent(dependent)
     {
-        this.setState({
+        /*this.setState({
             selectedDependent:dependent
         });
-        window.scrollTo(0,0);
+        window.scrollTo(0,0);*/
     }
 
     render()
