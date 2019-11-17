@@ -230,12 +230,12 @@ code {
   background-size:cover;
   background-position: center;
 }
-.dependent-grid-image:nth-child(odd)
+.dependent-grid-item:nth-child(odd) .dependent-grid-image
 {
   float:left;
 }
 
-.dependent-grid-image:nth-child(even)
+.dependent-grid-item:nth-child(even) .dependent-grid-image
 {
   float:right;
 }
