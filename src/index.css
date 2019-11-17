@@ -225,19 +225,27 @@ code {
 
 .dependent-grid-image
 {
-  float:left;
-  width:40%;
-  height:400px;
+  width:50%;
+  height:300px;
   background-size:cover;
   background-position: center;
+}
+.dependent-grid-image:nth-child(odd)
+{
+  float:left;
+}
+
+.dependent-grid-image:nth-child(even)
+{
+  float:right;
 }
 
 .dependent-grid-details
 {
   float:left;
-  width:60%;
+  width:50%;
   padding:15px;
-  height:400px;
+  height:300px;
   overflow:hidden;
   background:#1b1b1b;
 }
