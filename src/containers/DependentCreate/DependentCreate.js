@@ -91,7 +91,7 @@ class DependentCreate extends React.Component
             }
         });
         console.log(createdObj);
-        //document.getElementById('dependent-create-form').reset();
+        document.getElementById('dependent-create-form').reset();
     }
 
     editDependent(dependent)
