@@ -11,7 +11,15 @@ class DependentCreate extends React.Component
         this.state = {
             sessionUser:{},
             loading:true,
-            dependents:[]
+            dependents:[],
+            isEdit:false,
+            selectedDependent:{
+                firstName:'',
+                lastName:'',
+                imageUrl:'',
+                landmark:'',
+                zipcode:''
+            }
         }
     }
 
@@ -43,6 +51,17 @@ class DependentCreate extends React.Component
         window.location.href="/";
     }
 
+    inputChanged(evt)
+    {
+        const value = evt.target.value;
+        const name = evt.target.name;
+        let selectedDependent = this.state.selectedDependent;
+        selectedDependent[name] = value;
+        this.setState({
+            selectedDependent:selectedDependent
+        });
+    }
+
     async createDependent(evt)
     {
         evt.preventDefault();
@@ -53,7 +72,10 @@ class DependentCreate extends React.Component
             landmark:document.querySelector('input[name="landmark"]').value,
             zipcode:document.querySelector('input[name="zipcode"]').value
         };
-        console.log('Data is',data);
+
+        console.log("State Data = ",this.state.selectedDependent);
+
+        /*console.log('Data is',data);
         let urlEnd = 'api/dependent';
         let createdObj = await RequestService.postRequest(urlEnd,data);
         let dependents = this.state.dependents;
@@ -62,7 +84,12 @@ class DependentCreate extends React.Component
             dependents:dependents
         });
         console.log(createdObj);
-        document.getElementById('dependent-create-form').reset();
+        document.getElementById('dependent-create-form').reset();*/
+    }
+
+    editDependent(dependent)
+    {
+
     }
 
     render()
@@ -85,31 +112,31 @@ class DependentCreate extends React.Component
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">First Name</label>
                                         <div className="col-lg-10">
-                                            <input type="text" name="firstname" className="form-control" placeholder="First Name" required />
+                                            <input type="text" name="firstName" className="form-control" placeholder="First Name" defaultValue={this.state.selectedDependent.firstName} onChange={this.inputChanged.bind(this)} required />
                                         </div>
                                     </div>
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">Last Name</label>
                                         <div className="col-lg-10">
-                                            <input type="text" name="lastname" className="form-control" placeholder="Last Name" required />
+                                            <input type="text" name="lastName" className="form-control" placeholder="Last Name" defaultValue={this.state.selectedDependent.lastName} onChange={this.inputChanged.bind(this)} required />
                                         </div>
                                     </div>
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">Image URL</label>
                                         <div className="col-lg-10">
-                                            <input type="text" name="imageUrl" className="form-control" placeholder="Image URL" required />
+                                            <input type="text" name="imageUrl" className="form-control" placeholder="Image URL" defaultValue={this.state.selectedDependent.imageUrl} onChange={this.inputChanged.bind(this)} required />
                                         </div>
                                     </div>
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">Landmark</label>
                                         <div className="col-lg-10">
-                                            <input type="text" name="landmark" className="form-control" placeholder="Landmark" required />
+                                            <input type="text" name="landmark" className="form-control" placeholder="Landmark" defaultValue={this.state.selectedDependent.landmark} onChange={this.inputChanged.bind(this)} required />
                                         </div>                                        
                                     </div>
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">Zipcode</label>
                                         <div className="col-lg-10">
-                                            <input type="text" name="zipcode" className="form-control" placeholder="Zipcode" required />
+                                            <input type="text" name="zipcode" className="form-control" placeholder="Zipcode" defaultValue={this.state.selectedDependent.zipcode} onChange={this.inputChanged.bind(this)} required />
                                         </div>
                                     </div>
                                     <button type="submit" className="btn btn-primary">Create</button>
@@ -121,7 +148,7 @@ class DependentCreate extends React.Component
                                     <div className="row">
                                         {
                                             this.state.dependents.map((dependent,index)=>
-                                                (<DependentGridItem key={index} dependent={dependent} />)
+                                                (<DependentGridItem key={index} dependent={dependent} editDependent={this.editDependent} />)
                                             )
                                         }
                                     </div>
