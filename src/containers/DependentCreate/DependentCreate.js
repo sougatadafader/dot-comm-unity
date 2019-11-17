@@ -151,7 +151,7 @@ class DependentCreate extends React.Component
                                     <div className="row">
                                         {
                                             this.state.dependents.map((dependent,index)=>
-                                                (<DependentGridItem key={index} dependent={dependent} editDependent={this.editDependent} />)
+                                                (<DependentGridItem key={index} dependent={dependent} editDependent={this.editDependent.bind(this)} />)
                                             )
                                         }
                                     </div>
