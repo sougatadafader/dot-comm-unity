@@ -24,6 +24,7 @@ class CampaignCreate extends React.Component
         };
         this.createCampaign = this.createCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
+        this.refreshList = this.refreshList.bind(this);
     }
     componentDidMount()
     {
@@ -81,6 +82,33 @@ class CampaignCreate extends React.Component
         console.log(this.state.selectedCampaign);
     }
 
+    async refreshList(evt)
+    {
+        evt.preventDefault();
+        this.setState({
+            dependentOptionsLoading:true
+        });
+        let user = this.state.sessionUser;
+        let userId = user.id;
+        let depUrlEnd = 'api/user/'+userId+'/dependents';
+        let dependents = await RequestService.getRequest(depUrlEnd);
+        let options = [];
+        for(let i=0;i<dependents.length;i++)
+        {
+            let value = dependents[i].id;
+            let displayText = dependents[i].firstName+' '+dependents[i].lastName;
+            let obj ={
+                value:value,
+                displayText:displayText
+            };
+            options.push(obj);
+        }
+        this.setState({
+            dependentOptions:options,
+            dependentOptionsLoading:false
+        });
+    }
+
     render()
     {
         if(this.state.loading)
@@ -104,7 +132,7 @@ class CampaignCreate extends React.Component
                                         val=""
                                         values={this.state.dependentOptions}
                                         addMoreValues="/dependent/create"
-                                        refreshList=""
+                                        refreshList={this.refreshList}
                                         loadingList={this.state.dependentOptionsLoading}
                                     />
                                     <InputControl
