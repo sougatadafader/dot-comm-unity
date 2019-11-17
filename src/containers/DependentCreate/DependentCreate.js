@@ -125,30 +125,38 @@ class DependentCreate extends React.Component
                                         inputChanged={this.inputChanged}
                                     />
                                     
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Last Name</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="lastName" className="form-control" placeholder="Last Name" defaultValue={this.state.selectedDependent.lastName} onChange={this.inputChanged.bind(this)} required />
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Image URL</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="imageUrl" className="form-control" placeholder="Image URL" defaultValue={this.state.selectedDependent.imageUrl} onChange={this.inputChanged.bind(this)} required />
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Landmark</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="landmark" className="form-control" placeholder="Landmark" defaultValue={this.state.selectedDependent.landmark} onChange={this.inputChanged.bind(this)} required />
-                                        </div>                                        
-                                    </div>
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Zipcode</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="zipcode" className="form-control" placeholder="Zipcode" defaultValue={this.state.selectedDependent.zipcode} onChange={this.inputChanged.bind(this)} required />
-                                        </div>
-                                    </div>
+                                    <InputControl 
+                                        label="Last Name"
+                                        type="text"
+                                        name="lastName"
+                                        placeholder="Last Name"
+                                        val={this.state.selectedDependent.lastName}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <InputControl 
+                                        label="Image URL"
+                                        type="text"
+                                        name="imageUrl"
+                                        placeholder="Image URL"
+                                        val={this.state.selectedDependent.imageUrl}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <InputControl 
+                                        label="Landmark"
+                                        type="text"
+                                        name="landmark"
+                                        placeholder="Landmark"
+                                        val={this.state.selectedDependent.landmark}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <InputControl 
+                                        label="ZipCode"
+                                        type="text"
+                                        name="zipcode"
+                                        placeholder="ZipCode"
+                                        val={this.state.selectedDependent.zipcode}
+                                        inputChanged={this.inputChanged}
+                                    />
                                     <button type="submit" className="btn btn-primary">Create</button>
                                 </form>
                             </div>
