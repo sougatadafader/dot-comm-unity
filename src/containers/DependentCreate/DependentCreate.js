@@ -22,6 +22,8 @@ class DependentCreate extends React.Component
                 zipcode:''
             }
         }
+
+        this.inputChanged = this.inputChanged.bind(this);
     }
 
 
@@ -120,7 +122,7 @@ class DependentCreate extends React.Component
                                         name="firstName"
                                         placeholder="First Name"
                                         val={this.state.selectedDependent.firstName}
-                                        inputChanged={this.inputChanged.bind(this)}
+                                        onChange={this.inputChanged}
                                     />
                                     
                                     <div className="form-group row">
