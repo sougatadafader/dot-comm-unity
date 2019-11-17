@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import DependentGridItem from '../../components/DependentGridItem';
+import InputControl from '../../components/InputControl';
 class DependentCreate extends React.Component
 {
     constructor(props)
@@ -112,12 +113,16 @@ class DependentCreate extends React.Component
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Create A Person In Need</h3>
                                 <form onSubmit={this.createDependent.bind(this)} id="dependent-create-form">
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">First Name</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="firstName" className="form-control" placeholder="First Name" defaultValue={this.state.selectedDependent.firstName} onChange={this.inputChanged.bind(this)} required />
-                                        </div>
-                                    </div>
+
+                                    <InputControl 
+                                        label="First Name"
+                                        type="text"
+                                        name="firstName"
+                                        placeholder="First Name"
+                                        val={this.state.selectedDependent.firstName}
+                                        inputChanged={this.inputChanged.bind(this)}
+                                    />
+                                    
                                     <div className="form-group row">
                                         <label className="col-lg-2 col-form-label">Last Name</label>
                                         <div className="col-lg-10">
