@@ -305,3 +305,29 @@ code {
 {
   clear:both;
 }
+
+select.form-control
+{
+  width:calc(100% - 60px);
+  width:-webkit-calc(100% - 60px);
+  width:-moz-calc(100% - 60px);
+  width:-ms-calc(100% - 60px);
+  display:inline-block;
+}
+
+.dropdown-side
+{
+  display:inline-block;
+  padding:7px;
+}
+
+.dropdown-side a
+{
+  color:#000 !important;
+}
+
+.dropdown-side i.fa
+{
+  font-size:16px;
+  color:#000;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DropDownControl = ({name,title,val,values,info,refreshList,loadingList}) => {
+const DropDownControl = ({name,title,val,values,addMoreValues,refreshList,loadingList}) => {
     if(loadingList)
     {
         return(
@@ -10,6 +10,8 @@ const DropDownControl = ({name,title,val,values,info,refreshList,loadingList}) =
                     <select className="form-control" name={name} required>
                         <option value="">Loading {title}...</option>
                     </select>
+                    <span className="add-list dropdown-side"><a href={addMoreValues} target="_blank"><i className="fa fa-plus"></i></a></span>
+                    <span className="refresh-list dropdown-side"><a href="#"><i className="fa fa-refresh"></i></a></span>
                 </div>
             </div>
         );
@@ -28,6 +30,8 @@ const DropDownControl = ({name,title,val,values,info,refreshList,loadingList}) =
                             )
                         }
                     </select>
+                    <span className="add-list dropdown-side"><a href={addMoreValues} target="_blank"><i className="fa fa-plus"></i></a></span>
+                    <span className="refresh-list dropdown-side"><a href="#"><i className="fa fa-refresh"></i></a></span>
                 </div>
             </div>
         );
@@ -39,6 +43,8 @@ const DropDownControl = ({name,title,val,values,info,refreshList,loadingList}) =
                 <select className="form-control" defaultValue={val} name={name}>
                     <option value="">No {title} found</option>
                 </select>
+                <span className="add-list dropdown-side"><a href={addMoreValues} target="_blank"><i className="fa fa-plus"></i></a></span>
+                <span className="refresh-list dropdown-side"><a href="#"><i className="fa fa-refresh"></i></a></span>
             </div>
         </div>
     );

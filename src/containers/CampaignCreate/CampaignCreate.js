@@ -103,7 +103,7 @@ class CampaignCreate extends React.Component
                                         title="Dependent"
                                         val=""
                                         values={this.state.dependentOptions}
-                                        info=""
+                                        addMoreValues="/dependent/create"
                                         refreshList=""
                                         loadingList={this.state.dependentOptionsLoading}
                                     />
