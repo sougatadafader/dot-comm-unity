@@ -90,6 +90,22 @@ class CampaignCreate extends React.Component
                                         val={this.state.selectedCampaign.header}
                                         inputChanged={this.inputChanged}
                                     />
+                                    <InputControl
+                                        label="Description"
+                                        type="textarea"
+                                        name="text"
+                                        placeholder="Campaign Description"
+                                        val={this.state.selectedCampaign.text}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <InputControl
+                                        label="Image URL"
+                                        type="text"
+                                        name="imageUrl"
+                                        placeholder="Image URL"
+                                        val={this.state.selectedCampaign.imageUrl}
+                                        inputChanged={this.inputChanged}
+                                    />
                                     <button type="submit" className="btn btn-primary">Create</button>
                                 </form>
                             </div>
