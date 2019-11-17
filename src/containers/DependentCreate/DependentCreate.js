@@ -122,7 +122,7 @@ class DependentCreate extends React.Component
                                         name="firstName"
                                         placeholder="First Name"
                                         val={this.state.selectedDependent.firstName}
-                                        onChange={this.inputChanged}
+                                        inputChanged={this.inputChanged}
                                     />
                                     
                                     <div className="form-group row">
