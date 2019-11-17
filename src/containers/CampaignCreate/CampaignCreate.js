@@ -25,6 +25,7 @@ class CampaignCreate extends React.Component
     componentDidMount()
     {
         this.loginCheck();
+        document.title = "Create A Campaign";
     }
     async loginCheck()
     {
