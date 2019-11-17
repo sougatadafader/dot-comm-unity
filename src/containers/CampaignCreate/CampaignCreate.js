@@ -25,6 +25,7 @@ class CampaignCreate extends React.Component
         this.createCampaign = this.createCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
         this.refreshList = this.refreshList.bind(this);
+        this.dropdownChanged = this.dropdownChanged.bind(this);
     }
     componentDidMount()
     {
@@ -76,10 +77,20 @@ class CampaignCreate extends React.Component
         });
     }
 
+    dropdownChanged(evt)
+    {
+        const value = evt.target.value;
+        const name = evt.target.name;
+        this.setState({
+            [name]:value
+        });
+    }
+
     createCampaign(evt)
     {
         evt.preventDefault();
-        console.log(this.state.selectedCampaign);
+        console.log("Campaign",this.state.selectedCampaign);
+        console.log("Dependent ID",this.state.depId);
     }
 
     async refreshList(evt)
@@ -134,6 +145,7 @@ class CampaignCreate extends React.Component
                                         addMoreValues="/dependent/create"
                                         refreshList={this.refreshList}
                                         loadingList={this.state.dependentOptionsLoading}
+                                        dropdownChanged={this.dropdownChanged}
                                     />
                                     <InputControl
                                         label="Title"
