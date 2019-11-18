@@ -393,3 +393,16 @@ select.form-control
 {
   margin:16px;
 }
+
+.campaign-page-dependent-list
+{
+  padding-top:15px;
+}
+
+.dependent-profile-item
+{
+  padding-top:15px;
+  padding-bottom:15px;
+  margin-bottom:15px;
+  border:1px solid #ddd;
+}
