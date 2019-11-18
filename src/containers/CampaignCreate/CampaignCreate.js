@@ -4,6 +4,7 @@ import InputControl from '../../components/InputControl';
 import DropDownControl from '../../components/DropDownControl';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
+import CampaignGridSingle from '../../components/CampaignGridSingle';
 
 class CampaignCreate extends React.Component
 {
@@ -21,7 +22,8 @@ class CampaignCreate extends React.Component
             depId:'',
             dependents:[],
             dependentOptions:[],
-            dependentOptionsLoading:true
+            dependentOptionsLoading:true,
+            sessionUser:null
         };
         this.createCampaign = this.createCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
@@ -185,6 +187,18 @@ class CampaignCreate extends React.Component
                                     />
                                     <button type="submit" className="btn btn-primary">Create</button>
                                 </form>
+                            </div>
+                            <div className="campaign-list-container">
+                                <h3 className="campaign-list-title">List Of Campaigns</h3>
+                                <div className="container-fluid">
+                                    <div className="row">
+                                        {
+                                            this.state.sessionUser.campaigns.map((campaign,index) =>
+                                                (<CampaignGridSingle key={index} campaign={campaign} />)
+                                            )
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="col-lg-4"></div>

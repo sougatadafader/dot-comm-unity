@@ -331,3 +331,49 @@ select.form-control
   font-size:16px;
   color:#000;
 }
+
+.campaign-grid-inner
+{
+  padding:0px;
+  background:#fff;
+  border-radius:4px;
+}
+
+.campaign-grid-image
+{
+  height:200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.campaign-grid-header
+{
+  padding:16px;
+}
+
+.campaign-grid-title
+{
+  color:#333;
+  font-weight:900;
+  font-size:1.5rem;
+}
+
+.campaign-grid-title a
+{
+  color:#333;
+}
+
+.campaign-grid-desc
+{
+  padding:16px;
+}
+
+.campaign-grid-inner .donation-progress
+{
+  padding:16px;
+}
+
+.campaign-grid-inner .progress
+{
+  margin:16px;
+}
