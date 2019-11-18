@@ -332,6 +332,18 @@ select.form-control
   color:#000;
 }
 
+.campaign-list-title
+{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.campaign-grid-single
+{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+
 .campaign-grid-inner
 {
   padding:0px;
@@ -344,6 +356,9 @@ select.form-control
   height:200px;
   background-size: cover;
   background-position: center;
+  border-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .campaign-grid-header

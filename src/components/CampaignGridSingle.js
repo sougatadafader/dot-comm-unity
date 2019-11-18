@@ -3,7 +3,7 @@ import DonationProgress from '../components/DonationProgress';
 
 const CampaignGridSingle = ({campaign}) => {
     return(
-        <div className="col-lg-4 campaign-grid-single">
+        <div className="col-lg-6 campaign-grid-single">
             <div className="campaign-grid-inner">
                 <div className="campaign-grid-image" style={{backgroundImage:`url(${campaign.imageUrl})`}}></div>
                 <div className="campaign-grid-header">
