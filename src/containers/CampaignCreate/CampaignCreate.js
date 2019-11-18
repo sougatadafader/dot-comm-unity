@@ -16,7 +16,7 @@ class CampaignCreate extends React.Component
                 header:'',
                 text:'',
                 imageUrl:'',
-                targetValue:''
+                targetValue:0
             },
             depId:'',
             dependents:[],
