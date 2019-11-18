@@ -97,6 +97,19 @@ class CampaignCreate extends React.Component
         let url = 'api/dependent/'+this.state.depId+'/campaign';
         let campaign = await RequestService.postRequest(url,this.state.selectedCampaign);
         console.log("Created Campaign",campaign);
+        let user = this.state.sessionUser;
+        user.campaigns.push(campaign);
+        this.setState({
+            selectedCampaign:{
+                header:'',
+                text:'',
+                imageUrl:'',
+                targetValue:0
+            },
+            sessionUser:user,
+            depId:''
+        });
+        document.getElementById('create-campaign-form').reset();
     }
 
     async refreshList(evt)
@@ -142,7 +155,7 @@ class CampaignCreate extends React.Component
                         <div className="col-lg-8">
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Create A Campaign</h3>
-                                <form onSubmit={this.createCampaign}>
+                                <form onSubmit={this.createCampaign} id="create-campaign-form">
                                     <DropDownControl
                                         name="depId"
                                         title="Dependent"

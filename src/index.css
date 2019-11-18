@@ -334,13 +334,12 @@ select.form-control
 
 .campaign-list-title
 {
-  margin-top:20px;
-  margin-bottom:20px;
+  margin-top:20px !important;
+  padding-left: 15px;
 }
 
 .campaign-grid-single
 {
-  padding-top:30px;
   padding-bottom:30px;
 }
 
@@ -386,6 +385,8 @@ select.form-control
 .campaign-grid-inner .donation-progress
 {
   padding:16px;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
 }
 
 .campaign-grid-inner .progress
