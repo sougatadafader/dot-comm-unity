@@ -75,6 +75,10 @@ class CampaignSingle extends React.Component
         let campaign = await RequestService.getRequest(urlEnd);
         if(Object.keys(campaign).length > 0)
         {
+            let creator = campaign.creator;
+            let urlEnd = 'api/user/'+creator;
+            let creatorInfo = await RequestService.getRequest(urlEnd);
+            console.log(creatorInfo);
             this.setState({
                 loading:false,
                 campaign:campaign
