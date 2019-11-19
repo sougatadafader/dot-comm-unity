@@ -19,7 +19,7 @@ export default class extends Component {
 
     componentDidMount()
     {
-
+        this.loadData();
     }
 
     async loadData()

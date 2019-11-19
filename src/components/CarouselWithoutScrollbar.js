@@ -50,9 +50,9 @@ const Simple = ({ deviceType,campaigns }) => {
             itemClass="image-item"
             responsive={responsive}
         >
-            {campaigns.map((campaign,index) => {
+            {campaigns.map(campaign => {
                 return (
-                    <CampaignSlide key={index} campaign={campaign} />
+                    <CampaignSlide campaign={campaign} />
                 );
             })}
         </Carousel>
