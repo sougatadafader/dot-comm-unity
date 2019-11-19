@@ -35,7 +35,7 @@ class BigBrotherEntry extends React.Component {
                     <Switch>
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/signIn" component={SignIn} />
-                        <Route exact path="/campaign" component={CampaignSingle} />
+                        <Route path="/campaign/:campaignId/view" render={props => <CampaignSingle {...props} />} />
                         <Route exact path="/dependent/create" component={DependentCreate} />
                         <Route exact path="/campaign/create" component={CampaignCreate} />
                         <Route path="/dependent/:depId/edit" render={props => <DependentEdit {...props} />} />

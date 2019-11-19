@@ -1,17 +1,17 @@
 import React from 'react';
 
-const CampaignCard = ({title,img,createdAt,description}) => {
+const CampaignCard = ({campaign}) => {
     return(
         <div className="campaign-card card-ui">
-            <h3 className="campaign-title">{title}</h3>
+            <h3 className="campaign-title">{campaign.header}</h3>
                 <div className="campaign-image">
-                    <img src={img} className="img-responsive" />
+                    <img src={campaign.imageUrl} className="img-responsive" />
                 </div>
                 <div className="campaign-meta">
-                    <p>Created {createdAt}</p>
+                    <p>Created 25 October 2019</p>
                 </div>
                 <div className="campaign-description">
-                    <p>{description}</p>
+                    <p>{campaign.text}</p>
                 </div>
         </div>
     );

@@ -5,6 +5,7 @@ import VolunteerCard from '../../components/VolunteerCard';
 import SingleComment from '../../components/SingleComment';
 import DonationProgress from '../../components/DonationProgress';
 import SingleDonation from '../../components/SingleDonation';
+import RequestService from '../../services/RequestService';
 
 class CampaignSingle extends React.Component
 {
@@ -12,6 +13,8 @@ class CampaignSingle extends React.Component
     {
         super(props);
         this.state = {
+            loading:true,
+            campaign:{},
             dpUrl:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
             comments:[
                 {
@@ -60,6 +63,25 @@ class CampaignSingle extends React.Component
         };
     }
 
+    componentDidMount()
+    {
+        this.loadCampaign();
+    }
+
+    async loadCampaign()
+    {
+        let campaignId = this.props.match.params.campaignId;
+        let urlEnd = 'api/campaign/'+campaignId;
+        let campaign = await RequestService.getRequest(urlEnd);
+        if(Object.keys(campaign).length > 0)
+        {
+            this.setState({
+                loading:false,
+                campaign:campaign
+            });
+        }
+    }
+
     submitComment = (event) => {
         event.preventDefault();
         let comment = document.getElementById('comment-body').value;
@@ -78,18 +100,19 @@ class CampaignSingle extends React.Component
 
     render()
     {
+        if(this.state.loading)
+        {
+            return(
+                <div />
+            );
+        }
         return(
             <div className="bigbro-container">
                 <Header />
                 <div className="container space--top">
                     <div className="row">
                         <div className="col-lg-8">
-                            <CampaignCard 
-                                title="Helping A Man In Need"
-                                img="https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-                                createdAt="25 October 2019"
-                                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere at urna quis maximus. Maecenas efficitur, turpis quis scelerisque consectetur, odio diam porta diam, id fringilla dolor justo eget diam. Aenean convallis interdum tincidunt. Proin ut tortor ut felis ornare venenatis at vel urna. Vivamus maximus, nunc vitae tristique vestibulum, mauris nulla egestas metus, at pretium diam augue non turpis. Donec id ultricies enim, quis gravida purus. Fusce placerat pellentesque imperdiet. Aenean vel magna ac augue blandit faucibus. Ut consequat imperdiet leo sed elementum. Pellentesque sed ligula id sem condimentum egestas at eu enim. Ut volutpat felis sed purus euismod, et euismod ante accumsan. Vestibulum vitae commodo quam, vel maximus odio."
-                            />
+                            <CampaignCard campaign={this.state.campaign}/>
 
                             <VolunteerCard
                                 volunteerName="Sougata Dafader"

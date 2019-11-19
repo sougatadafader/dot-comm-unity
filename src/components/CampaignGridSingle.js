@@ -2,12 +2,14 @@ import React from 'react';
 import DonationProgress from '../components/DonationProgress';
 
 const CampaignGridSingle = ({campaign}) => {
+    let id = campaign.id;
+    let url = '/campaign/'+id+'/view';
     return(
         <div className="col-lg-6 campaign-grid-single">
             <div className="campaign-grid-inner">
                 <div className="campaign-grid-image" style={{backgroundImage:`url(${campaign.imageUrl})`}}></div>
                 <div className="campaign-grid-header">
-                    <h2 className="campaign-grid-title"><a href="#">{campaign.header}</a></h2>
+                    <h2 className="campaign-grid-title"><a href={url}>{campaign.header}</a></h2>
                 </div>
                 <p className="campaign-grid-desc">{campaign.text}</p>
                 <DonationProgress progress="50%" />
