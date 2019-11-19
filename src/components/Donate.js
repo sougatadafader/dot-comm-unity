@@ -22,7 +22,7 @@ const Donate = ({user}) => {
                 <div className="col-lg-4 donate-button-container">
                     <DonateButton amount="100" />
                 </div>
-                <div className="col-lg-12">
+                <div className="col-lg-12 donate-button-container">
                     <DonateTextBox />
                 </div>
             </div>

@@ -437,7 +437,7 @@ select.form-control
   display: block;
   width:100%;
   padding:10px;
-  background:gray;
+  background:#333;
   border-radius:4px;
   border:none !important;
   outline:none !important;
@@ -448,7 +448,7 @@ select.form-control
 {
   margin-top:10px;
   padding:10px;
-  background:gray;
+  background:#333;
   border-radius:4px;
 }
 
@@ -464,4 +464,7 @@ select.form-control
   outline:none !important;
   display:block;
   width:100%;
+  background:transparent !important;
+  caret-color: #fff !important;
+  color: #fff !important;
 }
