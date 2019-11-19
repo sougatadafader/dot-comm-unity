@@ -6,7 +6,7 @@ const CampaignCard = ({campaign}) => {
     let createdArr = created.split('T');
     let createdDate = createdArr[0];
     let createdDateArr = createdDate.split('-');
-    let dateShow = createdArr[2]+' '+months[createdDateArr[1]-1]+' '+createdDateArr[0];
+    let dateShow = createdDateArr[2]+' '+months[createdDateArr[1]-1]+' '+createdDateArr[0];
     return(
         <div className="campaign-card card-ui">
             <h3 className="campaign-title">{campaign.header}</h3>
