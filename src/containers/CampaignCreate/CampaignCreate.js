@@ -53,6 +53,11 @@ class CampaignCreate extends React.Component
             let options = [];
             for(let i=0;i<dependents.length;i++)
             {
+                let enabled = dependents[i].enabled;
+                if(!enabled)
+                {
+                    continue;
+                }
                 let value = dependents[i].id;
                 let displayText = dependents[i].firstName+' '+dependents[i].lastName;
                 let obj ={
