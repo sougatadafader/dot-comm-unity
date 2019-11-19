@@ -67,6 +67,7 @@ class CampaignSingle extends React.Component
         };
         this.quickDonateClick = this.quickDonateClick.bind(this);
         this.donateAmountChanged = this.donateAmountChanged.bind(this);
+        this.submitDonation = this.submitDonation.bind(this);
     }
 
     componentDidMount()
@@ -113,6 +114,12 @@ class CampaignSingle extends React.Component
         this.setState({
             donateAmount:amount
         });
+    }
+
+    submitDonation(evt)
+    {
+        evt.preventDefault();
+        console.log(this.state.donateAmount);
     }
 
     submitComment = (event) => {
@@ -181,7 +188,7 @@ class CampaignSingle extends React.Component
                             <div className="donation-progress-card card-ui">
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
                                 <DonationProgress progress="50%" />
-                                <Donate user={this.state.sessionUser} val={this.state.donateAmount} quickDonateClick={this.quickDonateClick} donateAmountChanged={this.donateAmountChanged} />
+                                <Donate user={this.state.sessionUser} val={this.state.donateAmount} quickDonateClick={this.quickDonateClick} donateAmountChanged={this.donateAmountChanged} submitDonation={this.submitDonation} />
                                 <div className="donate-btn-container">
                                     <a className="donate-btn" href="#">Donate now</a>
                                 </div>
