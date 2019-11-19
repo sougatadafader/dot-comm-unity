@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import Carousel from "react-multi-carousel";
 import { Image, Card, Button, Progress } from "semantic-ui-react";
+import CampaignSlide from "./CampaignSlide";
 
 const responsive = {
     desktop: {
@@ -37,7 +38,7 @@ const images = [
 
 // Because this is an inframe, so the SSR mode doesn't not do well here.
 // It will work on real devices.
-const Simple = ({ deviceType }) => {
+const Simple = ({ deviceType,campaigns }) => {
     return (
         <Carousel
             infinite={true}
@@ -49,32 +50,9 @@ const Simple = ({ deviceType }) => {
             itemClass="image-item"
             responsive={responsive}
         >
-            {images.slice(0, 5).map(image => {
+            {campaigns.map((campaign,index) => {
                 return (
-                    <Card>
-                        <Image src={image} draggable={false}
-                               style={{ width: "100%", height: "100%" }} wrapped ui={false} />
-                        <Card.Content>
-                            <Card.Header><Link to={"/campaign"}>Matthew</Link></Card.Header>
-                            <Card.Meta>
-                                <Progress percent='50' indicating />
-                            </Card.Meta>
-                            <Card.Meta>
-                               $10,000 raised for $20,000
-                            </Card.Meta>
-                            <Card.Meta>
-                                <span className='date'>January 2019</span>
-                            </Card.Meta>
-                            <Card.Description>
-                                Please help raise money for this cause.
-                            </Card.Description>
-                        </Card.Content>
-                        <Card.Content extra>
-                            <a href="#">
-                                <Button positive>Donate</Button>
-                            </a>
-                        </Card.Content>
-                    </Card>
+                    <CampaignSlide key={index} campaign={campaign} />
                 );
             })}
         </Carousel>
