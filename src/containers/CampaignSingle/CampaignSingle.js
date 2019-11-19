@@ -189,9 +189,6 @@ class CampaignSingle extends React.Component
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
                                 <DonationProgress progress="50%" />
                                 <Donate user={this.state.sessionUser} val={this.state.donateAmount} quickDonateClick={this.quickDonateClick} donateAmountChanged={this.donateAmountChanged} submitDonation={this.submitDonation} />
-                                <div className="donate-btn-container">
-                                    <a className="donate-btn" href="#">Donate now</a>
-                                </div>
                             </div>
                             <div className="donation-list-card card-ui">
                                 <h3 className="donation-list-title">All Donations</h3>

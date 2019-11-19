@@ -469,3 +469,9 @@ select.form-control
   color: #fff !important;
   text-align: center;
 }
+
+button.donate-btn
+{
+  border:none !important;
+  outline:none !important;
+}
