@@ -96,13 +96,14 @@ class CampaignSingle extends React.Component
 
     quickDonateClick(evt)
     {
-        alert('Clicked');
-        console.log('Clicked');
+        //alert('Clicked');
+        //console.log('Clicked');
         let target = evt.target;
         let value = target.getAttribute('data-amount');
         this.setState({
             donateAmount:value
         });
+        document.querySelector('.donate-input').value = value;
     }
 
     donateAmountChanged(evt)
