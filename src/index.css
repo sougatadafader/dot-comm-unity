@@ -467,4 +467,5 @@ select.form-control
   background:transparent !important;
   caret-color: #fff !important;
   color: #fff !important;
+  text-align: center;
 }
