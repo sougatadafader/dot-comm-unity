@@ -421,6 +421,17 @@ select.form-control
   padding-bottom:0px !important;
 }
 
+.donation-form
+{
+  margin-top:20px;
+}
+
+.donate-button-container
+{
+  padding-left:5px !important;
+  padding-right:5px !important;
+}
+
 .donate-button
 {
   display: block;
@@ -428,4 +439,29 @@ select.form-control
   padding:10px;
   background:gray;
   border-radius:4px;
+  border:none !important;
+  outline:none !important;
+  color:#fff !important;
+}
+
+.donate-input-box
+{
+  margin-top:10px;
+  padding:10px;
+  background:gray;
+  border-radius:4px;
+}
+
+.donate-input-box-inner
+{
+  padding-bottom:5px;
+  border-bottom:1px dashed #fff;
+}
+
+.donate-input
+{
+  border:none !important;
+  outline:none !important;
+  display:block;
+  width:100%;
 }
