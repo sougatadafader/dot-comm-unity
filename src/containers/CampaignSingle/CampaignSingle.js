@@ -6,6 +6,7 @@ import SingleComment from '../../components/SingleComment';
 import DonationProgress from '../../components/DonationProgress';
 import SingleDonation from '../../components/SingleDonation';
 import RequestService from '../../services/RequestService';
+import DependentProfileItem from '../../components/DependentProfileItem';
 
 class CampaignSingle extends React.Component
 {
@@ -145,6 +146,10 @@ class CampaignSingle extends React.Component
                             </div>
                         </div>
                         <div className="col-lg-4">
+                            <div className="dependent-profile-card card-ui">
+                                <h3 className="dependent-profile-card-title">Organized For</h3>
+                                <DependentProfileItem dependent={this.state.campaign.dependent} />
+                            </div>
                             <div className="donation-progress-card card-ui">
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
                                 <DonationProgress progress="50%" />
