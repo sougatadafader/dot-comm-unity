@@ -6,7 +6,9 @@ import SingleComment from '../../components/SingleComment';
 import DonationProgress from '../../components/DonationProgress';
 import SingleDonation from '../../components/SingleDonation';
 import RequestService from '../../services/RequestService';
+import UserService from '../../services/UserService';
 import DependentProfileItem from '../../components/DependentProfileItem';
+import Donate from '../../components/Donate';
 
 class CampaignSingle extends React.Component
 {
@@ -66,11 +68,12 @@ class CampaignSingle extends React.Component
 
     componentDidMount()
     {
-        this.loadCampaign();
+        this.loadData();
     }
 
-    async loadCampaign()
+    async loadData()
     {
+        let user = await UserService.findUserInSession();
         let campaignId = this.props.match.params.campaignId;
         let urlEnd = 'api/campaign/'+campaignId;
         let campaign = await RequestService.getRequest(urlEnd);
@@ -81,6 +84,7 @@ class CampaignSingle extends React.Component
             let creatorInfo = await RequestService.getRequest(urlEnd);
             console.log(creatorInfo);
             this.setState({
+                sessionUser:user,
                 loading:false,
                 campaign:campaign
             });
@@ -153,6 +157,7 @@ class CampaignSingle extends React.Component
                             <div className="donation-progress-card card-ui">
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
                                 <DonationProgress progress="50%" />
+                                <Donate user={this.state.sessionUser} />
                                 <div className="donate-btn-container">
                                     <a className="donate-btn" href="#">Donate now</a>
                                 </div>
