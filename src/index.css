@@ -475,3 +475,10 @@ button.donate-btn
   border:none !important;
   outline:none !important;
 }
+
+.donate-button:hover
+{
+  background: #fdb933;
+  color:#000;
+  font-weight: bold;
+}

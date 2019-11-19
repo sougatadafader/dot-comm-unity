@@ -12,9 +12,10 @@ export default class extends Component {
         return(
             <div>
                 <Header/>
-                <Message compact className="ml-4 bg-danger text-white" content='Top Campaigns' />
-                <WithScrollbar/>
-                <div>Hello from Home</div>
+                <div className="container">
+                    <Message compact className="ml-4 bg-danger text-white" content='Top Campaigns' />
+                    <WithScrollbar/>
+                </div>
             </div>
         )
     }
