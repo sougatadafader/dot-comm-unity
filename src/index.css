@@ -420,3 +420,12 @@ select.form-control
   margin-bottom:0px !important;
   padding-bottom:0px !important;
 }
+
+.donate-btn
+{
+  display: block;
+  width:100%;
+  padding:10px;
+  background:gray;
+  border-radius:4px;
+}
