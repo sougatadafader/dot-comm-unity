@@ -539,6 +539,7 @@ button.donate-btn
 .skeleton-row:last-child
 {
   width:70px;
+  margin-top: 15px;
 }
 
 .skeleton-img,
@@ -546,11 +547,12 @@ button.donate-btn
 .skeleton-row
 {
   position: relative;
+  overflow: hidden;
 }
 
 .skeleton-img::after,
 .skeleton-title::after,
-.skeleton-title::after
+.skeleton-row::after
 {
   content:'';
   position: absolute;
