@@ -5,6 +5,7 @@ import UserService from '../../services/UserService';
 import Header from '../../components/Header';
 import UserProfileCard from '../../components/UserProfileCard';
 import CampaignGrid from '../../components/CampaignGrid';
+import DependentProfileList from '../../components/DependentProfileList';
 
 class UserProfile extends React.Component
 {
@@ -14,7 +15,8 @@ class UserProfile extends React.Component
         this.state = {
             loading:true,
             user:{},
-            sessionUser:{}
+            sessionUser:{},
+            dependents:[]
         };
     }
     componentDidMount()
@@ -27,11 +29,13 @@ class UserProfile extends React.Component
         let userId = this.props.match.params.userId;
         let userUrl = 'api/user/'+userId;
         let user = await RequestService.getRequest(userUrl);
-
+        let depUrlEnd = 'api/user/'+userId+'/dependents';
+        let dependents = await RequestService.getRequest(depUrlEnd);
         let loggedInUser = await UserService.findUserInSession();
         this.setState({
             user:user,
             sessionUser:loggedInUser,
+            dependents:dependents,
             loading:false
         });
     }
@@ -53,7 +57,9 @@ class UserProfile extends React.Component
                             <UserProfileCard user={this.state.user} />
                             <CampaignGrid campaigns={this.state.user.campaigns} />
                         </div>
-                        <div className="col-lg-4"></div>
+                        <div className="col-lg-4">
+                            <DependentProfileList dependents={this.state.dependents} />
+                        </div>
                     </div>
                 </div>
             </div>

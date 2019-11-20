@@ -5,7 +5,7 @@ import DropDownControl from '../../components/DropDownControl';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import CampaignGrid from '../../components/CampaignGrid';
-import DependentProfileItem from '../../components/DependentProfileItem';
+import DependentProfileList from '../../components/DependentProfileList';
 import Loading from '../../components/Loading';
 
 class CampaignCreate extends React.Component
@@ -211,16 +211,7 @@ class CampaignCreate extends React.Component
                             <CampaignGrid campaigns={this.state.sessionUser.campaigns} />
                         </div>
                         <div className="col-lg-4">
-                            <div className="dependent-list-profile card-ui">
-                                <h3 className="campaign-page-dependent-list">List Of Dependents</h3>
-                                <div className="dependent-list-profile-container">
-                                    {
-                                        this.state.dependents.map((dependent,index) =>
-                                            (<DependentProfileItem key={index} dependent={dependent} />)
-                                        )
-                                    }
-                                </div>
-                            </div>
+                            <DependentProfileList dependents={this.state.dependents} />
                         </div>
                     </div>
                 </div>
