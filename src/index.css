@@ -505,3 +505,32 @@ button.donate-btn
   margin-bottom:15px;
   border-bottom:1px solid #ddd;
 }
+
+.skeleton-img
+{
+  width:96px;
+  height:96px;
+  background:#ddd;
+}
+
+.skeleton-title
+{
+  padding-top:10px;
+  padding-bottom:10px;
+  width:55%;
+  background: #ddd;
+  margin-bottom: 20px;
+}
+
+.skeleton-row
+{
+  padding-top:8px;
+  padding-bottom:8px;
+  background:#ddd;
+  margin-bottom:5px;
+}
+
+.skeleton-row:last-child
+{
+  width:70px;
+}
