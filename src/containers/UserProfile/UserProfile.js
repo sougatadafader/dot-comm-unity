@@ -81,11 +81,11 @@ class UserProfile extends React.Component
         let urlEnd = 'api/user/'+userId;
         let updatedUser = await RequestService.putRequest(urlEnd,editUser);
         console.log('Updated User',updatedUser);
-        /*this.setState({
+        this.setState({
             user:updatedUser,
             sessionUser:updatedUser,
             isEdit:false
-        });*/
+        });
     }
 
     render()

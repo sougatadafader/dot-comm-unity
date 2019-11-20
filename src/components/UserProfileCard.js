@@ -21,7 +21,7 @@ const UserProfileCard = ({user,sessionUser,editProfile}) => {
                         <p><strong>About Me:</strong></p>
                         <p>{user.aboutMe}</p>
                     </div>
-                    {user.id === sessionUser.id?(<button className="btn btn-primary" onClick={() => editProfile()}>Edit Profile</button>):""}
+                    {user.id === sessionUser.id?(<button className="btn btn-primary" style={{marginTop:20}} onClick={() => editProfile()}>Edit Profile</button>):""}
                 </div>
             </div>
         </div>
