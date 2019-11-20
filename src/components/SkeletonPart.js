@@ -2,7 +2,7 @@ import React from 'react';
 
 const SkeletonPart = () => {
     return(
-        <div className="media">
+        <div className="media skeleton-container">
             <div className="skeleton-img"></div>
             <div className="media-body">
                 <div className="skeleton-title"></div>

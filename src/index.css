@@ -506,6 +506,12 @@ button.donate-btn
   border-bottom:1px solid #ddd;
 }
 
+.skeleton-container .media-body
+{
+  padding-left:15px;
+  padding-right:15px;
+}
+
 .skeleton-img
 {
   width:96px;
@@ -534,3 +540,40 @@ button.donate-btn
 {
   width:70px;
 }
+
+.skeleton-img,
+.skeleton-title,
+.skeleton-row
+{
+  position: relative;
+}
+
+.skeleton-img::after,
+.skeleton-title::after,
+.skeleton-title::after
+{
+  content:'';
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  background-image:linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+  transform:translateX(-100%);
+  -webkit-transform:translateX(-100%);
+  -moz-transform:translateX(-100%);
+  -ms-transform:translateX(-100%);
+  animation:skeletonShimmy 2s infinite;
+}
+
+@keyframes skeletonShimmy {
+
+  100% {
+    transform:translateX(100%);
+    -webkit-transform:translateX(100%);
+    -moz-transform:translateX(100%);
+    -ms-transform:translateX(100%);
+  }
+
+}
+
