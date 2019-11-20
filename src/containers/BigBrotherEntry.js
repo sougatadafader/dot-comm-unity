@@ -9,7 +9,7 @@ import DependentCreate from '../containers/DependentCreate/DependentCreate';
 import DependentEdit from '../containers/DependentEdit/DependentEdit';
 import CampaignCreate from '../containers/CampaignCreate/CampaignCreate';
 import Loading from '../components/Loading';
-import UserProfile from '../containers/UserProfile';
+import UserProfile from '../containers/UserProfile/UserProfile';
 
 class BigBrotherEntry extends React.Component {
 
