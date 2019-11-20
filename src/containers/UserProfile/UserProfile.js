@@ -73,10 +73,19 @@ class UserProfile extends React.Component
         });
     }
 
-    submitEditProfile(evt)
+    async submitEditProfile(evt)
     {
         evt.preventDefault();
-        console.log('Form Data',this.state.editUser);
+        let editUser = this.state.editUser;
+        let userId = this.state.sessionUser.id;
+        let urlEnd = 'api/user/'+userId;
+        let updatedUser = await RequestService.putRequest(urlEnd,editUser);
+        console.log('Updated User',updatedUser);
+        /*this.setState({
+            user:updatedUser,
+            sessionUser:updatedUser,
+            isEdit:false
+        });*/
     }
 
     render()

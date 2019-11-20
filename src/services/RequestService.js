@@ -26,4 +26,19 @@ export default class RequestService
         let json = await resp.json();
         return json;
     }
+
+    static async putRequest(urlEnd,data)
+    {
+        const url = baseUrl+urlEnd;
+        let resp = await fetch(url,{
+            method:'PUT',
+            credentials:'include',
+            body:JSON.stringify(data),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        let json = await resp.json();
+        return json;
+    }
 }
