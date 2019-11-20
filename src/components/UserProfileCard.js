@@ -1,11 +1,17 @@
 import React from 'react';
 
 const UserProfileCard = ({user,sessionUser,editProfile}) => {
-
+    let imageClass = 'user-image image-present';
+    let bgImg = 'url('+user.imageUrl+')';
+    if(user.imageUrl == null || user.imageUrl == '')
+    {
+        imageClass = 'user-image';
+        bgImg = 'none';
+    }
     return(
         <div className="user-profile-card card-ui">
             <div className="media user-profile">
-                <div className="user-image"></div>
+                <div className={imageClass} style={{backgroundImage:bgImg}}></div>
                 <div className="media-body">
                     <div className="user-name-container">
                         <span><strong>First Name: </strong>{user.firstName}</span>
