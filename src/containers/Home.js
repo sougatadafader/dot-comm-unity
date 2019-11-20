@@ -45,8 +45,10 @@ export default class extends Component {
             <div>
                 <Header/>
                 <div className="container">
-                    <Message compact className="ml-4 bg-danger text-white" content='Top Campaigns' />
-                    <WithScrollbar campaigns={this.state.campaigns}/>
+                    <div className="top-campaign-container">
+                        <h3 className="top-campaign-title"></h3>
+                        <WithScrollbar campaigns={this.state.campaigns}/>
+                    </div>
                 </div>
             </div>
         )
