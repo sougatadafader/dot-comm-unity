@@ -54,7 +54,7 @@ class UserProfile extends React.Component
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
-                            <UserProfileCard user={this.state.user} />
+                            <UserProfileCard user={this.state.user} sessionUser={this.state.sessionUser} />
                             <CampaignGrid campaigns={this.state.user.campaigns} />
                         </div>
                         <div className="col-lg-4">

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const UserProfileCard = ({user}) => {
+const UserProfileCard = ({user,sessionUser}) => {
+
     return(
         <div className="user-profile-card card-ui">
             <div className="media user-profile">
@@ -14,6 +15,7 @@ const UserProfileCard = ({user}) => {
                         <p><strong>About Me:</strong></p>
                         <p>{user.aboutMe}</p>
                     </div>
+                    {user.id === sessionUser.id?(<button className="btn btn-primary">Edit Profile</button>):""}
                 </div>
             </div>
         </div>
