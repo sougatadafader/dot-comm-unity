@@ -53,7 +53,7 @@ const UserEditForm = ({user,inputChanged,submitEditProfile}) => {
                     placeholder="About Me"
                     inputChanged={(evt) => inputChanged(evt)}
                 />
-                <button type="submit" className="btn btn-primary">Edit Profile</button>
+                <button type="submit" className="btn btn-primary" style={{marginTop:'20px'}}>Edit Profile</button>
             </form>
         </div>
     );
