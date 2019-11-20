@@ -4,7 +4,7 @@ import DonationProgress from '../components/DonationProgress';
 const CampaignGridSingle = ({campaign}) => {
     let id = campaign.id;
     let url = '/campaign/'+id+'/view';
-    let text = campaign.text.substring(0,20);
+    let text = campaign.text.substring(0,60);
     let header = campaign.header;
     let imageUrl = campaign.imageUrl;
     if( header == null || header == '' )
@@ -18,7 +18,7 @@ const CampaignGridSingle = ({campaign}) => {
     return(
         <div className="col-lg-6 campaign-grid-single">
             <div className="campaign-grid-inner">
-                <div className="campaign-grid-image" style={{backgroundImage:`url(${imageUrl})`}}></div>
+                <div className="campaign-grid-image" style={{backgroundImage:`url(${imageUrl})`}}><a href={url} className="campaign-image-link-wrap"></a></div>
                 <div className="campaign-grid-header">
                     <h2 className="campaign-grid-title"><a href={url}>{header}</a></h2>
                 </div>
