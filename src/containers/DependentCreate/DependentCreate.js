@@ -4,6 +4,7 @@ import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import DependentGridItem from '../../components/DependentGridItem';
 import InputControl from '../../components/InputControl';
+import Loading from '../../components/Loading';
 class DependentCreate extends React.Component
 {
     constructor(props)
@@ -103,7 +104,7 @@ class DependentCreate extends React.Component
         if(this.state.loading)
         {
             return(
-                <div></div>
+                <Loading />
             );
         }
         return(

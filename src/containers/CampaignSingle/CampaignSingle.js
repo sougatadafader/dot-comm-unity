@@ -9,6 +9,7 @@ import RequestService from '../../services/RequestService';
 import UserService from '../../services/UserService';
 import DependentProfileItem from '../../components/DependentProfileItem';
 import Donate from '../../components/Donate';
+import Loading from '../../components/Loading';
 
 class CampaignSingle extends React.Component
 {
@@ -143,7 +144,7 @@ class CampaignSingle extends React.Component
         if(this.state.loading)
         {
             return(
-                <div />
+                <Loading />
             );
         }
         return(

@@ -6,6 +6,7 @@ import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import CampaignGridSingle from '../../components/CampaignGridSingle';
 import DependentProfileItem from '../../components/DependentProfileItem';
+import Loading from '../../components/Loading';
 
 class CampaignCreate extends React.Component
 {
@@ -150,7 +151,7 @@ class CampaignCreate extends React.Component
         if(this.state.loading)
         {
             return(
-                <div />
+                <Loading />
             );
         }
         return(
