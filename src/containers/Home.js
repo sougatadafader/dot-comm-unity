@@ -46,7 +46,7 @@ export default class extends Component {
                 <Header/>
                 <div className="container">
                     <div className="top-campaign-container">
-                        <h3 className="top-campaign-title"></h3>
+                        <h3 className="top-campaign-title">Top Campaigns</h3>
                         <WithScrollbar campaigns={this.state.campaigns}/>
                     </div>
                 </div>
