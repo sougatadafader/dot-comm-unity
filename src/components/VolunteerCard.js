@@ -6,7 +6,7 @@ const VolunteerCard = ({creator}) => {
     let bgImg = 'url('+creatorImg+')';
     let imageClass = 'user-dp-circle';
     let href = '/user/'+creator.id+'/view';
-    if(creatorName == null || creatorName == '')
+    if(creator.firstName == null || creator.firstName == '')
     {
         creatorName = 'No Name';
     }
