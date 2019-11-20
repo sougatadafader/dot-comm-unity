@@ -579,3 +579,53 @@ button.donate-btn
 
 }
 
+.user-profile .user-image
+{
+  position: relative;
+  width:96px;
+  height:96px;
+  background:#ddd;
+}
+
+.user-profile .user-image::after
+{
+  position: absolute;
+  content:'No Image Found';
+  color:#fff;
+  font-size:1rem;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+  -webkit-transform:translateX(-50%) translateY(-50%);
+  -moz-transform:translateX(-50%) translateY(-50%);
+  -ms-transform:translateX(-50%) translateY(-50%);
+}
+
+.user-profile .media-body
+{
+  padding-left:15px;
+  padding-right:15px;
+}
+
+.user-profile .user-name-container span
+{
+  display: inline-block;
+}
+
+.user-profile .user-name-container span:last-child
+{
+  padding-left:15px;
+}
+
+.user-profile .user-name-container
+{
+  margin-bottom:20px;
+}
+
+.user-about-me p
+{
+  margin-bottom:10px;
+}
+
+
+
