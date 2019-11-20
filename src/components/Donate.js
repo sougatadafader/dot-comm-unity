@@ -6,7 +6,7 @@ const Donate = ({user,val,quickDonateClick,donateAmountChanged,submitDonation}) 
     {
         return(
             <div className="donate-btn-container">
-                <a className="donate-btn" href="#">Sign In To Donate</a>
+                <a className="donate-btn" href="/signin">Sign In To Donate</a>
             </div>
         );
     }
