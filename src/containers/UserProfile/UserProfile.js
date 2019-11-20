@@ -22,6 +22,7 @@ class UserProfile extends React.Component
         };
         this.inputChanged = this.inputChanged.bind(this);
         this.editProfile = this.editProfile.bind(this);
+        this.submitEditProfile = this.submitEditProfile.bind(this);
     }
     componentDidMount()
     {
@@ -72,6 +73,12 @@ class UserProfile extends React.Component
         });
     }
 
+    submitEditProfile(evt)
+    {
+        evt.preventDefault();
+        console.log('Form Data',this.state.editUser);
+    }
+
     render()
     {
         if(this.state.loading)
@@ -86,7 +93,7 @@ class UserProfile extends React.Component
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
-                            {!this.state.isEdit?(<UserProfileCard user={this.state.user} sessionUser={this.state.sessionUser} editProfile={this.editProfile} />):(<UserEditForm user={this.state.editUser} inputChanged={this.inputChanged} />)}
+                            {!this.state.isEdit?(<UserProfileCard user={this.state.user} sessionUser={this.state.sessionUser} editProfile={this.editProfile} />):(<UserEditForm user={this.state.editUser} inputChanged={this.inputChanged} submitEditProfile={this.submitEditProfile} />)}
                             <CampaignGrid campaigns={this.state.user.campaigns} />
                         </div>
                         <div className="col-lg-4">

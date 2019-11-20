@@ -1,10 +1,10 @@
 import React from 'react';
 import InputControl from './InputControl';
-const UserEditForm = ({user,inputChanged}) => {
+const UserEditForm = ({user,inputChanged,submitEditProfile}) => {
     return(
         <div className="user-edit-card card-ui">
             <h3 className="user-edit-title">Edit User Form</h3>
-            <form>
+            <form onSubmit={(evt) => submitEditProfile(evt)}>
                 <InputControl 
                     label="First Name"
                     type="text"
