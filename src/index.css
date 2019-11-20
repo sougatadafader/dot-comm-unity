@@ -43,6 +43,32 @@ code {
   margin-bottom:30px;
 }
 
+.campaign-image.no-image
+{
+  height:400px;
+  position: relative;
+  background:#ddd;
+}
+
+.campaign-image.no-image img
+{
+  display: none;
+}
+
+.campaign-image.no-image::after
+{
+  content:'No Image Available';
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+  -webkit-transform:translateX(-50%) translateY(-50%);
+  -moz-transform:translateX(-50%) translateY(-50%);
+  -ms-transform:translateX(-50%) translateY(-50%);
+  color:#fff;
+  font-size:1.2rem;
+}
+
 .img-responsive
 {
   max-width:100%;
