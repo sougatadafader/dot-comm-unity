@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import UserProfileCard from '../../components/UserProfileCard';
 import CampaignGrid from '../../components/CampaignGrid';
 import DependentProfileList from '../../components/DependentProfileList';
-
+import UserEditForm from '../../components/UserEditForm';
 class UserProfile extends React.Component
 {
     constructor(props)
@@ -16,8 +16,11 @@ class UserProfile extends React.Component
             loading:true,
             user:{},
             sessionUser:{},
-            dependents:[]
+            dependents:[],
+            isEdit:false
         };
+        this.inputChanged = this.inputChanged.bind(this);
+        this.editProfile = this.editProfile.bind(this);
     }
     componentDidMount()
     {
@@ -40,6 +43,18 @@ class UserProfile extends React.Component
         });
     }
 
+    editProfile()
+    {
+        this.setState({
+            isEdit:true
+        });
+    }
+
+    inputChanged(evt)
+    {
+
+    }
+
     render()
     {
         if(this.state.loading)
@@ -54,7 +69,7 @@ class UserProfile extends React.Component
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
-                            <UserProfileCard user={this.state.user} sessionUser={this.state.sessionUser} />
+                            {!this.state.isEdit?(<UserProfileCard user={this.state.user} sessionUser={this.state.sessionUser} editProfile={this.editProfile} />):(<UserEditForm user={this.state.user} inputChanged={this.inputChanged} />)}
                             <CampaignGrid campaigns={this.state.user.campaigns} />
                         </div>
                         <div className="col-lg-4">
