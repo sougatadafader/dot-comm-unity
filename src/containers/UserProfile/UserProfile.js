@@ -4,6 +4,7 @@ import RequestService from '../../services/RequestService';
 import UserService from '../../services/UserService';
 import Header from '../../components/Header';
 import UserProfileCard from '../../components/UserProfileCard';
+import CampaignGrid from '../../components/CampaignGrid';
 
 class UserProfile extends React.Component
 {
@@ -26,6 +27,7 @@ class UserProfile extends React.Component
         let userId = this.props.match.params.userId;
         let userUrl = 'api/user/'+userId;
         let user = await RequestService.getRequest(userUrl);
+
         let loggedInUser = await UserService.findUserInSession();
         this.setState({
             user:user,
@@ -49,6 +51,7 @@ class UserProfile extends React.Component
                     <div className="row">
                         <div className="col-lg-8">
                             <UserProfileCard user={this.state.user} />
+                            <CampaignGrid campaigns={this.state.user.campaigns} />
                         </div>
                         <div className="col-lg-4"></div>
                     </div>
