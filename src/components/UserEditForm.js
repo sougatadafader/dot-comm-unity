@@ -9,7 +9,7 @@ const UserEditForm = ({user,inputChanged}) => {
                     label="First Name"
                     type="text"
                     name="firstName"
-                    val=""
+                    val={user.firstName}
                     placeholder="First Name"
                     inputChanged={(evt) => inputChanged(evt)}
                 />
@@ -17,7 +17,7 @@ const UserEditForm = ({user,inputChanged}) => {
                     label="Last Name"
                     type="text"
                     name="lastName"
-                    val=""
+                    val={user.lastName}
                     placeholder="Last Name"
                     inputChanged={(evt) => inputChanged(evt)}
                 />
@@ -25,7 +25,7 @@ const UserEditForm = ({user,inputChanged}) => {
                     label="Password"
                     type="password"
                     name="password"
-                    val=""
+                    val={user.password}
                     placeholder="******"
                     inputChanged={(evt) => inputChanged(evt)}
                 />
@@ -33,7 +33,7 @@ const UserEditForm = ({user,inputChanged}) => {
                     label="Image URL"
                     type="text"
                     name="imageUrl"
-                    val=""
+                    val={user.imageUrl}
                     placeholder="Image Url"
                     inputChanged={(evt) => inputChanged(evt)}
                 />
@@ -41,7 +41,7 @@ const UserEditForm = ({user,inputChanged}) => {
                     label="Email"
                     type="email"
                     name="email"
-                    val=""
+                    val={user.email}
                     placeholder="Email"
                     inputChanged={(evt) => inputChanged(evt)}
                 />
@@ -49,7 +49,7 @@ const UserEditForm = ({user,inputChanged}) => {
                     label="About Me"
                     type="textarea"
                     name="aboutMe"
-                    val=""
+                    val={user.aboutMe}
                     placeholder="About Me"
                     inputChanged={(evt) => inputChanged(evt)}
                 />

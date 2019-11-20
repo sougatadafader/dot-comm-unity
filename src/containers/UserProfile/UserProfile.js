@@ -17,7 +17,8 @@ class UserProfile extends React.Component
             user:{},
             sessionUser:{},
             dependents:[],
-            isEdit:false
+            isEdit:false,
+            editUser:{}
         };
         this.inputChanged = this.inputChanged.bind(this);
         this.editProfile = this.editProfile.bind(this);
@@ -35,10 +36,20 @@ class UserProfile extends React.Component
         let depUrlEnd = 'api/user/'+userId+'/dependents';
         let dependents = await RequestService.getRequest(depUrlEnd);
         let loggedInUser = await UserService.findUserInSession();
+        let editUser = {
+            username:loggedInUser.username,
+            firstName:loggedInUser.firstName,
+            lastName:loggedInUser.lastName,
+            password:loggedInUser.password,
+            imageUrl:loggedInUser.imageUrl,
+            email:loggedInUser.email,
+            aboutMe:loggedInUser.aboutMe
+        };
         this.setState({
             user:user,
             sessionUser:loggedInUser,
             dependents:dependents,
+            editUser:editUser,
             loading:false
         });
     }
@@ -52,7 +63,13 @@ class UserProfile extends React.Component
 
     inputChanged(evt)
     {
-
+        const value = evt.target.value;
+        const name = evt.target.name;
+        let editUser = this.state.editUser;
+        editUser[name] = value;
+        this.setState({
+            editUser:editUser
+        });
     }
 
     render()
@@ -69,7 +86,7 @@ class UserProfile extends React.Component
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
-                            {!this.state.isEdit?(<UserProfileCard user={this.state.user} sessionUser={this.state.sessionUser} editProfile={this.editProfile} />):(<UserEditForm user={this.state.user} inputChanged={this.inputChanged} />)}
+                            {!this.state.isEdit?(<UserProfileCard user={this.state.user} sessionUser={this.state.sessionUser} editProfile={this.editProfile} />):(<UserEditForm user={this.state.editUser} inputChanged={this.inputChanged} />)}
                             <CampaignGrid campaigns={this.state.user.campaigns} />
                         </div>
                         <div className="col-lg-4">
