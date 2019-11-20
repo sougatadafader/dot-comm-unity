@@ -19,7 +19,7 @@ const VolunteerCard = ({creator}) => {
         <div className="organiser-card card-ui">
             <h3 className="volunteer-title">Organized By</h3>
             <div className="media">
-                <div className={imageClass} style={{backgroundImage:{bgImg}}}><a className="volunteer-image-link-wrap" href={href}></a></div>
+                <div className={imageClass} style={{backgroundImage:bgImg}}><a className="volunteer-image-link-wrap" href={href}></a></div>
                 <div className="media-body">
                     <h5><a href={href}>{creatorName}</a></h5>
                     {creator.aboutMe}
