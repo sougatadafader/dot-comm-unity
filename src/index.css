@@ -581,13 +581,23 @@ button.donate-btn
 
 .user-profile .user-image
 {
-  position: relative;
   width:96px;
   height:96px;
+}
+
+.user-profile .user-image.image-present
+{
+  background-size:cover;
+  background-position: center;
+}
+
+.user-profile .user-image:not(.image-present)
+{
+  position: relative;
   background:#ddd;
 }
 
-.user-profile .user-image::after
+.user-profile .user-image:not(.image-present)::after
 {
   position: absolute;
   content:'No Image Found';
