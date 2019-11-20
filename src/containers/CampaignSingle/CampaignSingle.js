@@ -20,6 +20,7 @@ class CampaignSingle extends React.Component
             loading:true,
             campaign:{},
             donateAmount:0,
+            creator:{},
             dpUrl:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
             comments:[
                 {
@@ -91,7 +92,8 @@ class CampaignSingle extends React.Component
             this.setState({
                 sessionUser:user,
                 loading:false,
-                campaign:campaign
+                campaign:campaign,
+                creator:creatorInfo
             });
         }
     }
@@ -155,11 +157,7 @@ class CampaignSingle extends React.Component
                         <div className="col-lg-8">
                             <CampaignCard campaign={this.state.campaign}/>
 
-                            <VolunteerCard
-                                volunteerName="Sougata Dafader"
-                                volunteerImg={this.state.dpUrl}
-                                volunteerAbout="Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus."
-                            />
+                            <VolunteerCard creator={this.state.creator} />
                             
                             <div className="comments-card card-ui">
                                 <h3 className="comment-title">Comments</h3>
