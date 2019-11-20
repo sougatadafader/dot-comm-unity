@@ -9,6 +9,7 @@ import DependentCreate from '../containers/DependentCreate/DependentCreate';
 import DependentEdit from '../containers/DependentEdit/DependentEdit';
 import CampaignCreate from '../containers/CampaignCreate/CampaignCreate';
 import Loading from '../components/Loading';
+import UserProfile from '../containers/UserProfile';
 
 class BigBrotherEntry extends React.Component {
 
@@ -41,6 +42,7 @@ class BigBrotherEntry extends React.Component {
                         <Route exact path="/campaign/create" component={CampaignCreate} />
                         <Route exact path="/loading" component={Loading} />
                         <Route path="/dependent/:depId/edit" render={props => <DependentEdit {...props} />} />
+                        <Route path="user/:userId/view" render={props => <UserProfile {...props} /> } />
                         <Route exact path="/" render={props => <Home/>}/>
                         <Redirect to="/"/>
                     </Switch>
