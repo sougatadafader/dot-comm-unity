@@ -4,8 +4,9 @@ import InputControl from '../../components/InputControl';
 import DropDownControl from '../../components/DropDownControl';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
-import CampaignGridSingle from '../../components/CampaignGridSingle';
-import DependentProfileItem from '../../components/DependentProfileItem';
+import CampaignGrid from '../../components/CampaignGrid';
+import DependentProfileList from '../../components/DependentProfileList';
+import Loading from '../../components/Loading';
 
 class CampaignCreate extends React.Component
 {
@@ -150,7 +151,7 @@ class CampaignCreate extends React.Component
         if(this.state.loading)
         {
             return(
-                <div />
+                <Loading />
             );
         }
         return(
@@ -207,30 +208,10 @@ class CampaignCreate extends React.Component
                                     <button type="submit" className="btn btn-primary">Create</button>
                                 </form>
                             </div>
-                            <div className="campaign-list-container">
-                                <h3 className="campaign-list-title">List Of Campaigns</h3>
-                                <div className="container-fluid">
-                                    <div className="row">
-                                        {
-                                            this.state.sessionUser.campaigns.map((campaign,index) =>
-                                                (<CampaignGridSingle key={index} campaign={campaign} />)
-                                            )
-                                        }
-                                    </div>
-                                </div>
-                            </div>
+                            <CampaignGrid campaigns={this.state.sessionUser.campaigns} />
                         </div>
                         <div className="col-lg-4">
-                            <div className="dependent-list-profile card-ui">
-                                <h3 className="campaign-page-dependent-list">List Of Dependents</h3>
-                                <div className="dependent-list-profile-container">
-                                    {
-                                        this.state.dependents.map((dependent,index) =>
-                                            (<DependentProfileItem key={index} dependent={dependent} />)
-                                        )
-                                    }
-                                </div>
-                            </div>
+                            <DependentProfileList dependents={this.state.dependents} />
                         </div>
                     </div>
                 </div>

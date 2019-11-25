@@ -4,6 +4,7 @@ import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import DependentGridItem from '../../components/DependentGridItem';
 import DependentCreate from '../DependentCreate/DependentCreate';
+import Loading from '../../components/Loading';
 
 class DependentEdit extends React.Component
 {
@@ -57,7 +58,7 @@ class DependentEdit extends React.Component
         if(this.state.loading)
         {
             return(
-                <div />
+                <Loading />
             );
         }
         return(

@@ -43,6 +43,32 @@ code {
   margin-bottom:30px;
 }
 
+.campaign-image.no-image
+{
+  height:400px;
+  position: relative;
+  background:#ddd;
+}
+
+.campaign-image.no-image img
+{
+  display: none;
+}
+
+.campaign-image.no-image::after
+{
+  content:'No Image Available';
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+  -webkit-transform:translateX(-50%) translateY(-50%);
+  -moz-transform:translateX(-50%) translateY(-50%);
+  -ms-transform:translateX(-50%) translateY(-50%);
+  color:#fff;
+  font-size:1.2rem;
+}
+
 .img-responsive
 {
   max-width:100%;
@@ -86,14 +112,38 @@ code {
 }
 .user-dp-circle
 {
-  width:64px;
-  height:64px;
+  position:relative;
+  width:96px;
+  height:96px;
   margin-right:15px;
   background-size:cover;
   background-position: center;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+}
+
+.user-no-img
+{
+  position: relative;
+  width:96px;
+  height:96px;
+  margin-right:15px;
+  background:#ddd;
+}
+
+.user-no-img::after
+{
+  position: absolute;
+  content:'No Image Found';
+  color:#fff;
+  font-size:1rem;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+  -webkit-transform:translateX(-50%) translateY(-50%);
+  -moz-transform:translateX(-50%) translateY(-50%);
+  -ms-transform:translateX(-50%) translateY(-50%);
 }
 
 .media-body
@@ -361,7 +411,8 @@ select.form-control
   border-bottom-right-radius: 0px;
 }
 
-.campaign-image-link-wrap
+.campaign-image-link-wrap,
+.volunteer-image-link-wrap
 {
   position: absolute;
   top: 0px;
@@ -505,3 +556,144 @@ button.donate-btn
   margin-bottom:15px;
   border-bottom:1px solid #ddd;
 }
+
+.skeleton-container .media-body
+{
+  padding-left:15px;
+  padding-right:15px;
+}
+
+.skeleton-img
+{
+  width:96px;
+  height:96px;
+  background:#ddd;
+}
+
+.skeleton-title
+{
+  padding-top:10px;
+  padding-bottom:10px;
+  width:55%;
+  background: #ddd;
+  margin-bottom: 20px;
+}
+
+.skeleton-row
+{
+  padding-top:8px;
+  padding-bottom:8px;
+  background:#ddd;
+  margin-bottom:5px;
+}
+
+.skeleton-row:last-child
+{
+  width:70px;
+  margin-top: 15px;
+}
+
+.skeleton-img,
+.skeleton-title,
+.skeleton-row
+{
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-img::after,
+.skeleton-title::after,
+.skeleton-row::after
+{
+  content:'';
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  background-image:linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 20%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0));
+  transform:translateX(-100%);
+  -webkit-transform:translateX(-100%);
+  -moz-transform:translateX(-100%);
+  -ms-transform:translateX(-100%);
+  animation:skeletonShimmy 2s infinite;
+}
+
+@keyframes skeletonShimmy {
+
+  100% {
+    transform:translateX(100%);
+    -webkit-transform:translateX(100%);
+    -moz-transform:translateX(100%);
+    -ms-transform:translateX(100%);
+  }
+
+}
+
+.user-profile .user-image
+{
+  width:96px;
+  height:96px;
+}
+
+.user-profile .user-image.image-present
+{
+  background-size:cover;
+  background-position: center;
+}
+
+.user-profile .user-image:not(.image-present)
+{
+  position: relative;
+  background:#ddd;
+}
+
+.user-profile .user-image:not(.image-present)::after
+{
+  position: absolute;
+  content:'No Image Found';
+  color:#fff;
+  font-size:1rem;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+  -webkit-transform:translateX(-50%) translateY(-50%);
+  -moz-transform:translateX(-50%) translateY(-50%);
+  -ms-transform:translateX(-50%) translateY(-50%);
+}
+
+.user-profile .media-body
+{
+  padding-left:15px;
+  padding-right:15px;
+}
+
+.user-profile .user-name-container span
+{
+  display: inline-block;
+}
+
+.user-profile .user-name-container span:last-child
+{
+  padding-left:15px;
+}
+
+.user-profile .user-name-container
+{
+  margin-bottom:20px;
+}
+
+.user-about-me p
+{
+  margin-bottom:10px;
+}
+
+.user-edit-title
+{
+  padding-bottom:15px;
+  margin-bottom:15px;
+  border-bottom:1px solid #ddd;
+}
+
+
+
