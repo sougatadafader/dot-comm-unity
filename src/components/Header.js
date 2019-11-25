@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import DropdownSimple from './DropdownSimple'
-import {Button, Menu, Input, Dropdown} from 'semantic-ui-react'
+import {Button, Menu, Input,Popup, Dropdown} from 'semantic-ui-react'
 import UserService from "../services/UserService";
 import SearchComponent from './SearchComponent'
 class Header extends React.Component{
@@ -44,6 +44,13 @@ class Header extends React.Component{
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             {/*<DropdownSimple/>*/}
+                        </li>
+                        <li>
+                            <Popup content='Create a campaign' trigger={<i className=" icons">
+                                <i aria-hidden="true" className="circle notch big loading green icon"></i>
+                                <i aria-hidden="true" className="file  icon"></i>
+                            </i>} />
+
                         </li>
                         <li className="ml-3 mr-4 p-1 nav-item">
                             {username?
