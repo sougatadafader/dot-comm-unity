@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import DropdownSimple from './DropdownSimple'
 import {Button, Menu, Input,Popup, Dropdown} from 'semantic-ui-react'
 import UserService from "../services/UserService";
@@ -8,7 +8,7 @@ class Header extends React.Component{
 
     constructor(props) {
         super(props)
-
+        this.createCampaign = this.createCampaign.bind(this);
         this.state = {
             sessionUser:{}
         }
@@ -32,6 +32,11 @@ class Header extends React.Component{
                 window.location.reload()
             })
         })
+    createCampaign=()=>{
+        let path = `/campaign/create`;
+        this.props.history.push(path);
+    }
+
     render(){
         let username = this.state.sessionUser.username;
         let role = this.state.sessionUser.userRole;
@@ -46,10 +51,12 @@ class Header extends React.Component{
                             {/*<DropdownSimple/>*/}
                         </li>
                         <li>
-                            <Popup content='Create a campaign' trigger={<i className=" icons">
-                                <i aria-hidden="true" className="circle notch big loading green icon"></i>
-                                <i aria-hidden="true" className="file  icon"></i>
-                            </i>} />
+                            {username?
+                            <Popup content='Create a campaign'
+                                   trigger={<button className="ui circular icon button"
+                                            onClick={this.createCampaign}
+                                   >
+                                <i aria-hidden="true" className="plus green  icon"></i></button>}/>:null}
 
                         </li>
                         <li className="ml-3 mr-4 p-1 nav-item">
@@ -78,4 +85,4 @@ class Header extends React.Component{
     }
 }
 
-export default Header;
+export default withRouter(Header);
