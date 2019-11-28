@@ -7,6 +7,11 @@ const SingleDonation = ({donation}) => {
     let createdDate = createdArr[0];
     let createdDateArr = createdDate.split('-');
     let dateShow = createdDateArr[2]+' '+months[createdDateArr[1]-1]+' '+createdDateArr[0];
+    let comment = donation.comment;
+    if( comment == null || comment == '' )
+    {
+        comment = "No Comment To Show";
+    }
     return(
         <div className="donation-panel panel-ui">
             <div className="donation-panel-header panel-ui-header">
@@ -19,7 +24,7 @@ const SingleDonation = ({donation}) => {
                     </div>
                 </div>
             </div>
-            <div className="donation-panel-comment panel-ui-body"><strong>{donation.comment}</strong></div>
+            <div className="donation-panel-comment panel-ui-body"><strong>{comment}</strong></div>
         </div>
         
     );

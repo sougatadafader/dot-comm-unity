@@ -23,7 +23,10 @@ const Donate = ({user,val,quickDonateClick,donateAmountChanged,submitDonation}) 
                     <DonateButton amount="100" quickDonateClick={(evt) => quickDonateClick(evt)} />
                 </div>
                 <div className="col-lg-12 donate-button-container">
-                    <DonateTextBox val={val} donateAmountChanged={(evt) => donateAmountChanged(evt)} />
+                    <DonateTextBox inputType="number" val={val.value} inputName="value" placeholder="" donateAmountChanged={(evt) => donateAmountChanged(evt)} />
+                </div>
+                <div className="col-lg-12 donate-button-container">
+                    <DonateTextBox inputType="text" val={val.comment} inputName="comment" placeholder="Add A Comment" donateAmountChanged={(evt) => donateAmountChanged(evt)} />
                 </div>
                 <div className="col-lg-12 donate-btn-container">
                     <button className="donate-btn">Donate Now</button>

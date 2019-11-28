@@ -21,7 +21,10 @@ class CampaignSingle extends React.Component
         this.state = {
             loading:true,
             campaign:{},
-            donateAmount:0,
+            donate:{
+                value:0,
+                comment:''
+            },
             creator:{},
             dpUrl:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
             comments:[
@@ -94,25 +97,29 @@ class CampaignSingle extends React.Component
         //console.log('Clicked');
         let target = evt.target;
         let value = target.getAttribute('data-amount');
+        let donate = this.state.donate;
+        donate.value = value;
         this.setState({
-            donateAmount:value
+            donate:donate
         });
-        document.querySelector('.donate-input').value = value;
+        document.querySelector('.donate-input[name="value"]').value = value;
     }
 
     donateAmountChanged(evt)
     {
         let target = evt.target;
-        let amount = target.value;
+        let value = target.value;
+        let donate = this.state.donate;
+        donate[target] = value;
         this.setState({
-            donateAmount:amount
+            donate:donate
         });
     }
 
     submitDonation(evt)
     {
         evt.preventDefault();
-        console.log(this.state.donateAmount);
+        console.log("The Donate State = ",this.state.donate);
     }
 
     submitComment = (event) => {
@@ -190,7 +197,7 @@ class CampaignSingle extends React.Component
                             <div className="donation-progress-card card-ui">
                                 <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
                                 <DonationProgress progress="50%" />
-                                <Donate user={this.state.sessionUser} val={this.state.donateAmount} quickDonateClick={this.quickDonateClick} donateAmountChanged={this.donateAmountChanged} submitDonation={this.submitDonation} />
+                                <Donate user={this.state.sessionUser} val={this.state.donate} quickDonateClick={this.quickDonateClick} donateAmountChanged={this.donateAmountChanged} submitDonation={this.submitDonation} />
                             </div>
                             
                             {this.showDonations()}
