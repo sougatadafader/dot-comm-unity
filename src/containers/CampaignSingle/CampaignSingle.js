@@ -42,32 +42,7 @@ class CampaignSingle extends React.Component
                 },
                 
             ],
-            donations:[
-                {
-                    user:'Sougata Dafader',
-                    userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-                    amount:'1000',
-                    date:'2 Nov 2019'
-                },
-                {
-                    user:'Sougata Dafader',
-                    userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-                    amount:'4000',
-                    date:'2 Nov 2019'
-                },
-                {
-                    user:'Sougata Dafader',
-                    userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-                    amount:'4000',
-                    date:'2 Nov 2019'
-                },
-                {
-                    user:'Sougata Dafader',
-                    userImg:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-                    amount:'1000',
-                    date:'2 Nov 2019'
-                }
-            ]
+            donations:[]
         };
         this.quickDonateClick = this.quickDonateClick.bind(this);
         this.donateAmountChanged = this.donateAmountChanged.bind(this);
@@ -91,6 +66,18 @@ class CampaignSingle extends React.Component
             let urlEnd = 'api/user/'+creator;
             let creatorInfo = await RequestService.getRequest(urlEnd);
             console.log(creatorInfo);
+            let allUserUrl = 'api/users';
+            let allUsers = await RequestService.getRequest(allUserUrl);
+            let donations = this.state.campaign.donations;
+            for( let i=0;i<donations.length;i++ )
+            {
+                let userNumber = donations[i].userNumber;
+                let donationUser = allUsers.filter(function(user){
+                    return user.id === userNumber;
+                });
+                donations[i]["donationUser"] = donationUser;
+            }
+            console.log(donations);
             this.setState({
                 sessionUser:user,
                 loading:false,
@@ -152,7 +139,8 @@ class CampaignSingle extends React.Component
             );
         }
         return(
-            <DonationList donations={this.state.donations} />
+            //<DonationList donations={this.state.campaign.donations} />
+            <NoItem title="All Donations" text="No Donations On This Campaign Yet" />
         );
     }
 
