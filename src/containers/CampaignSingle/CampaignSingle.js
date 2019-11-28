@@ -9,6 +9,7 @@ import RequestService from '../../services/RequestService';
 import UserService from '../../services/UserService';
 import DependentProfileItem from '../../components/DependentProfileItem';
 import Donate from '../../components/Donate';
+import DonationList from '../../components/DonationList';
 import Loading from '../../components/Loading';
 
 class CampaignSingle extends React.Component
@@ -189,6 +190,9 @@ class CampaignSingle extends React.Component
                                 <DonationProgress progress="50%" />
                                 <Donate user={this.state.sessionUser} val={this.state.donateAmount} quickDonateClick={this.quickDonateClick} donateAmountChanged={this.donateAmountChanged} submitDonation={this.submitDonation} />
                             </div>
+                            
+                            <DonationList donations={this.state.donations} />
+
                             <div className="donation-list-card card-ui">
                                 <h3 className="donation-list-title">All Donations</h3>
                                 <div className="donation-list-container">
