@@ -75,7 +75,7 @@ class CampaignSingle extends React.Component
                 let donationUser = allUsers.filter(function(user){
                     return user.id === userNumber;
                 });
-                donations[i]["donationUser"] = donationUser;
+                donations[i]["donationUser"] = donationUser[0];
             }
             console.log(donations);
             this.setState({
