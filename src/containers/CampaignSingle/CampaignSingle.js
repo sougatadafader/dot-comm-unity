@@ -84,12 +84,16 @@ class CampaignSingle extends React.Component
             }
             console.log(donations);
             campaign.donations = donations;
+            let likeUrl = 'api/campaigns/'+campaignId+'/likes/count/';
+            let likesCount = await RequestService.getRequest(likeUrl);
+            console.log('Likes Count = ',likesCount);
             this.setState({
                 sessionUser:user,
                 loading:false,
                 campaign:campaign,
                 creator:creatorInfo,
-                allUsers:allUsers
+                allUsers:allUsers,
+                likesCount:likesCount
             });
         }
     }
@@ -138,16 +142,13 @@ class CampaignSingle extends React.Component
         }
         let campaign = this.state.campaign;
         campaign.donations = donations;
-        let likeUrl = 'api/campaigns/'+campaignId+'/likes/count/';
-        let likesCount = await RequestService.getRequest(likeUrl);
-        console.log('Likes Count = ',likesCount);
+        
         this.setState({
             campaign:campaign,
             donate:{
                 value:0,
                 comment:''
-            },
-            likesCount:likesCount
+            }
         });
     }
 
