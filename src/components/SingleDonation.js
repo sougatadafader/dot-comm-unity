@@ -13,7 +13,7 @@ const SingleDonation = ({donation}) => {
                 <div className="media">
                     <div className="user-dp-circle half-size-dp" style={{backgroundImage:`url(${donation.donationUser.imageUrl})`}}></div>
                     <div className="media-body">
-                        <h5>{donation.user}</h5>
+                        <h5>{donation.donationUser.firstName} {donation.donationUser.lastName}</h5>
                         <span className="donation-detail donation-amount">{donation.value}$</span>
                         <span className="donation-detail donation-date">{dateShow}</span>
                     </div>
