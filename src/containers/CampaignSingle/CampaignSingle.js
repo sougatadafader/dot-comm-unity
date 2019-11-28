@@ -209,7 +209,7 @@ class CampaignSingle extends React.Component
                 <div className="container space--top">
                     <div className="row">
                         <div className="col-lg-8">
-                            <CampaignCard campaign={this.state.campaign} likes={this.state.likesCount}/>
+                            <CampaignCard campaign={this.state.campaign} likes={this.state.likesCount} triggerLike={this.triggerLike}/>
 
                             <VolunteerCard creator={this.state.creator} />
                             
