@@ -119,11 +119,21 @@ code {
   padding:5px;
   background:#000;
   border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 1 !important;
+  text-align: center;
 }
 
 .social-button i.fa
 {
+  position: relative;
   color:#fff;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
 }
 
 .like-button:hover
