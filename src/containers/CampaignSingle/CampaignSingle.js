@@ -52,6 +52,7 @@ class CampaignSingle extends React.Component
         this.quickDonateClick = this.quickDonateClick.bind(this);
         this.donateAmountChanged = this.donateAmountChanged.bind(this);
         this.submitDonation = this.submitDonation.bind(this);
+        this.triggerLike = this.triggerLike.bind(this);
     }
 
     componentDidMount()
@@ -181,8 +182,9 @@ class CampaignSingle extends React.Component
         );
     }
 
-    async triggerLike()
+    async triggerLike(evt)
     {
+        evt.preventDefault();
         let campaignId = this.props.match.params.campaignId;
         let sessionUser = this.state.sessionUser;
         if(Object.keys(sessionUser).length > 0)

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CampaignCard = ({campaign,likes}) => {
+const CampaignCard = ({campaign,likes,triggerLike}) => {
     let created = campaign.created;
     let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     let createdArr = created.split('T');
@@ -24,7 +24,7 @@ const CampaignCard = ({campaign,likes}) => {
                     <div className="campaign-social">
                         <span className="social-button-container">
                             <span className="like-count">{likes}</span>
-                            <a href="#" className="like-button social-button"><i className="fa fa-heart"></i></a>
+                            <a href="#" className="like-button social-button" onClick={(evt) => triggerLike(evt)}><i className="fa fa-heart"></i></a>
                         </span>
                         <span className="social-button-container">
                             <a href="#" className="facebook-button social-button"><i className="fa fa-facebook"></i></a>
