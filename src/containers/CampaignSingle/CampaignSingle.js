@@ -68,7 +68,7 @@ class CampaignSingle extends React.Component
             console.log(creatorInfo);
             let allUserUrl = 'api/users';
             let allUsers = await RequestService.getRequest(allUserUrl);
-            let donations = this.state.campaign.donations;
+            let donations = campaign.donations;
             for( let i=0;i<donations.length;i++ )
             {
                 let userNumber = donations[i].userNumber;
