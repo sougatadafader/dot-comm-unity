@@ -181,6 +181,18 @@ class CampaignSingle extends React.Component
         );
     }
 
+    async triggerLike()
+    {
+        let campaignId = this.props.match.params.campaignId;
+        let sessionUser = this.state.sessionUser;
+        if(Object.keys(sessionUser).length > 0)
+        {
+            let postLikeUrl = 'api/campaign/'+campaignId+'/user/'+sessionUser.id;
+            let postLike = await RequestService.postRequest(postLikeUrl,{});
+            console.log('Post Like = ',postLike);
+        }
+    }
+
     render()
     {
         if(this.state.loading)
