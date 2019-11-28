@@ -117,10 +117,14 @@ class CampaignSingle extends React.Component
         });
     }
 
-    submitDonation(evt)
+    async submitDonation(evt)
     {
         evt.preventDefault();
+        let campaignId = this.props.match.params.campaignId;
         console.log("The Donate State = ",this.state.donate);
+        let donateUrl = 'api/campaign/'+campaignId+'/donate';
+        let donation = await RequestService.postRequest(donateUrl,this.state.donate);
+        console.log('After Post Donation = ',donation);
     }
 
     submitComment = (event) => {
