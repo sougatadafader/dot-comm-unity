@@ -2,7 +2,7 @@ import React from 'react';
 
 const SingleDonation = ({donation}) => {
     let created = donation.created;
-    let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     let createdArr = created.split('T');
     let createdDate = createdArr[0];
     let createdDateArr = createdDate.split('-');

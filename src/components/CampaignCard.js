@@ -21,6 +21,18 @@ const CampaignCard = ({campaign}) => {
                 </div>
                 <div className="campaign-meta">
                     <p>Created {dateShow}</p>
+                    <div className="campaign-social">
+                        <span className="social-button-container">
+                            <span className="like-count">10</span>
+                            <a href="#" className="like-button social-button"><i className="fa fa-heart"></i></a>
+                        </span>
+                        <span className="social-button-container">
+                            <a href="#" className="facebook-button social-button"><i className="fa fa-facebook"></i></a>
+                        </span>
+                        <span className="social-button-container">
+                            <a href="#" className="twitter-button social-button"><i className="fa fa-twitter"></i></a>
+                        </span>
+                    </div>
                 </div>
                 <div className="campaign-description">
                     <p>{campaign.text}</p>
