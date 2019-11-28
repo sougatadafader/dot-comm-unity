@@ -26,6 +26,7 @@ class CampaignSingle extends React.Component
                 comment:''
             },
             creator:{},
+            allUsers:[],
             dpUrl:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
             comments:[
                 {
@@ -86,7 +87,8 @@ class CampaignSingle extends React.Component
                 sessionUser:user,
                 loading:false,
                 campaign:campaign,
-                creator:creatorInfo
+                creator:creatorInfo,
+                allUsers:allUsers
             });
         }
     }
@@ -123,8 +125,21 @@ class CampaignSingle extends React.Component
         let campaignId = this.props.match.params.campaignId;
         console.log("The Donate State = ",this.state.donate);
         let donateUrl = 'api/campaign/'+campaignId+'/donate';
-        let donation = await RequestService.postRequest(donateUrl,this.state.donate);
-        console.log('After Post Donation = ',donation);
+        let donations = await RequestService.postRequest(donateUrl,this.state.donate);
+        console.log('After Post Donation = ',donations);
+        for( let i=0;i<donations.length;i++ )
+        {
+            let userNumber = donations[i].userNumber;
+            let donationUser = this.state.allUsers.filter(function(user){
+                return user.id === userNumber;
+            });
+            donations[i]["donationUser"] = donationUser[0];
+        }
+        let campaign = this.state.campaign;
+        campaign.donations = donations;
+        this.setState({
+            campaign:campaign
+        });
     }
 
     submitComment = (event) => {

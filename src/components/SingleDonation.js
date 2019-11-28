@@ -12,6 +12,10 @@ const SingleDonation = ({donation}) => {
     {
         comment = "No Comment To Show";
     }
+    if(donation.donationUser == null)
+    {
+        donation.donationUser = {};
+    }
     return(
         <div className="donation-panel panel-ui">
             <div className="donation-panel-header panel-ui-header">
