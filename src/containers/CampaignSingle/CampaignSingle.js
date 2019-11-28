@@ -207,7 +207,9 @@ class CampaignSingle extends React.Component
             });
             //console.log('Post Like = ',postLike);
             //console.log("Type Of Post Like",typeof postLike);
+            return;
         }
+        window.location.href= '/signin';
     }
 
     render()
