@@ -27,7 +27,7 @@ class CampaignSingle extends React.Component
             creator:{},
             allUsers:[],
             likesCount:0,
-            userLike:0,
+            userLike:false,
             dpUrl:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
             comments:[
                 {
@@ -96,6 +96,14 @@ class CampaignSingle extends React.Component
                 allUsers:allUsers,
                 likesCount:likesCount
             });
+            if(Object.keys(user).length > 0)
+            {
+                let userLikeUrl = 'api/campaign/'+campaignId+'/user/'+user.id;
+                let userLike = await RequestService.getRequest(userLikeUrl);
+                this.setState({
+                    userLike:userLike
+                });
+            }
         }
     }
 
@@ -194,10 +202,11 @@ class CampaignSingle extends React.Component
             let likeUrl = 'api/campaigns/'+campaignId+'/likes/count/';
             let likesCount = await RequestService.getRequest(likeUrl);
             this.setState({
-                likesCount:likesCount
+                likesCount:likesCount,
+                userLike:postLike
             });
-            console.log('Post Like = ',postLike);
-            console.log("Type Of Post Like",typeof postLike);
+            //console.log('Post Like = ',postLike);
+            //console.log("Type Of Post Like",typeof postLike);
         }
     }
 
@@ -215,7 +224,7 @@ class CampaignSingle extends React.Component
                 <div className="container space--top">
                     <div className="row">
                         <div className="col-lg-8">
-                            <CampaignCard campaign={this.state.campaign} likes={this.state.likesCount} triggerLike={this.triggerLike}/>
+                            <CampaignCard campaign={this.state.campaign} likes={this.state.likesCount} userLike={this.state.userLike} triggerLike={this.triggerLike}/>
 
                             <VolunteerCard creator={this.state.creator} />
                             

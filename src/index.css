@@ -136,9 +136,10 @@ code {
   -ms-transform: translateY(-50%);
 }
 
-.like-button:hover
+.like-button:hover,
+.like-button.isLiked
 {
-  background:red;
+  background:red !important;
 }
 
 .facebook-button:hover
