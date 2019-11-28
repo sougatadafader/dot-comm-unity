@@ -237,6 +237,24 @@ code {
   height:32px !important;
 }
 
+.panel-ui
+{
+  border-radius:4px;
+}
+
+.panel-ui-header
+{
+  padding:10px;
+  background:#00b8d4;
+}
+
+.panel-ui-header h5
+{
+  color:#333;
+}
+
+
+
 .donation-detail
 {
   display:inline-block;
@@ -253,11 +271,10 @@ code {
   color:#ddd;
 }
 
-.donation-list-container .media
+.panel-ui-body
 {
-  padding-bottom:15px;
-  margin-bottom: 35px;
-  border-bottom:1px solid #ddd;
+  padding:5px;
+  background:#00e5ff;
 }
 
 .dependent-list-title
