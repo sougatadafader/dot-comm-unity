@@ -140,6 +140,7 @@ class CampaignSingle extends React.Component
         campaign.donations = donations;
         let likeUrl = 'api/campaigns/'+campaignId+'/likes/count/';
         let likesCount = await RequestService.getRequest(likeUrl);
+        console.log('Likes Count = ',likesCount);
         this.setState({
             campaign:campaign,
             donate:{
