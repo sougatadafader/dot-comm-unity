@@ -138,7 +138,11 @@ class CampaignSingle extends React.Component
         let campaign = this.state.campaign;
         campaign.donations = donations;
         this.setState({
-            campaign:campaign
+            campaign:campaign,
+            donate:{
+                value:0,
+                comment:''
+            }
         });
     }
 
