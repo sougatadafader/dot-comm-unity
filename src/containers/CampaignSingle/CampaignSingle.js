@@ -4,7 +4,6 @@ import CampaignCard from '../../components/CampaignCard';
 import VolunteerCard from '../../components/VolunteerCard';
 import SingleComment from '../../components/SingleComment';
 import DonationProgress from '../../components/DonationProgress';
-import SingleDonation from '../../components/SingleDonation';
 import RequestService from '../../services/RequestService';
 import UserService from '../../services/UserService';
 import DependentProfileItem from '../../components/DependentProfileItem';
@@ -28,6 +27,7 @@ class CampaignSingle extends React.Component
             creator:{},
             allUsers:[],
             likesCount:0,
+            userLike:0,
             dpUrl:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
             comments:[
                 {
@@ -191,7 +191,13 @@ class CampaignSingle extends React.Component
         {
             let postLikeUrl = 'api/campaign/'+campaignId+'/user/'+sessionUser.id;
             let postLike = await RequestService.postRequest(postLikeUrl,{});
+            let likeUrl = 'api/campaigns/'+campaignId+'/likes/count/';
+            let likesCount = await RequestService.getRequest(likeUrl);
+            this.setState({
+                likesCount:likesCount
+            });
             console.log('Post Like = ',postLike);
+            console.log("Type Of Post Like",typeof postLike);
         }
     }
 
