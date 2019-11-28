@@ -78,6 +78,7 @@ class CampaignSingle extends React.Component
                 donations[i]["donationUser"] = donationUser[0];
             }
             console.log(donations);
+            campaign.donations = donations;
             this.setState({
                 sessionUser:user,
                 loading:false,
@@ -139,8 +140,7 @@ class CampaignSingle extends React.Component
             );
         }
         return(
-            //<DonationList donations={this.state.campaign.donations} />
-            <NoItem title="All Donations" text="No Donations On This Campaign Yet" />
+            <DonationList donations={this.state.campaign.donations} />
         );
     }
 
