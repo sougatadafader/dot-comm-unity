@@ -143,7 +143,12 @@ code {
 
 .facebook-button:hover
 {
-  background: #1274c0;
+  background: #4267b2;
+}
+
+.twitter-button:hover
+{
+  background:#1da1f2;
 }
 
 

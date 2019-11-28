@@ -27,6 +27,7 @@ class CampaignSingle extends React.Component
             },
             creator:{},
             allUsers:[],
+            likesCount:0,
             dpUrl:'https://images.unsplash.com/photo-1549989476-69a92fa57c36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
             comments:[
                 {
@@ -137,12 +138,15 @@ class CampaignSingle extends React.Component
         }
         let campaign = this.state.campaign;
         campaign.donations = donations;
+        let likeUrl = 'api/campaigns/'+campaignId+'/likes/count/';
+        let likesCount = await RequestService.getRequest(likeUrl);
         this.setState({
             campaign:campaign,
             donate:{
                 value:0,
                 comment:''
-            }
+            },
+            likesCount:likesCount
         });
     }
 
@@ -189,7 +193,7 @@ class CampaignSingle extends React.Component
                 <div className="container space--top">
                     <div className="row">
                         <div className="col-lg-8">
-                            <CampaignCard campaign={this.state.campaign}/>
+                            <CampaignCard campaign={this.state.campaign} likes={this.state.likesCount}/>
 
                             <VolunteerCard creator={this.state.creator} />
                             
