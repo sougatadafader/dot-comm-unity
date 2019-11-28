@@ -1,5 +1,6 @@
 import React from 'react';
 import LikeButton from './LikeButton';
+import SocialButton from './SocialButton';
 const CampaignCard = ({campaign,likes,userLike,triggerLike}) => {
     let created = campaign.created;
     let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -23,12 +24,8 @@ const CampaignCard = ({campaign,likes,userLike,triggerLike}) => {
                     <p>Created {dateShow}</p>
                     <div className="campaign-social">
                         <LikeButton likesCount={likes} userLike={userLike} triggerLike={(evt) => triggerLike(evt)} />
-                        <span className="social-button-container">
-                            <a href="#" className="facebook-button social-button"><i className="fa fa-facebook"></i></a>
-                        </span>
-                        <span className="social-button-container">
-                            <a href="#" className="twitter-button social-button"><i className="fa fa-twitter"></i></a>
-                        </span>
+                        <SocialButton platform="facebook" url="#" />
+                        <SocialButton platform="twitter" url="#" />
                     </div>
                 </div>
                 <div className="campaign-description">
