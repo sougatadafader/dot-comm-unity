@@ -13,9 +13,7 @@ const SingleDonation = ({donation}) => {
                     </div>
                 </div>
             </div>
-            <div className="donation-panel-comment panel-ui-body">
-
-            </div>
+            <div className="donation-panel-comment panel-ui-body"><strong>No Comment To Show</strong></div>
         </div>
         
     );
