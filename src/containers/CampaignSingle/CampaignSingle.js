@@ -133,7 +133,7 @@ class CampaignSingle extends React.Component
 
     showDonations()
     {
-        if(this.state.donations.length == 0)
+        if(this.state.campaign.donations.length == 0)
         {
             return(
                 <NoItem title="All Donations" text="No Donations On This Campaign Yet" />
