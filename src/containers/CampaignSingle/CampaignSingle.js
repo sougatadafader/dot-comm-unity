@@ -109,8 +109,9 @@ class CampaignSingle extends React.Component
     {
         let target = evt.target;
         let value = target.value;
+        let name = target.name;
         let donate = this.state.donate;
-        donate[target] = value;
+        donate[name] = value;
         this.setState({
             donate:donate
         });
