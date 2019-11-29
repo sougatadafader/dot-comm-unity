@@ -66,7 +66,7 @@ class CampaignEdit extends React.Component
             for(let i=0;i<dependents.length;i++)
             {
                 let enabled = dependents[i].enabled;
-                if(!enabled)
+                if(!enabled && dependents[i].id != campaign.dependent.id)
                 {
                     continue;
                 }
@@ -82,6 +82,7 @@ class CampaignEdit extends React.Component
                 loading:false,
                 sessionUser:user,
                 selectedCampaign:selectedCampaign,
+                depId:campaign.dependent.id,
                 dependents:dependents,
                 dependentOptions:options,
                 dependentOptionsLoading:false
