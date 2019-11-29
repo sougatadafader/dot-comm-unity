@@ -136,10 +136,10 @@ class CampaignEdit extends React.Component
                     <div className="row">
                         <div className="col-lg-8">
                             <div className="campaign-create-card card-ui">
-                                <h3 className="campaign-create-title">Create A Campaign</h3>
+                                <h3 className="campaign-create-title">Edit Campaign</h3>
                                 <form onSubmit={this.editCampaign} id="edit-campaign-form">
                                     <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Dependent</label>
+                                        <label className="col-lg-2 col-form-label dependent-label"><span>Dependent</span></label>
                                         <div className="col-lg-10">
                                             <DependentProfileItem dependent={this.state.dependent} />
                                         </div>
