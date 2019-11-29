@@ -25,7 +25,7 @@ export default class extends Component {
 
     async loadData()
     {
-        let urlEnd = 'api/campaigns';
+        let urlEnd = 'api/campaign/top/10';
         let campaigns = await RequestService.getRequest(urlEnd);
         this.setState({
             loading:false,
