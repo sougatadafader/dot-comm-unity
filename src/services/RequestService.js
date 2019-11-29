@@ -8,7 +8,11 @@ export default class RequestService
         let resp = await fetch(url,{
             credentials:'include'
         });
-        let json = await resp.json();
+        let json = [];
+        if(resp != null)
+        {
+            json = await resp.json();
+        }
         return json;
     }
     

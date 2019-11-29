@@ -16,7 +16,11 @@ const source = _.times(5, () => ({
 export default class SearchComponent extends Component {
     state = initialState
 
-    handleResultSelect = (e, { result }) => this.setState({ value: result.title })
+    handleResultSelect = (e, { result }) => {
+        this.setState({ value: result.title });
+        let url = '/campaign/'+result.id+'/view';
+        window.location.href = url;
+    }
 
     handleSearchChange = (e, { value }) => {
         this.setState({ isLoading: true, value })
@@ -43,11 +47,17 @@ export default class SearchComponent extends Component {
         for(let i=0;i<searchResults.length;i++)
         {
             let searchResult = searchResults[i];
+            let id = searchResult.id;
             let title = searchResult.header;
             let description = searchResult.text;
+            if(description.length > 20)
+            {
+                description = description.substring(0,20);
+            }
             let image = searchResult.imageUrl;
             let price = searchResult.targetValue;
             let obj = {
+                id:id,
                 title:title,
                 description:description,
                 image:image,
