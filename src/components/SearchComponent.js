@@ -22,7 +22,7 @@ export default class SearchComponent extends Component {
         this.setState({ isLoading: true, value })
 
         setTimeout(() => {
-            if (this.state.value.length < 1) return this.setState(initialState)
+            if (this.state.value.length < 4) return this.setState(initialState)
             this.getSearchResults();
             const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
             const isMatch = (result) => re.test(result.title)
