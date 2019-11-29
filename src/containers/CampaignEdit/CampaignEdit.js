@@ -28,6 +28,7 @@ class CampaignEdit extends React.Component
         };
         this.editCampaign = this.editCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
+        this.findCampaign = this.findCampaign.bind(this);
     }
 
     componentDidMount()
