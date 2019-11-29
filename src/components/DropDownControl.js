@@ -38,6 +38,7 @@ const DropDownControl = ({name,title,val,values,imageUrl,addMoreValues,refreshLi
                             )
                         }
                     </select>
+                    <span className="img-avatar dropdown-side" style={{backgroundImage:`url(${img})`}}></span>
                     <span className="add-list dropdown-side"><a href={addMoreValues} target="_blank" title={addTitle}><i className="fa fa-plus"></i></a></span>
                     <span className="refresh-list dropdown-side"><a href="#" onClick={(evt) => refreshList(evt)} title="Refresh List"><i className="fa fa-refresh"></i></a></span>
                 </div>
@@ -51,6 +52,7 @@ const DropDownControl = ({name,title,val,values,imageUrl,addMoreValues,refreshLi
                 <select className="form-control" defaultValue={val} name={name} onChange={(evt) => dropdownChanged(evt)} required>
                     <option value="">No {title} found</option>
                 </select>
+                <span className="img-avatar dropdown-side" style={{backgroundImage:`url(${img})`}}></span>
                 <span className="add-list dropdown-side"><a href={addMoreValues} target="_blank" title={addTitle}><i className="fa fa-plus"></i></a></span>
                 <span className="refresh-list dropdown-side"><a href="#" onClick={(evt) => refreshList(evt)} title="Refresh List"><i className="fa fa-refresh"></i></a></span>
             </div>
