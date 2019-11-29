@@ -5,6 +5,7 @@ import DropDownControl from '../../components/DropDownControl';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import CampaignGrid from '../../components/CampaignGrid';
+import NoItem from '../../components/NoItem';
 import DependentProfileList from '../../components/DependentProfileList';
 import Loading from '../../components/Loading';
 
@@ -146,6 +147,19 @@ class CampaignCreate extends React.Component
         });
     }
 
+    showCampaigns()
+    {
+        if(this.state.sessionUser.campaigns.length > 0)
+        {
+            return(
+                <CampaignGrid campaigns={this.state.sessionUser.campaigns} user={this.state.sessionUser} />
+            );
+        }
+        return(
+            <NoItem title="List of Campaigns" text="No Campaigns To Show. Create one now" />
+        );
+    }
+
     render()
     {
         if(this.state.loading)
@@ -208,7 +222,7 @@ class CampaignCreate extends React.Component
                                     <button type="submit" className="btn btn-primary">Create</button>
                                 </form>
                             </div>
-                            <CampaignGrid campaigns={this.state.sessionUser.campaigns} user={this.state.sessionUser} />
+                            {this.showCampaigns()}
                         </div>
                         <div className="col-lg-4">
                             <DependentProfileList dependents={this.state.dependents} />
