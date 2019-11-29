@@ -1,5 +1,6 @@
 import React from 'react';
 import Loading from '../../components/Loading';
+import Header from '../../components/Header';
 import InputControl from '../../components/InputControl';
 import DropDownControl from '../../components/DropDownControl';
 import CampaignGrid from '../../components/CampaignGrid';
@@ -82,7 +83,7 @@ class CampaignEdit extends React.Component
                 sessionUser:user,
                 selectedCampaign:selectedCampaign,
                 dependents:dependents,
-                dependentOptions:dependentOptions,
+                dependentOptions:options,
                 dependentOptionsLoading:false
             });
             return;
