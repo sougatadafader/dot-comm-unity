@@ -11,7 +11,7 @@ const Donate = ({user,val,quickDonateClick,donateAmountChanged,submitDonation}) 
         );
     }
     return(
-        <form className="donation-form" onSubmit={(evt) => submitDonation(evt)}>
+        <form className="donation-form" id="donation-form" onSubmit={(evt) => submitDonation(evt)}>
             <div className="row">
                 <div className="col-lg-4 donate-button-container">
                     <DonateButton amount="30" quickDonateClick={(evt) => quickDonateClick(evt)} />

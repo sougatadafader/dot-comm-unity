@@ -159,6 +159,7 @@ class CampaignSingle extends React.Component
                 comment:''
             }
         });
+        document.getElementById('donation-form').reset();
     }
 
     submitComment = (event) => {
