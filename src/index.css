@@ -369,7 +369,8 @@ code {
   margin-bottom:0px;
 }
 
-.dependent-grid-edit
+.dependent-grid-edit,
+.campaign-grid-edit
 {
   position: absolute;
   display: none;
@@ -493,6 +494,7 @@ select.form-control
   padding:0px;
   background:#fff;
   border-radius:4px;
+  position: relative;
 }
 
 .campaign-grid-image

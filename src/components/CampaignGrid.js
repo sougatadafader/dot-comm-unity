@@ -1,7 +1,7 @@
 import React from 'react';
 import CampaignGridSingle from './CampaignGridSingle';
 
-const CampaignGrid = ({campaigns}) => {
+const CampaignGrid = ({campaigns,user}) => {
     return(
         <div className="campaign-list-container">
             <h3 className="campaign-list-title">List Of Campaigns</h3>
@@ -9,7 +9,7 @@ const CampaignGrid = ({campaigns}) => {
                 <div className="row">
                     {
                         campaigns.map((campaign,index) =>
-                            (<CampaignGridSingle key={index} campaign={campaign} />)
+                            (<CampaignGridSingle key={index} campaign={campaign} user={user} />)
                         )
                     }
                 </div>

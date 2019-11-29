@@ -208,7 +208,7 @@ class CampaignCreate extends React.Component
                                     <button type="submit" className="btn btn-primary">Create</button>
                                 </form>
                             </div>
-                            <CampaignGrid campaigns={this.state.sessionUser.campaigns} />
+                            <CampaignGrid campaigns={this.state.sessionUser.campaigns} user={this.state.sessionUser} />
                         </div>
                         <div className="col-lg-4">
                             <DependentProfileList dependents={this.state.dependents} />
