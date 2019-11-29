@@ -127,7 +127,8 @@ class CampaignCreate extends React.Component
                 targetValue:0
             },
             sessionUser:user,
-            depId:''
+            depId:'',
+            depImageUrl:''
         });
         document.getElementById('create-campaign-form').reset();
     }
