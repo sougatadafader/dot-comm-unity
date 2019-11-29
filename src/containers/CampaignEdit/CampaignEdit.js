@@ -82,6 +82,10 @@ class CampaignEdit extends React.Component
         });
     }
 
+    findCampaign(campaign)
+    {
+        return campaign.id == this.props.match.params.campaignId;
+    }
 
     async editCampaign(evt)
     {
@@ -91,6 +95,15 @@ class CampaignEdit extends React.Component
         let editUrl = 'api/campaign/'+campaignId;
         let editedCampaign = await RequestService.putRequest(editUrl,this.state.selectedCampaign);
         console.log(editedCampaign);
+        let campaigns = this.state.sessionUser.campaigns;
+        let campaignIndex = campaigns.findIndex(this.findCampaign);
+        campaigns[campaignIndex] = editedCampaign;
+        console.log("New Campaign Array",campaigns);
+        let sessionUser = this.state.sessionUser;
+        sessionUser.campaigns = campaigns;
+        this.setState({
+            sessionUser:sessionUser
+        });
         /*console.log("Campaign",this.state.selectedCampaign);
         console.log("Dependent ID",this.state.depId);
         let url = 'api/dependent/'+this.state.depId+'/campaign';
@@ -181,7 +194,7 @@ class CampaignEdit extends React.Component
                                         val={this.state.selectedCampaign.targetValue}
                                         inputChanged={this.inputChanged}
                                     />
-                                    <button type="submit" className="btn btn-primary">Create</button>
+                                    <button type="submit" className="btn btn-primary">Edit</button>
                                 </form>
                             </div>
                             {this.showCampaigns()}
