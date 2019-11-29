@@ -489,6 +489,16 @@ select.form-control
   padding-bottom:30px;
 }
 
+.campaign-grid-single:hover .campaign-grid-edit
+{
+  display: block;
+}
+
+.campaign-grid-edit i.fa
+{
+  color:#fff;
+}
+
 .campaign-grid-inner
 {
   padding:0px;
