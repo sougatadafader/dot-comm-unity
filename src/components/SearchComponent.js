@@ -25,12 +25,12 @@ export default class SearchComponent extends Component {
             if (this.state.value.length < 1) return this.setState(initialState);
             if(this.state.value.length < 4) return;
             this.getSearchResults();
-            const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
+            /*const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
             const isMatch = (result) => re.test(result.title)
             this.setState({
                 isLoading: false,
                 results: _.filter(source, isMatch),
-            })
+            })*/
         }, 300)
     }
 
@@ -56,6 +56,10 @@ export default class SearchComponent extends Component {
             searchData.push(obj);
         }
         console.log('Search Data',searchData);
+        this.setState({
+            isLoading:false,
+            results:searchData
+        });
     }
 
     render() {
