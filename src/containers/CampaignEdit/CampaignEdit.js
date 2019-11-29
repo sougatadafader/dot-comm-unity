@@ -86,6 +86,11 @@ class CampaignEdit extends React.Component
     async editCampaign(evt)
     {
         evt.preventDefault();
+        console.log("Campaign",this.state.selectedCampaign);
+        let campaignId = this.props.match.params.campaignId;
+        let editUrl = 'api/campaign/'+campaignId;
+        let editedCampaign = await RequestService.putRequest(editUrl,this.state.selectedCampaign);
+        console.log(editedCampaign);
         /*console.log("Campaign",this.state.selectedCampaign);
         console.log("Dependent ID",this.state.depId);
         let url = 'api/dependent/'+this.state.depId+'/campaign';
