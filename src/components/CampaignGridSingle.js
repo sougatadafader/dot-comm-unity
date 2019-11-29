@@ -26,7 +26,7 @@ const CampaignGridSingle = ({campaign,user}) => {
                 </div>
                 <p className="campaign-grid-desc">{text}</p>
                 <DonationProgress progress="50%" />
-                <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
+                <h3 className="donation-progress">$10000 <span>raised of ${campaign.targetValue} target</span></h3>
             </div>
             
         </div>

@@ -454,10 +454,10 @@ code {
 
 select.form-control
 {
-  width:calc(100% - 60px);
-  width:-webkit-calc(100% - 60px);
-  width:-moz-calc(100% - 60px);
-  width:-ms-calc(100% - 60px);
+  width:calc(100% - 106px);
+  width:-webkit-calc(100% - 106px);
+  width:-moz-calc(100% - 106px);
+  width:-ms-calc(100% - 106px);
   display:inline-block;
 }
 
@@ -465,6 +465,16 @@ select.form-control
 {
   display:inline-block;
   padding:7px;
+}
+
+.img-avatar
+{
+  width:32px;
+  height:32px;
+  padding-top:0px;
+  padding-bottom:0px;
+  background-size:cover;
+  background-position: center;
 }
 
 .dropdown-side a

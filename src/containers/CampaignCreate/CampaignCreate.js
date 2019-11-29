@@ -23,6 +23,7 @@ class CampaignCreate extends React.Component
                 targetValue:0
             },
             depId:'',
+            depImageUrl:'',
             dependents:[],
             dependentOptions:[],
             dependentOptionsLoading:true,
@@ -92,8 +93,15 @@ class CampaignCreate extends React.Component
     {
         const value = evt.target.value;
         const name = evt.target.name;
+        let dependents = this.state.dependents;
+        let dependent = dependents.filter(function(dep){
+            return dep.id == value;
+        });
+        let imageUrl = dependent[0].imageUrl;
+        console.log('Image URL = ',imageUrl);
         this.setState({
-            [name]:value
+            [name]:value,
+            depImageUrl:imageUrl
         });
     }
 
@@ -180,8 +188,9 @@ class CampaignCreate extends React.Component
                                     <DropDownControl
                                         name="depId"
                                         title="Dependent"
-                                        val=""
+                                        val={this.state.depId}
                                         values={this.state.dependentOptions}
+                                        imageUrl={this.state.depImageUrl}
                                         addMoreValues="/dependent/create"
                                         refreshList={this.refreshList}
                                         loadingList={this.state.dependentOptionsLoading}

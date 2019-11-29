@@ -257,7 +257,7 @@ class CampaignSingle extends React.Component
                                 <DependentProfileItem dependent={this.state.campaign.dependent} />
                             </div>
                             <div className="donation-progress-card card-ui">
-                                <h3 className="donation-progress">$10000 <span>raised of $20000 target</span></h3>
+                                <h3 className="donation-progress">$10000 <span>raised of ${this.state.campaign.targetValue} target</span></h3>
                                 <DonationProgress progress="50%" />
                                 <Donate user={this.state.sessionUser} val={this.state.donate} quickDonateClick={this.quickDonateClick} donateAmountChanged={this.donateAmountChanged} submitDonation={this.submitDonation} />
                             </div>
