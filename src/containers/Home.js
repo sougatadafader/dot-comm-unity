@@ -3,7 +3,6 @@ import Header from '../components/Header'
 import WithScrollbar from "../components/CarouselWithoutScrollbar";
 import "../assets/style.css";
 import "../../node_modules/react-multi-carousel/lib/styles.css";
-import { Message } from 'semantic-ui-react';
 import RequestService from '../services/RequestService';
 import Loading from '../components/Loading';
 
