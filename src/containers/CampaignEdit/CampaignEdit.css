@@ -1,0 +1,10 @@
+.edit-campaign-form .dependent-profile-item .user-dp-circle
+{
+    width:32px !important;
+    height:32px !important;
+}
+
+.dependent-profile-item
+{
+    border-bottom:none !important;
+}

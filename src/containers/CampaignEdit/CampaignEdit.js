@@ -2,12 +2,13 @@ import React from 'react';
 import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import InputControl from '../../components/InputControl';
-import DropDownControl from '../../components/DropDownControl';
 import CampaignGrid from '../../components/CampaignGrid';
 import NoItem from '../../components/NoItem';
 import DependentProfileList from '../../components/DependentProfileList';
+import DependentProfileItem from '../../components/DependentProfileItem';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
+import './CampaignEdit.css';
 
 class CampaignEdit extends React.Component
 {
@@ -23,10 +24,7 @@ class CampaignEdit extends React.Component
                 imageUrl:'',
                 targetValue:0
             },
-            depId:'',
-            dependents:[],
-            dependentOptions:[],
-            dependentOptionsLoading:true
+            dependents:[]
         };
         this.editCampaign = this.editCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
@@ -62,30 +60,13 @@ class CampaignEdit extends React.Component
             let depUrlEnd = 'api/user/'+userId+'/dependents';
             let dependents = await RequestService.getRequest(depUrlEnd);
             console.log('Dependents = ',dependents);
-            let options = [];
-            for(let i=0;i<dependents.length;i++)
-            {
-                let enabled = dependents[i].enabled;
-                if(!enabled && dependents[i].id != campaign.dependent.id)
-                {
-                    continue;
-                }
-                let value = dependents[i].id;
-                let displayText = dependents[i].firstName+' '+dependents[i].lastName;
-                let obj ={
-                    value:value,
-                    displayText:displayText
-                };
-                options.push(obj);
-            }
+            
             this.setState({
                 loading:false,
                 sessionUser:user,
                 selectedCampaign:selectedCampaign,
-                depId:campaign.dependent.id,
                 dependents:dependents,
-                dependentOptions:options,
-                dependentOptionsLoading:false
+                dependent:campaign.dependent
             });
             return;
         }
@@ -135,32 +116,7 @@ class CampaignEdit extends React.Component
         document.getElementById('create-campaign-form').reset();*/
     }
 
-    async refreshList(evt)
-    {
-        evt.preventDefault();
-        this.setState({
-            dependentOptionsLoading:true
-        });
-        let user = this.state.sessionUser;
-        let userId = user.id;
-        let depUrlEnd = 'api/user/'+userId+'/dependents';
-        let dependents = await RequestService.getRequest(depUrlEnd);
-        let options = [];
-        for(let i=0;i<dependents.length;i++)
-        {
-            let value = dependents[i].id;
-            let displayText = dependents[i].firstName+' '+dependents[i].lastName;
-            let obj ={
-                value:value,
-                displayText:displayText
-            };
-            options.push(obj);
-        }
-        this.setState({
-            dependentOptions:options,
-            dependentOptionsLoading:false
-        });
-    }
+    
 
     showCampaigns()
     {
@@ -191,17 +147,8 @@ class CampaignEdit extends React.Component
                         <div className="col-lg-8">
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Create A Campaign</h3>
-                                <form onSubmit={this.editCampaign} id="create-campaign-form">
-                                    <DropDownControl
-                                        name="depId"
-                                        title="Dependent"
-                                        val={this.state.depId}
-                                        values={this.state.dependentOptions}
-                                        addMoreValues="/dependent/create"
-                                        refreshList={this.refreshList}
-                                        loadingList={this.state.dependentOptionsLoading}
-                                        dropdownChanged={this.dropdownChanged}
-                                    />
+                                <form onSubmit={this.editCampaign} id="edit-campaign-form">
+                                    <DependentProfileItem dependent={this.state.dependent} />
                                     <InputControl
                                         label="Title"
                                         type="text"
