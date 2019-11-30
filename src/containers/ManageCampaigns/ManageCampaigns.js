@@ -31,6 +31,7 @@ class ManageCampaigns extends React.Component
                 loading:false,
                 sessionUser:user
             });
+            return;
         }
         window.location.href='/';
     }
