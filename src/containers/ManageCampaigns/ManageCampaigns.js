@@ -24,7 +24,7 @@ class ManageCampaigns extends React.Component
 
     async loadData()
     {
-        let user = UserService.findUserInSession();
+        let user = await UserService.findUserInSession();
         if(Object.keys(user).length > 0)
         {
             this.setState({
