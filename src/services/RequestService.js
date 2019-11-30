@@ -47,7 +47,7 @@ export default class RequestService
     }
     static calculateDonation(campaign)
     {
-        campaign.donations = donations;
+        let donations = campaign.donations;
         let totalDonation = 0;
         for(let i=0;i<donations.length;i++)
         {
