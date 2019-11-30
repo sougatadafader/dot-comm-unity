@@ -11,6 +11,7 @@ import CampaignCreate from '../containers/CampaignCreate/CampaignCreate';
 import CampaignEdit from '../containers/CampaignEdit/CampaignEdit';
 import Loading from '../components/Loading';
 import UserProfile from '../containers/UserProfile/UserProfile';
+import ManageCampaigns from '../containers/ManageCampaigns/ManageCampaigns';
 
 class BigBrotherEntry extends React.Component {
 
@@ -41,6 +42,7 @@ class BigBrotherEntry extends React.Component {
                         <Route path="/campaign/:campaignId/view" render={props => <CampaignSingle {...props} />} />
                         <Route exact path="/dependent/create" component={DependentCreate} />
                         <Route exact path="/campaign/create" component={CampaignCreate} />
+                        <Route exact path="/campaigns/manage" component={ManageCampaigns} />
                         <Route path="/campaign/:campaignId/edit" render={props => <CampaignEdit {...props} />} />
                         <Route exact path="/loading" component={Loading} />
                         <Route path="/dependent/:depId/edit" render={props => <DependentEdit {...props} />} />
