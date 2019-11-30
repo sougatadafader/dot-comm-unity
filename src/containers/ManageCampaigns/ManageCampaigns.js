@@ -19,7 +19,7 @@ class ManageCampaigns extends React.Component
 
     componentDidMount()
     {
-
+        this.loadData();
     }
 
     async loadData()
