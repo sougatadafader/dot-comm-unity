@@ -49,12 +49,20 @@ export default class SearchComponent extends Component {
             let searchResult = searchResults[i];
             let id = searchResult.id;
             let title = searchResult.header;
+            if(title == null || title == '')
+            {
+                title = 'No Title';
+            }
             let description = searchResult.text;
             if(description.length > 20)
             {
                 description = description.substring(0,20);
             }
             let image = searchResult.imageUrl;
+            if(image == null || image == '')
+            {
+                image = 'https://i.imgur.com/Spvo1kl.jpg';
+            }
             let price = searchResult.targetValue;
             let obj = {
                 id:id,

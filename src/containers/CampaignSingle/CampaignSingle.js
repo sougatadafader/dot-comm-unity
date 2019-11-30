@@ -228,28 +228,7 @@ class CampaignSingle extends React.Component
                     <div className="row">
                         <div className="col-lg-8">
                             <CampaignCard campaign={this.state.campaign} likes={this.state.likesCount} userLike={this.state.userLike} triggerLike={this.triggerLike}/>
-
                             <VolunteerCard creator={this.state.creator} />
-                            
-                            <div className="comments-card card-ui">
-                                <h3 className="comment-title">Comments</h3>
-                                <div className="comment-list">
-                                    {
-                                        this.state.comments.map((comment,index)=>
-                                            (<SingleComment key={index} user={comment.user} userImg={comment.userImg} comment={comment.comment} />)
-                                        )
-                                    }
-                                    <div className="media single-comment comment-entry">
-                                        <div className="user-dp-circle" style={{backgroundImage:`url(${this.state.dpUrl})`}}></div>
-                                        <div className="media-body">
-                                            <form onSubmit={this.submitComment} id="comment-form">
-                                                <input type="text" id="comment-body" placeholder="Add your comment here..." />
-                                                <button type="submit"><img className="img-responsive" src="https://i.imgur.com/K1bBU9s.png" /></button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="dependent-profile-card card-ui">

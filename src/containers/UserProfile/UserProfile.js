@@ -7,6 +7,7 @@ import UserProfileCard from '../../components/UserProfileCard';
 import CampaignGrid from '../../components/CampaignGrid';
 import DependentProfileList from '../../components/DependentProfileList';
 import UserEditForm from '../../components/UserEditForm';
+import NoItem from '../../components/NoItem';
 class UserProfile extends React.Component
 {
     constructor(props)
@@ -88,6 +89,32 @@ class UserProfile extends React.Component
         });
     }
 
+    showCampaigns()
+    {
+        if(this.state.user.campaigns.length > 0)
+        {
+            return(
+                <CampaignGrid campaigns={this.state.user.campaigns} user={this.state.sessionUser} />
+            );
+        }
+        return(
+            <NoItem title="List of Campaigns" text="No Campaigns To Show. Create one now" />
+        );
+    }
+
+    showDependents()
+    {
+        if(this.state.dependents.length > 0)
+        {
+            return(
+                <DependentProfileList dependents={this.state.dependents} />
+            );
+        }
+        return(
+            <NoItem title="List of Dependents" text="No Dependents To Show. Create one now" />
+        );
+    }
+
     render()
     {
         if(this.state.loading)
@@ -103,10 +130,10 @@ class UserProfile extends React.Component
                     <div className="row">
                         <div className="col-lg-8">
                             {!this.state.isEdit?(<UserProfileCard user={this.state.user} sessionUser={this.state.sessionUser} editProfile={this.editProfile} />):(<UserEditForm user={this.state.editUser} inputChanged={this.inputChanged} submitEditProfile={this.submitEditProfile} />)}
-                            <CampaignGrid campaigns={this.state.user.campaigns} />
+                            {this.showCampaigns()}
                         </div>
                         <div className="col-lg-4">
-                            <DependentProfileList dependents={this.state.dependents} />
+                            {this.showDependents()}
                         </div>
                     </div>
                 </div>

@@ -16,8 +16,11 @@ const SingleDonation = ({donation}) => {
     {
         donation.donationUser = {};
     }
+    let userId = donation.donationUser.id;
+    let userUrl = '/user/'+userId+'/view';
     return(
         <div className="donation-panel panel-ui">
+            <a href={userUrl} className="donation-link-mask"></a>
             <div className="donation-panel-header panel-ui-header">
                 <div className="media">
                     <div className="user-dp-circle half-size-dp" style={{backgroundImage:`url(${donation.donationUser.imageUrl})`}}></div>
