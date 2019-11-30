@@ -45,4 +45,28 @@ export default class RequestService
         let json = await resp.json();
         return json;
     }
+    static calculateDonation(campaign)
+    {
+        campaign.donations = donations;
+        let totalDonation = 0;
+        for(let i=0;i<donations.length;i++)
+        {
+            let value = donations[i].value;
+            totalDonation += value;
+        }
+        let targetValue = parseInt(campaign.targetValue);
+        let percent = 100;
+        if(totalDonation < targetValue)
+        {
+            percent = (totalDonation/targetValue).toFixed(2);
+            percent = percent*100;
+        }
+        let percentText = percent+'%';
+        let obj = {
+            totalDonation:totalDonation,
+            percent:percent,
+            percentText:percentText
+        };
+        return obj;
+    }
 }

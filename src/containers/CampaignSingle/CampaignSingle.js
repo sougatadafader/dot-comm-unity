@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../../components/Header';
 import CampaignCard from '../../components/CampaignCard';
 import VolunteerCard from '../../components/VolunteerCard';
-import SingleComment from '../../components/SingleComment';
 import DonationProgress from '../../components/DonationProgress';
 import RequestService from '../../services/RequestService';
 import UserService from '../../services/UserService';
@@ -47,7 +46,9 @@ class CampaignSingle extends React.Component
                 },
                 
             ],
-            donations:[]
+            donations:[],
+            totalDonation:0,
+            percentText:'0%'
         };
         this.quickDonateClick = this.quickDonateClick.bind(this);
         this.donateAmountChanged = this.donateAmountChanged.bind(this);
@@ -85,6 +86,20 @@ class CampaignSingle extends React.Component
             }
             console.log(donations);
             campaign.donations = donations;
+            let totalDonation = 0;
+            for(let i=0;i<donations.length;i++)
+            {
+                let value = donations[i].value;
+                totalDonation += value;
+            }
+            let targetValue = parseInt(campaign.targetValue);
+            let percent = 100;
+            if(totalDonation < targetValue)
+            {
+                percent = (totalDonation/targetValue).toFixed(2);
+                percent = percent*100;
+            }
+            let percentText = percent+'%';
             let likeUrl = 'api/campaigns/'+campaignId+'/likes/count/';
             let likesCount = await RequestService.getRequest(likeUrl);
             console.log('Likes Count = ',likesCount);
@@ -94,7 +109,9 @@ class CampaignSingle extends React.Component
                 campaign:campaign,
                 creator:creatorInfo,
                 allUsers:allUsers,
-                likesCount:likesCount
+                likesCount:likesCount,
+                totalDonation:totalDonation,
+                percentText:percentText
             });
             if(Object.keys(user).length > 0)
             {
@@ -151,13 +168,15 @@ class CampaignSingle extends React.Component
         }
         let campaign = this.state.campaign;
         campaign.donations = donations;
-        
+        let donationObj = RequestService.calculateDonation(campaign);
         this.setState({
             campaign:campaign,
             donate:{
                 value:0,
                 comment:''
-            }
+            },
+            totalDonation:donationObj.totalDonation,
+            percentText:donationObj.percentText
         });
         document.getElementById('donation-form').reset();
     }
@@ -236,8 +255,8 @@ class CampaignSingle extends React.Component
                                 <DependentProfileItem dependent={this.state.campaign.dependent} />
                             </div>
                             <div className="donation-progress-card card-ui">
-                                <h3 className="donation-progress">$10000 <span>raised of ${this.state.campaign.targetValue} target</span></h3>
-                                <DonationProgress progress="50%" />
+                                <h3 className="donation-progress">${this.state.totalDonation} <span>raised of ${this.state.campaign.targetValue} target</span></h3>
+                                <DonationProgress progress={this.state.percentText} />
                                 <Donate user={this.state.sessionUser} val={this.state.donate} quickDonateClick={this.quickDonateClick} donateAmountChanged={this.donateAmountChanged} submitDonation={this.submitDonation} />
                             </div>
                             

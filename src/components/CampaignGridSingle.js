@@ -16,6 +16,21 @@ const CampaignGridSingle = ({campaign,user}) => {
         imageUrl = 'https://images.unsplash.com/photo-1495427513693-3f40da04b3fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80';
     }
     let editUrl = '/campaign/'+id+'/edit';
+    let donations = campaign.donations;
+    let totalDonation = 0;
+    for(let i=0;i<donations.length;i++)
+    {
+        let value = donations[i].value;
+        totalDonation += value;
+    }
+    let targetValue = parseInt(campaign.targetValue);
+    let percent = 100;
+    if(totalDonation < targetValue)
+    {
+        percent = (totalDonation/targetValue).toFixed(2);
+        percent = percent*100;
+    }
+    let percentText = percent+'%';
     return(
         <div className="col-lg-6 campaign-grid-single">
             <div className="campaign-grid-inner">
@@ -25,8 +40,8 @@ const CampaignGridSingle = ({campaign,user}) => {
                     <h2 className="campaign-grid-title"><a href={url}>{header}</a></h2>
                 </div>
                 <p className="campaign-grid-desc">{text}</p>
-                <DonationProgress progress="50%" />
-                <h3 className="donation-progress">$10000 <span>raised of ${campaign.targetValue} target</span></h3>
+                <DonationProgress progress={percentText} />
+                <h3 className="donation-progress">${totalDonation} <span>raised of ${campaign.targetValue} target</span></h3>
             </div>
             
         </div>
