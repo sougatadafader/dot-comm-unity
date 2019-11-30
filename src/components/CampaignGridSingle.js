@@ -1,7 +1,7 @@
 import React from 'react';
 import DonationProgress from '../components/DonationProgress';
 
-const CampaignGridSingle = ({campaign,user}) => {
+const CampaignGridSingle = ({campaign,user,gridSize}) => {
     let id = campaign.id;
     let url = '/campaign/'+id+'/view';
     let text = campaign.text.substring(0,60);
@@ -31,8 +31,13 @@ const CampaignGridSingle = ({campaign,user}) => {
         percent = percent*100;
     }
     let percentText = percent+'%';
+    let gridClass = 'col-lg-6 campaign-grid-single';
+    if(gridSize != null)
+    {
+        gridClass = 'col-lg-'+gridSize+' campaign-grid-single';
+    }
     return(
-        <div className="col-lg-6 campaign-grid-single">
+        <div className={gridClass}>
             <div className="campaign-grid-inner">
                 <div className="campaign-grid-edit"><a href={editUrl}><i class="fa fa-edit"></i></a></div>
                 <div className="campaign-grid-image" style={{backgroundImage:`url(${imageUrl})`}}><a href={url} className="campaign-image-link-wrap"></a></div>
