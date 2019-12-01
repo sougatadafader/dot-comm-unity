@@ -4,6 +4,7 @@ import WithScrollbar from "../components/CarouselWithoutScrollbar";
 import "../assets/style.css";
 import "../../node_modules/react-multi-carousel/lib/styles.css";
 import RequestService from '../services/RequestService';
+import UserService from '../services/UserService';
 import Loading from '../components/Loading';
 
 export default class extends Component {
@@ -13,7 +14,8 @@ export default class extends Component {
         super(props);
         this.state = {
             loading:true,
-            campaigns:[]
+            campaigns:[],
+            sessionUser:{}
         }
     }
 
@@ -26,9 +28,11 @@ export default class extends Component {
     {
         let urlEnd = 'api/campaign/top/10';
         let campaigns = await RequestService.getRequest(urlEnd);
+        let user = await UserService.findUserInSession();
         this.setState({
             loading:false,
-            campaigns:campaigns
+            campaigns:campaigns,
+            sessionUser:user
         });
     }
 
@@ -47,7 +51,7 @@ export default class extends Component {
                 <div className="container">
                     <div className="top-campaign-container">
                         <h3 className="top-campaign-title">Top Campaigns</h3>
-                        <WithScrollbar campaigns={this.state.campaigns}/>
+                        <WithScrollbar campaigns={this.state.campaigns} user={this.state.sessionUser}/>
                     </div>
                 </div>
             </div>

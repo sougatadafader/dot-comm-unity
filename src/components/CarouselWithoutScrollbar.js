@@ -38,7 +38,7 @@ const images = [
 
 // Because this is an inframe, so the SSR mode doesn't not do well here.
 // It will work on real devices.
-const Simple = ({ deviceType,campaigns }) => {
+const Simple = ({ deviceType,campaigns,user }) => {
     return (
         <Carousel
             infinite={true}
@@ -52,7 +52,7 @@ const Simple = ({ deviceType,campaigns }) => {
         >
             {campaigns.map(campaign => {
                 return (
-                    <CampaignSlide campaign={campaign} />
+                    <CampaignSlide campaign={campaign} user={user} />
                 );
             })}
         </Carousel>
