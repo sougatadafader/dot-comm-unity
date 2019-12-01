@@ -2,7 +2,11 @@ import React from 'react';
 import DonationProgress from '../components/DonationProgress';
 import RequestService from '../services/RequestService';
 
-const CampaignSlide = ({campaign,user}) => {
+const CampaignSlide = ({campaign,user,showDisabled}) => {
+    if((!showDisabled || showDisabled == null) && !campaign.enabled)
+    {
+        return '';
+    }
     let id = campaign.id;
     let url = '/campaign/'+id+'/view';
     let text = campaign.text.substring(0,60);

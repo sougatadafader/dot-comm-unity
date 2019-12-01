@@ -52,7 +52,7 @@ const Simple = ({ deviceType,campaigns,user }) => {
         >
             {campaigns.map(campaign => {
                 return (
-                    <CampaignSlide campaign={campaign} user={user} />
+                    <CampaignSlide campaign={campaign} user={user}/>
                 );
             })}
         </Carousel>
