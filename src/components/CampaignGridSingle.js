@@ -3,7 +3,7 @@ import DonationProgress from '../components/DonationProgress';
 import OverlayMask from './OverlayMask';
 
 const CampaignGridSingle = ({campaign,user,gridSize,showDisabled}) => {
-    if(!showDisabled && !campaign.enabled)
+    if((!showDisabled || showDisabled == null) && !campaign.enabled)
     {
         return '';
     }
