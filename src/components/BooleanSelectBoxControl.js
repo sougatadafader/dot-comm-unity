@@ -10,7 +10,7 @@ const BooleanSelectBoxControl = ({label,val,booleanSelectChanged}) => {
         <div className="form-group row">
             <label className="col-lg-2 col-form-label">{label}</label>
             <div className="col-lg-10">
-                <select defaultValue={selectVal} name="enabled" onChange={(evt) => booleanSelectChanged(evt)}>
+                <select defaultValue={selectVal} name="enabled" onChange={(evt) => booleanSelectChanged(evt)} className="boolean-box">
                     <option value="true">Yes</option>
                     <option value="false">No</option>
                 </select>
