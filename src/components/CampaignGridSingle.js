@@ -1,5 +1,6 @@
 import React from 'react';
 import DonationProgress from '../components/DonationProgress';
+import OverlayMask from './OverlayMask';
 
 const CampaignGridSingle = ({campaign,user,gridSize}) => {
     let id = campaign.id;
@@ -39,6 +40,7 @@ const CampaignGridSingle = ({campaign,user,gridSize}) => {
     return(
         <div className={gridClass}>
             <div className="campaign-grid-inner">
+                <OverlayMask color="#000" opacity="0.6" />
                 {user.id == campaign.creator ? (<div className="campaign-grid-edit"><a href={editUrl}><i class="fa fa-edit"></i></a></div>):''}
                 <div className="campaign-grid-image" style={{backgroundImage:`url(${imageUrl})`}}><a href={url} className="campaign-image-link-wrap"></a></div>
                 <div className="campaign-grid-header">
