@@ -164,8 +164,9 @@ class CampaignCreate extends React.Component
     {
         if(this.state.sessionUser.campaigns.length > 0)
         {
+            let showDisabled = true;
             return(
-                <CampaignGrid campaigns={this.state.sessionUser.campaigns} user={this.state.sessionUser} />
+                <CampaignGrid campaigns={this.state.sessionUser.campaigns} user={this.state.sessionUser} showDisabled={showDisabled} />
             );
         }
         return(
