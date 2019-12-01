@@ -2,7 +2,7 @@ import React from 'react';
 import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import InputControl from '../../components/InputControl';
-import CheckBoxControl from '../../components/CheckBoxControl';
+import BooleanSelectBoxControl from '../../components/BooleanSelectBoxControl';
 import CampaignGrid from '../../components/CampaignGrid';
 import NoItem from '../../components/NoItem';
 import DependentProfileList from '../../components/DependentProfileList';
@@ -30,6 +30,7 @@ class CampaignEdit extends React.Component
         };
         this.editCampaign = this.editCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
+        this.booleanSelectChanged = this.booleanSelectChanged.bind(this);
         this.findCampaign = this.findCampaign.bind(this);
     }
 
@@ -81,6 +82,22 @@ class CampaignEdit extends React.Component
         const name = evt.target.name;
         let selectedCampaign = this.state.selectedCampaign;
         selectedCampaign[name] = value;
+        this.setState({
+            selectedCampaign:selectedCampaign
+        });
+    }
+
+    booleanSelectChanged(evt)
+    {
+        const value = evt.target.value;
+        const name = evt.target.name;
+        let stateValue = true;
+        if(value == 'false')
+        {
+            stateValue = false;
+        }
+        let selectedCampaign = this.state.selectedCampaign;
+        selectedCampaign[name] = stateValue;
         this.setState({
             selectedCampaign:selectedCampaign
         });
@@ -198,10 +215,10 @@ class CampaignEdit extends React.Component
                                         val={this.state.selectedCampaign.targetValue}
                                         inputChanged={this.inputChanged}
                                     />
-                                    <CheckBoxControl
+                                    <BooleanSelectBoxControl
                                         label="Enabled ?"
                                         val={this.state.selectedCampaign.enabled}
-                                        inputChanged={this.inputChanged}
+                                        booleanSelectChanged={this.booleanSelectChanged}
                                     />
                                     <button type="submit" className="btn btn-primary">Edit</button>
                                 </form>
