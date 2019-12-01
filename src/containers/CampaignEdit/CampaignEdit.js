@@ -2,6 +2,7 @@ import React from 'react';
 import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import InputControl from '../../components/InputControl';
+import CheckBoxControl from '../../components/CheckBoxControl';
 import CampaignGrid from '../../components/CampaignGrid';
 import NoItem from '../../components/NoItem';
 import DependentProfileList from '../../components/DependentProfileList';
@@ -22,7 +23,8 @@ class CampaignEdit extends React.Component
                 header:'',
                 text:'',
                 imageUrl:'',
-                targetValue:0
+                targetValue:0,
+                enabled:true
             },
             dependents:[]
         };
@@ -53,7 +55,8 @@ class CampaignEdit extends React.Component
                 header:campaign.header,
                 text:campaign.text,
                 imageUrl:campaign.imageUrl,
-                targetValue:campaign.targetValue
+                targetValue:campaign.targetValue,
+                enabled:campaign.enabled
             };
             let userId = user.id;
             let depUrlEnd = 'api/user/'+userId+'/dependents';
@@ -193,6 +196,11 @@ class CampaignEdit extends React.Component
                                         name="targetValue"
                                         placeholder="Target Value in USD. Example: 10000"
                                         val={this.state.selectedCampaign.targetValue}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <CheckBoxControl
+                                        label="Enabled ?"
+                                        val={this.state.selectedCampaign.enabled}
                                         inputChanged={this.inputChanged}
                                     />
                                     <button type="submit" className="btn btn-primary">Edit</button>
