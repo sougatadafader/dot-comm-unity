@@ -4,7 +4,7 @@ import CampaignGridSingle from './CampaignGridSingle';
 const CampaignGrid = ({campaigns,user,gridSize,showDisabled}) => {
     return(
         <div className="campaign-list-container">
-            <h3 className="campaign-list-title">List Of Campaigns</h3>
+            <h3 className="campaign-list-title">Your Campaigns</h3>
             <div className="container-fluid">
                 <div className="row">
                     {

@@ -43,7 +43,7 @@ class Header extends React.Component{
         return(
 	   <header className="bg-light main-header">
             <nav className="navbar navbar-expand-lg navbar-light header-pos-center">
-                <Link to={"/"} className=" navbar-brand" href="#">BigBrother.</Link>
+                <Link to={"/"} className=" navbar-brand" href="#">Big Bro</Link>
                 <SearchComponent/>
                 <div className="collapse navbar-collapse d-flex flex-row-reverse bd-highlight" id="navbarNav">
                     <ul className="navbar-nav">
@@ -65,8 +65,8 @@ class Header extends React.Component{
                                     <Dropdown.Menu style={{ left: 'auto', right: 0 }}>
                                         <Dropdown.Header icon="paper plane outline" content="Good Afternoon!" />
                                         <Dropdown.Divider />
-                                        <Dropdown.Item>Account Settings</Dropdown.Item>
-                                        <Dropdown.Item>Manage Campaigns</Dropdown.Item>
+                                        <Dropdown.Item><Link to={`/user/${this.state.sessionUser.id}/view`}>Account Settings</Link></Dropdown.Item>
+                                        <Dropdown.Item><Link to={`campaigns/manage`}>Manage Campaigns</Link></Dropdown.Item>
                                         <Dropdown.Item>Donation History</Dropdown.Item>
                                         <Dropdown.Item onClick={this.handleLogout}>Logout</Dropdown.Item>
                                     </Dropdown.Menu>
