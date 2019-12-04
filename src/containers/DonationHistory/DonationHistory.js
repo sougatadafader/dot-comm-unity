@@ -68,7 +68,7 @@ class DonationHistory extends React.Component
                         <div className="col-lg-8">
                             <div className="donation-history-card card-ui">
                                 <h3 className="donation-history-title">Donation History</h3>
-                                <DonationHistorySummary nCampaigns={this.state.donations.length} totalAmount={this.calcTotalDonation()}
+                                <DonationHistorySummary nCampaigns={this.state.donations.length} totalAmount={this.calcTotalDonation()} />
                             </div>
                         </div>
                         <div className="col-lg-4">
