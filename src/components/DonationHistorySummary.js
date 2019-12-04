@@ -7,6 +7,8 @@ const DonationHistorySummary = ({nCampaigns,totalAmount}) => {
     useEffect(() => {
         const cInterval = setTimeout(function campaignsUpdate() {
             setCampaignCount(campaigns => campaigns+1);
+            console.log('Campaigns=',campaigns);
+            console.log('N Campaigns=',nCampaigns);
             if(campaigns < nCampaigns)
             {
                 setTimeout(campaignsUpdate,100);
