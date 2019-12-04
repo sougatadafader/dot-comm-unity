@@ -12,6 +12,7 @@ import CampaignEdit from '../containers/CampaignEdit/CampaignEdit';
 import Loading from '../components/Loading';
 import UserProfile from '../containers/UserProfile/UserProfile';
 import ManageCampaigns from '../containers/ManageCampaigns/ManageCampaigns';
+import Admin from "./AdminPanel/Admin";
 
 class BigBrotherEntry extends React.Component {
 
@@ -39,6 +40,7 @@ class BigBrotherEntry extends React.Component {
                     <Switch>
                         <Route exact path="/register" component={Register} />
                         <Route exact path="/signIn" component={SignIn} />
+                        <Route exact path="/admin" component={Admin} />
                         <Route path="/campaign/:campaignId/view" render={props => <CampaignSingle {...props} />} />
                         <Route exact path="/dependent/create" component={DependentCreate} />
                         <Route exact path="/campaign/create" component={CampaignCreate} />

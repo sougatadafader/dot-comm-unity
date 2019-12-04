@@ -14,7 +14,7 @@ class Header extends React.Component{
             currentHour:''
         }
     }
-    
+
     componentWillMount() {
         let today = new Date()
         let curHr = today.getHours()
@@ -59,6 +59,9 @@ class Header extends React.Component{
             <nav className="navbar navbar-expand-lg navbar-light header-pos-center">
                 <Link to={"/"} className=" navbar-brand" href="#">Big Bro</Link>
                 <SearchComponent/>
+                {(role ==='admin') ?
+                    < Link to={"/admin"} className="nav-link bg-secondary rounded text-light ml-3" href="#">Admin Panel</Link>
+                    :null}
                 <div className="collapse navbar-collapse d-flex flex-row-reverse bd-highlight" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
