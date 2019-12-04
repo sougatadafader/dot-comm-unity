@@ -166,9 +166,10 @@ class DependentCreate extends React.Component
                                 <div className="container-fluid">
                                     <div className="row">
                                         {
+                                            this.state.dependents.length>0?
                                             this.state.dependents.map((dependent,index)=>
                                                 (<DependentGridItem key={index} dependent={dependent} />)
-                                            )
+                                            ):<h4>You don't have any dependents right now.</h4>
                                         }
                                     </div>
                                 </div>

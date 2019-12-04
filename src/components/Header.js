@@ -10,7 +10,21 @@ class Header extends React.Component{
         super(props)
         this.createCampaign = this.createCampaign.bind(this);
         this.state = {
-            sessionUser:{}
+            sessionUser:{},
+            currentHour:''
+        }
+    }
+    
+    componentWillMount() {
+        let today = new Date()
+        let curHr = today.getHours()
+
+        if (curHr < 12) {
+            this.setState({currentHour:'Good Morning!'})
+        } else if (curHr < 18) {
+            this.setState({currentHour:'Good Afternoon!'})
+        } else {
+            this.setState({currentHour:'Good Evening!'})
         }
     }
 
@@ -63,7 +77,7 @@ class Header extends React.Component{
                             {username?
                                 <Dropdown text={username.charAt(0).toUpperCase()+ username.slice(1)} simple item >
                                     <Dropdown.Menu style={{ left: 'auto', right: 0 }}>
-                                        <Dropdown.Header icon="paper plane outline" content="Good Afternoon!" />
+                                        <Dropdown.Header icon="paper plane outline" content={this.state.currentHour} />
                                         <Dropdown.Divider />
                                         <Dropdown.Item><Link to={`/user/${this.state.sessionUser.id}/view`}>Account Settings</Link></Dropdown.Item>
                                         <Dropdown.Item><Link to={`/campaigns/manage`}>Manage Campaigns</Link></Dropdown.Item>
