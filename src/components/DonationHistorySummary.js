@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react';
 
 const DonationHistorySummary = ({nCampaigns,totalAmount}) => {
-    const [campaigns,setCampaignCount] = useState(0);
-    const [amount,setAmount] = useState(0);
+    let [campaigns,setCampaignCount] = useState(0);
+    let [amount,setAmount] = useState(0);
 
     useEffect(() => {
         const cInterval = setTimeout(function campaignsUpdate() {
