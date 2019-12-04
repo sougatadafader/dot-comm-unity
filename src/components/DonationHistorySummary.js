@@ -6,19 +6,21 @@ const DonationHistorySummary = ({nCampaigns,totalAmount}) => {
 
     useEffect(() => {
         const cInterval = setInterval(() => {
+            if(campaigns >= nCampaigns)
+            {
+                clearInterval(cInterval);
+                return;
+            }
             setCampaignCount(campaigns => campaigns+1);
         },100);
         const aInterval = setInterval(() => {
+            if(amount >= totalAmount)
+            {
+                clearInterval(aInterval);
+                return;
+            }
             setAmount(amount => amount+1);
         },100);
-        if(campaigns >= nCampaigns)
-        {
-            clearInterval(cInterval);
-        }
-        if(amount >= totalAmount)
-        {
-            clearInterval(aInterval);
-        }
         return () => {clearInterval(cInterval); clearInterval(aInterval);}
     },[]);
 
