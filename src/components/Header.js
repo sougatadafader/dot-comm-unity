@@ -66,7 +66,7 @@ class Header extends React.Component{
                                         <Dropdown.Header icon="paper plane outline" content="Good Afternoon!" />
                                         <Dropdown.Divider />
                                         <Dropdown.Item><Link to={`/user/${this.state.sessionUser.id}/view`}>Account Settings</Link></Dropdown.Item>
-                                        <Dropdown.Item><Link to={`campaigns/manage`}>Manage Campaigns</Link></Dropdown.Item>
+                                        <Dropdown.Item><Link to={`/campaigns/manage`}>Manage Campaigns</Link></Dropdown.Item>
                                         <Dropdown.Item>Donation History</Dropdown.Item>
                                         <Dropdown.Item onClick={this.handleLogout}>Logout</Dropdown.Item>
                                     </Dropdown.Menu>
