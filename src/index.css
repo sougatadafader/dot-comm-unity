@@ -857,7 +857,7 @@ button.donate-btn
   z-index:3;
 }
 
-.donation-history-title
+.donation-summary-title
 {
   padding-bottom:15px;
   margin-bottom:15px;
@@ -905,6 +905,17 @@ button.donate-btn
 .donation-history-summary-media .donation-counter
 {
   font-size:36px !important;
+}
+
+.donation-history-title
+{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.user-donation-single .media-body
+{
+  padding-left:15px;
 }
 
 

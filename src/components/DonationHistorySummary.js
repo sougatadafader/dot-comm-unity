@@ -20,23 +20,26 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,amountSteps}) => {
     },[isFinished]);
 
     return(
-        <div className="container-fluid donation-history-summary-container">
-            <div className="row">
-                <div className="col-lg-6 donation-history-summary-single">
-                    <div className="media donation-history-summary-media">
-                        <img className="img-responsive donation-history-icon" src="https://i.imgur.com/T6OG9vf.png"></img>
-                        <div className="media-body">
-                            <h3 className="donation-counter text-center">{campaigns}</h3>
-                            <p className="text-center">NUMBER OF DONATIONS</p>
+        <div className="donation-summary-card card-ui">
+            <h3 className="donation-summary-title">Donation Summary</h3>
+            <div className="container-fluid donation-history-summary-container">
+                <div className="row">
+                    <div className="col-lg-6 donation-history-summary-single">
+                        <div className="media donation-history-summary-media">
+                            <img className="img-responsive donation-history-icon" src="https://i.imgur.com/T6OG9vf.png"></img>
+                            <div className="media-body">
+                                <h3 className="donation-counter text-center">{campaigns}</h3>
+                                <p className="text-center">NUMBER OF DONATIONS</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-lg-6 donation-history-summary-single">
-                <div className="media donation-history-summary-media">
-                        <img className="img-responsive donation-history-icon" src="https://i.imgur.com/0Smdpow.png"></img>
-                        <div className="media-body">
-                            <h3 className="donation-counter text-center">{amount}</h3>
-                            <p className="text-center">TOTAL AMOUNT DONATED</p>
+                    <div className="col-lg-6 donation-history-summary-single">
+                        <div className="media donation-history-summary-media">
+                            <img className="img-responsive donation-history-icon" src="https://i.imgur.com/0Smdpow.png"></img>
+                            <div className="media-body">
+                                <h3 className="donation-counter text-center">{amount}</h3>
+                                <p className="text-center">TOTAL AMOUNT DONATED</p>
+                            </div>
                         </div>
                     </div>
                 </div>

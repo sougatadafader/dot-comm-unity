@@ -2,6 +2,7 @@ import React from 'react';
 import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import DonationHistorySummary from '../../components/DonationHistorySummary';
+import UserDonations from '../../components/UserDonations';
 
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
@@ -31,6 +32,16 @@ class DonationHistory extends React.Component
             let userId = user.id;
             let donationUrl = 'api/user/'+userId+'/donations';
             let donations = await RequestService.getRequest(donationUrl);
+            let campaignsUrl = 'api/campaigns';
+            let campaigns = await RequestService.getRequest(campaignsUrl);
+            for(let i=0;i<donations.length;i++)
+            {
+                let campaignNumber = donations[i].campaignNumber;
+                let campaign = campaigns.filter(function(campaign){
+                    return campaign.id == campaignNumber;
+                });
+                donations[i]['campaign'] = campaign[0];
+            }
             this.setState({
                 loading:false,
                 sessionUser:user,
@@ -90,10 +101,8 @@ class DonationHistory extends React.Component
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8">
-                            <div className="donation-history-card card-ui">
-                                <h3 className="donation-history-title">Donation History</h3>
-                                <DonationHistorySummary nCampaigns={this.state.donations.length} totalAmount={this.calcTotalDonation()} amountSteps={this.calcAmountSteps()} />
-                            </div>
+                            <DonationHistorySummary nCampaigns={this.state.donations.length} totalAmount={this.calcTotalDonation()} amountSteps={this.calcAmountSteps()} />
+                            <UserDonations donations={this.state.donations} />
                         </div>
                         <div className="col-lg-4">
 
