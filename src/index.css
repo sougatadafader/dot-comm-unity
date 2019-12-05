@@ -918,5 +918,23 @@ button.donate-btn
   padding-left:15px;
 }
 
+.donation-history-campaign-header
+{
+  margin-bottom: 7px !important;
+}
+
+.donation-history-donation-date
+{
+  font-size:0.9rem !important;
+  margin-bottom:1rem !important;
+}
+
+.not-found-image
+{
+  width:64px;
+  display:block;
+  margin:0 auto !important;
+}
+
 
 

@@ -14,8 +14,8 @@ const UserDonationSingle = ({donation}) => {
                         <div className="media user-donation-single">
                             <div className="user-dp-circle" style={{backgroundImage:`url(${donation.campaign.imageUrl})`}}></div>
                             <div className="media-body">
-                                <h4>{donation.campaign.header}</h4>
-                                <h6>{RequestService.calculateDate(donation.created)}</h6>
+                                <h4 className="donation-history-campaign-header">{donation.campaign.header}</h4>
+                                <h6 className="donation-history-donation-date"><strong>{RequestService.calculateDate(donation.created)}</strong></h6>
                                 <p>{comment}</p>
                             </div>
                         </div>

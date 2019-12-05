@@ -3,7 +3,8 @@ import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import DonationHistorySummary from '../../components/DonationHistorySummary';
 import UserDonations from '../../components/UserDonations';
-
+import NoItem from '../../components/NoItem';
+import CampaignGrid from '../../components/CampaignGrid';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 
@@ -87,6 +88,31 @@ class DonationHistory extends React.Component
         return amountSteps;
     }
 
+    showDonations()
+    {
+        if(this.state.donations !=null && this.state.donations.length > 0)
+        {
+            return(
+                <UserDonations donations={this.state.donations} />
+            );
+        }
+        return(
+            <NoItem title="Donation History" text="No Donations Found" />
+        );
+    }
+    showCampaigns()
+    {
+        if(this.state.sessionUser.campaigns.length > 0)
+        {
+            return(
+                <CampaignGrid campaigns={this.state.sessionUser.campaigns} user={this.state.sessionUser} gridSize="12" showDisabled={true}/>
+            );
+        }
+        return(
+            <NoItem title="List Of Campaigns" text="No Campaigns Found" />
+        );
+    }
+
     render()
     {
         if(this.state.loading)
@@ -102,10 +128,10 @@ class DonationHistory extends React.Component
                     <div className="row">
                         <div className="col-lg-8">
                             <DonationHistorySummary nCampaigns={this.state.donations.length} totalAmount={this.calcTotalDonation()} amountSteps={this.calcAmountSteps()} />
-                            <UserDonations donations={this.state.donations} />
+                            {this.showDonations()}
                         </div>
                         <div className="col-lg-4">
-
+                            {this.showCampaigns()}
                         </div>
                     </div>
                 </div>
