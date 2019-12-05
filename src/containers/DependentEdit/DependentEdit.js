@@ -4,6 +4,10 @@ import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import DependentGridItem from '../../components/DependentGridItem';
 import DependentCreate from '../DependentCreate/DependentCreate';
+import InputControl from '../../components/InputControl';
+import NoItem from '../../components/NoItem';
+import CampaignGrid from '../../components/CampaignGrid';
+import Message from '../../components/Message';
 import Loading from '../../components/Loading';
 
 class DependentEdit extends React.Component
@@ -15,20 +19,53 @@ class DependentEdit extends React.Component
             loading:true,
             dependents:[],
             selectedDependent:{
-                id:'',
                 firstName:'',
                 lastName:'',
                 imageUrl:'',
                 landmark:'',
                 zipcode:''
-            }
+            },
+            depId:'',
+            sessionUser:{},
+            showMessage:false,
+            messageToShow:''
         }
+        this.editThisDependent = this.editThisDependent.bind(this);
+        this.inputChanged = this.inputChanged.bind(this);
     }
 
 
     componentDidMount()
     {
 
+    }
+
+    async loadData()
+    {
+        let user = await UserService.findUserInSession();
+        if(Object.keys(user).length > 0)
+        {
+            let depId = this.props.match.params.depId;
+            let depUrl = 'api/dependent/'+depId;
+            let selectedDependent = await RequestService.getRequest(depUrl);
+            let allDependentsUrl = 'api/user/'+user.id+'/dependents';
+            let dependents = await RequestService.getRequest(allDependentsUrl);
+            this.setState({
+                loading:false,
+                dependents:dependents,
+                selectedDependent:{
+                    firstName:selectedDependent.firstName,
+                    lastName:selectedDependent.lastName,
+                    imageUrl:selectedDependent.imageUrl,
+                    landmark:selectedDependent.landmark,
+                    zipcode:selectedDependent.zipcode
+                },
+                depId:depId,
+                sessionUser:user
+            });
+            return;
+        }
+        window.location.href='/signin';
     }
 
     
@@ -43,14 +80,64 @@ class DependentEdit extends React.Component
         });
     }
 
-    editThisDependent()
+    findDependent(dependent)
     {
+        return dependent.id == this.state.depId;
+    }
 
+    async editThisDependent(evt)
+    {
+        evt.preventDefault();
+        let depEditUrl = 'api/dependent/'+this.state.depId;
+        let editedDependent = await RequestService.putRequest(depEditUrl,this.state.selectedDependent);
+        console.log('Edited Dependent = ',editedDependent);
+        let dependents = this.state.dependents;
+        let thisDependentIndex = dependents.findIndex(this.findDependent);
+        dependents[thisDependentIndex] = editedDependent;
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        this.setState({
+            dependents:dependents,
+            showMessage:true,
+            messageToShow:'Dependent Edited Successfully'
+        });
     }
 
     editDependent()
     {
 
+    }
+
+    showCampaigns()
+    {
+        if(this.state.sessionUser.campaigns.length > 0)
+        {
+            return(
+                <CampaignGrid campaigns={this.state.sessionUser.campaigns} user={this.state.sessionUser} gridSize="12" showDisabled={true}/>
+            );
+        }
+        return(
+            <NoItem title="List Of Campaigns" text="No Campaigns Found" />
+        );
+    }
+
+    showMessage()
+    {
+        if(this.state.showMessage)
+        {
+            return(
+                <Message message={this.state.messageToShow} closeMessage={this.closeMessage} />
+            );
+        }
+        return;
+    }
+
+    closeMessage()
+    {
+        this.setState({
+            showMessage:false,
+            messageToShow:''
+        });
     }
 
     render()
@@ -67,41 +154,52 @@ class DependentEdit extends React.Component
                 <div className="container space--top">
                     <div className="row">
                         <div className="col-lg-8">
+                            {this.showMessage()}
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Update A Person In Need</h3>
-                                <form onSubmit={this.editThisDependent.bind(this)} id="dependent-edit-form">
-                                    <input type="hidden" name="id" defaultValue={this.state.selectedDependent.id} />
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">First Name</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="firstName" className="form-control" placeholder="First Name" defaultValue={this.state.selectedDependent.firstName} onChange={this.inputChanged.bind(this)} required />
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Last Name</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="lastName" className="form-control" placeholder="Last Name" defaultValue={this.state.selectedDependent.lastName} onChange={this.inputChanged.bind(this)} required />
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Image URL</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="imageUrl" className="form-control" placeholder="Image URL" defaultValue={this.state.selectedDependent.imageUrl} onChange={this.inputChanged.bind(this)} required />
-                                        </div>
-                                    </div>
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Landmark</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="landmark" className="form-control" placeholder="Landmark" defaultValue={this.state.selectedDependent.landmark} onChange={this.inputChanged.bind(this)} required />
-                                        </div>                                        
-                                    </div>
-                                    <div className="form-group row">
-                                        <label className="col-lg-2 col-form-label">Zipcode</label>
-                                        <div className="col-lg-10">
-                                            <input type="text" name="zipcode" className="form-control" placeholder="Zipcode" defaultValue={this.state.selectedDependent.zipcode} onChange={this.inputChanged.bind(this)} required />
-                                        </div>
-                                    </div>
-                                    <button type="submit" className="btn btn-primary">Create</button>
+                                <form onSubmit={this.editThisDependent} id="dependent-edit-form">
+                                <InputControl 
+                                        label="First Name"
+                                        type="text"
+                                        name="firstName"
+                                        placeholder="First Name"
+                                        val={this.state.selectedDependent.firstName}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    
+                                    <InputControl 
+                                        label="Last Name"
+                                        type="text"
+                                        name="lastName"
+                                        placeholder="Last Name"
+                                        val={this.state.selectedDependent.lastName}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <InputControl 
+                                        label="Image URL"
+                                        type="text"
+                                        name="imageUrl"
+                                        placeholder="Image URL"
+                                        val={this.state.selectedDependent.imageUrl}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <InputControl 
+                                        label="Landmark"
+                                        type="text"
+                                        name="landmark"
+                                        placeholder="Landmark"
+                                        val={this.state.selectedDependent.landmark}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <InputControl 
+                                        label="ZipCode"
+                                        type="text"
+                                        name="zipcode"
+                                        placeholder="ZipCode"
+                                        val={this.state.selectedDependent.zipcode}
+                                        inputChanged={this.inputChanged}
+                                    />
+                                    <button type="submit" className="btn btn-primary">Edit</button>
                                 </form>
                             </div>
                             <div className="dependent-list card-ui">
@@ -119,7 +217,7 @@ class DependentEdit extends React.Component
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card-ui"></div>
+                            {this.showCampaigns()}
                         </div>
                     </div>
                 </div>

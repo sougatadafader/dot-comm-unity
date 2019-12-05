@@ -7,6 +7,7 @@ import RequestService from '../../services/RequestService';
 import CampaignGrid from '../../components/CampaignGrid';
 import NoItem from '../../components/NoItem';
 import DependentProfileList from '../../components/DependentProfileList';
+import Message from '../../components/Message';
 import Loading from '../../components/Loading';
 
 class CampaignCreate extends React.Component
@@ -27,12 +28,15 @@ class CampaignCreate extends React.Component
             dependents:[],
             dependentOptions:[],
             dependentOptionsLoading:true,
-            sessionUser:null
+            sessionUser:null,
+            showMessage:false,
+            messageToShow:''
         };
         this.createCampaign = this.createCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
         this.refreshList = this.refreshList.bind(this);
         this.dropdownChanged = this.dropdownChanged.bind(this);
+        this.closeMessage = this.closeMessage.bind(this);
     }
     componentDidMount()
     {
@@ -119,6 +123,9 @@ class CampaignCreate extends React.Component
         console.log("Created Campaign",campaign);
         let user = this.state.sessionUser;
         user.campaigns.push(campaign);
+        document.getElementById('create-campaign-form').reset();
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
         this.setState({
             selectedCampaign:{
                 header:'',
@@ -128,9 +135,10 @@ class CampaignCreate extends React.Component
             },
             sessionUser:user,
             depId:'',
-            depImageUrl:''
+            depImageUrl:'',
+            showMessage:true,
+            messageToShow:'Campaign Created Successfully !!!'
         });
-        document.getElementById('create-campaign-form').reset();
     }
 
     async refreshList(evt)
@@ -174,6 +182,25 @@ class CampaignCreate extends React.Component
         );
     }
 
+    showMessage()
+    {
+        if(this.state.showMessage)
+        {
+            return(
+                <Message message={this.state.messageToShow} closeMessage={this.closeMessage} />
+            );
+        }
+        return;
+    }
+
+    closeMessage()
+    {
+        this.setState({
+            showMessage:false,
+            messageToShow:''
+        });
+    }
+
     render()
     {
         if(this.state.loading)
@@ -188,6 +215,7 @@ class CampaignCreate extends React.Component
                 <div className="container space--top">
                     <div className="row">
                         <div className="col-lg-8">
+                            {this.showMessage()}
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Create A Campaign</h3>
                                 <form onSubmit={this.createCampaign} id="create-campaign-form">

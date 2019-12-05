@@ -7,6 +7,7 @@ import CampaignGrid from '../../components/CampaignGrid';
 import NoItem from '../../components/NoItem';
 import DependentProfileList from '../../components/DependentProfileList';
 import DependentProfileItem from '../../components/DependentProfileItem';
+import Message from '../../components/Message';
 import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import './CampaignEdit.css';
@@ -26,12 +27,15 @@ class CampaignEdit extends React.Component
                 targetValue:0,
                 enabled:true
             },
-            dependents:[]
+            dependents:[],
+            showMessage:false,
+            messageToShow:''
         };
         this.editCampaign = this.editCampaign.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
         this.booleanSelectChanged = this.booleanSelectChanged.bind(this);
         this.findCampaign = this.findCampaign.bind(this);
+        this.closeMessage = this.closeMessage.bind(this);
     }
 
     componentDidMount()
@@ -123,7 +127,9 @@ class CampaignEdit extends React.Component
         let sessionUser = this.state.sessionUser;
         sessionUser.campaigns = campaigns;
         this.setState({
-            sessionUser:sessionUser
+            sessionUser:sessionUser,
+            showMessage:true,
+            messageToShow:'Campaign Edited Successfully !!!!'
         });
         /*console.log("Campaign",this.state.selectedCampaign);
         console.log("Dependent ID",this.state.depId);
@@ -161,6 +167,25 @@ class CampaignEdit extends React.Component
         );
     }
 
+    showMessage()
+    {
+        if(this.state.showMessage)
+        {
+            return(
+                <Message message={this.state.messageToShow} closeMessage={this.closeMessage} />
+            );
+        }
+        return;
+    }
+
+    closeMessage()
+    {
+        this.setState({
+            showMessage:false,
+            messageToShow:''
+        });
+    }
+
     render()
     {
         if(this.state.loading)
@@ -175,6 +200,7 @@ class CampaignEdit extends React.Component
                 <div className="container space--top">
                     <div className="row">
                         <div className="col-lg-8">
+                            {this.showMessage()}
                             <div className="campaign-create-card card-ui">
                                 <h3 className="campaign-create-title">Edit Campaign</h3>
                                 <form onSubmit={this.editCampaign} id="edit-campaign-form">
