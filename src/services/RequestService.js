@@ -69,4 +69,13 @@ export default class RequestService
         };
         return obj;
     }
-}
+    static calculateDate(created)
+    {
+        let months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        let createdArr = created.split('T');
+        let createdDate = createdArr[0];
+        let createdDateArr = createdDate.split('-');
+        let dateShow = createdDateArr[2]+' '+months[createdDateArr[1]-1]+' '+createdDateArr[0];
+        return dateShow;
+    }
+} 

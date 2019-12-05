@@ -1,22 +1,27 @@
 import React from 'react';
-
+import RequestService from '../services/RequestService';
 const UserDonationSingle = ({donation}) => {
-    
+    let comment = donation.comment;
+    if( comment == null || comment == '' )
+    {
+        comment = 'No Comments Made';
+    }
     return(
         <div className="user-donation card-ui">
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-xs-9">
+                    <div className="col-9">
                         <div className="media user-donation-single">
                             <div className="user-dp-circle" style={{backgroundImage:`url(${donation.campaign.imageUrl})`}}></div>
                             <div className="media-body">
                                 <h4>{donation.campaign.header}</h4>
-                                <p>{donation.campaign.comment}</p>
+                                <h6>{RequestService.calculateDate(donation.created)}</h6>
+                                <p>{comment}</p>
                             </div>
                         </div>
                     </div>
-                    <div className="col-xs-3">
-                        <h1>${donation.value}</h1>
+                    <div className="col-3">
+                        <h1 className="text-center">${donation.value}</h1>
                     </div>
                 </div>
             </div>
