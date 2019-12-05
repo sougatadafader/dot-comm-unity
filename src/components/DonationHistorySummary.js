@@ -7,10 +7,10 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,nCampaignTimer,totalAmou
     useEffect(() => {
         const cInterval = setTimeout(() => {
             setCampaignCount(campaigns => campaigns < nCampaigns?campaigns+1:campaigns);
-        },nCampaignTimer);
+        },100);
         const aInterval = setInterval(() => {
             setAmount(amount => amount < totalAmount?amount+1:amount);
-        },totalAmountTimer);
+        },1);
         return () => {clearInterval(cInterval); clearInterval(aInterval);}
     },[campaigns,amount]);
 
