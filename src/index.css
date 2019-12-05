@@ -864,6 +864,13 @@ button.donate-btn
   border-bottom:1px solid #ddd;
 }
 
+.donation-history-summary-container
+{
+  padding-bottom: 30px;
+  margin-bottom:30px;
+  border-bottom: 1px solid #ddd;
+}
+
 .donation-history-summary-single
 {
   position: relative;

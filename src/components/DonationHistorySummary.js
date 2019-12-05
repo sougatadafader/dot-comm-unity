@@ -20,7 +20,7 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,amountSteps}) => {
     },[isFinished]);
 
     return(
-        <div className="container-fluid">
+        <div className="container-fluid donation-history-summary-container">
             <div className="row">
                 <div className="col-lg-6 donation-history-summary-single">
                     <div className="media donation-history-summary-media">
