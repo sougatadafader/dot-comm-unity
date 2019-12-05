@@ -1,16 +1,16 @@
 import React,{useState,useEffect} from 'react';
 
-const DonationHistorySummary = ({nCampaigns,totalAmount}) => {
+const DonationHistorySummary = ({nCampaigns,totalAmount,nCampaignTimer,totalAmountTimer}) => {
     let [campaigns,setCampaignCount] = useState(0);
     let [amount,setAmount] = useState(0);
 
     useEffect(() => {
         const cInterval = setTimeout(() => {
             setCampaignCount(campaigns => campaigns < nCampaigns?campaigns+1:campaigns);
-        },100);
+        },nCampaignTimer);
         const aInterval = setInterval(() => {
             setAmount(amount => amount < totalAmount?amount+1:amount);
-        },100);
+        },totalAmountTimer);
         return () => {clearInterval(cInterval); clearInterval(aInterval);}
     },[campaigns,amount]);
 

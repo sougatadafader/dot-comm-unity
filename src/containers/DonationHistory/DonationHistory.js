@@ -52,6 +52,20 @@ class DonationHistory extends React.Component
         return sum;
     }
 
+    calcCampaignsTimer()
+    {
+        let totalDonations = this.state.donations.length;
+        let timer = parseInt(3000/totalDonations);
+        return timer;
+    }
+
+    calcTotalDonationTimer()
+    {
+        let totalDonationAmt = this.calcTotalDonation();
+        let timer = (3000/totalDonationAmt).toFixed(2);
+        return timer;
+    }
+
     render()
     {
         if(this.state.loading)
@@ -68,7 +82,7 @@ class DonationHistory extends React.Component
                         <div className="col-lg-8">
                             <div className="donation-history-card card-ui">
                                 <h3 className="donation-history-title">Donation History</h3>
-                                <DonationHistorySummary nCampaigns={this.state.donations.length} totalAmount={this.calcTotalDonation()} />
+                                <DonationHistorySummary nCampaigns={this.state.donations.length} totalAmount={this.calcTotalDonation()} nCampaignTimer={this.calcCampaignsTimer()} totalAmountTimer={this.calcTotalDonationTimer()} />
                             </div>
                         </div>
                         <div className="col-lg-4">
