@@ -867,7 +867,7 @@ button.donate-btn
 .donation-history-summary-single
 {
   position: relative;
-  padding:30px;
+  padding:30px !important;
 }
 
 .donation-history-summary-single:first-child::after
@@ -877,7 +877,7 @@ button.donate-btn
   right:0px;
   top:50%;
   width:1px;
-  height:78px;
+  height:100%;
   background:#ddd;
   transform:translateY(-50%) rotate(30deg);
   -webkit-transform:translateY(-50%) rotate(30deg);

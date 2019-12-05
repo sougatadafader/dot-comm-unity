@@ -15,7 +15,7 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,amountSteps}) => {
             setAmount(amount => (amount+amountSteps) < totalAmount?(amount+amountSteps):totalAmount);
             setIsFinished(isFinished => (campaigns < nCampaigns || amount < totalAmount)?false:true);
             setTimeout(updateAmount,1);
-        },300);
+        },600);
         return () => {clearTimeout(cInterval); clearTimeout(aInterval);}
     },[isFinished]);
 
@@ -26,7 +26,7 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,amountSteps}) => {
                     <div className="media donation-history-summary-media">
                         <img className="img-responsive donation-history-icon" src="https://i.imgur.com/T6OG9vf.png"></img>
                         <div className="media-body">
-                            <h3 className="donation-counter">{campaigns}</h3>
+                            <h3 className="donation-counter text-center">{campaigns}</h3>
                             <p className="text-center">NUMBER OF DONATIONS</p>
                         </div>
                     </div>
@@ -35,7 +35,7 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,amountSteps}) => {
                 <div className="media donation-history-summary-media">
                         <img className="img-responsive donation-history-icon" src="https://i.imgur.com/0Smdpow.png"></img>
                         <div className="media-body">
-                            <h3 className="donation-counter">{amount}</h3>
+                            <h3 className="donation-counter text-center">{amount}</h3>
                             <p className="text-center">TOTAL AMOUNT DONATED</p>
                         </div>
                     </div>
