@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 
-const DonationHistorySummary = ({nCampaigns,totalAmount,nCampaignTimer,totalAmountTimer}) => {
+const DonationHistorySummary = ({nCampaigns,totalAmount,amountSteps}) => {
     let [campaigns,setCampaignCount] = useState(0);
     let [amount,setAmount] = useState(0);
     let [isFinished,setIsFinished] = useState(false);
@@ -10,12 +10,12 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,nCampaignTimer,totalAmou
             setCampaignCount(campaigns => campaigns < nCampaigns?campaigns+1:campaigns);
             setIsFinished(isFinished => campaigns < nCampaigns || amount < totalAmount?false:true);
             setTimeout(updateCampaign,100);
-        },nCampaignTimer);
+        },100);
         const aInterval = setTimeout(function updateAmount() {
-            setAmount(amount => amount < totalAmount?amount+1:amount);
+            setAmount(amount => (amount+amountSteps) < totalAmount?(amount+amountSteps):amount);
             setIsFinished(isFinished => (campaigns < nCampaigns || amount < totalAmount)?false:true);
             setTimeout(updateAmount,1);
-        },totalAmountTimer);
+        },100);
         return () => {clearTimeout(cInterval); clearTimeout(aInterval);}
     },[isFinished]);
 
