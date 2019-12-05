@@ -14,7 +14,7 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,nCampaignTimer,totalAmou
             setTimeout(updateAmount,1);
         },1);
         return () => {clearTimeout(cInterval); clearTimeout(aInterval);}
-    },[campaigns,amount]);
+    },[]);
 
     return(
         <div className="container-fluid">
