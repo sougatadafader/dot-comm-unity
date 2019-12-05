@@ -12,7 +12,7 @@ const DonationHistorySummary = ({nCampaigns,totalAmount,amountSteps}) => {
             setTimeout(updateCampaign,100);
         },100);
         const aInterval = setTimeout(function updateAmount() {
-            setAmount(amount => (amount+amountSteps) < totalAmount?(amount+amountSteps):amount);
+            setAmount(amount => (amount+amountSteps) < totalAmount?(amount+amountSteps):totalAmount);
             setIsFinished(isFinished => (campaigns < nCampaigns || amount < totalAmount)?false:true);
             setTimeout(updateAmount,1);
         },100);
