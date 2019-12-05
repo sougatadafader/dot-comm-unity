@@ -4,6 +4,8 @@ import UserService from '../../services/UserService';
 import RequestService from '../../services/RequestService';
 import DependentGridItem from '../../components/DependentGridItem';
 import InputControl from '../../components/InputControl';
+import CampaignGrid from '../../components/CampaignGrid';
+import NoItem from '../../components/NoItem';
 import Loading from '../../components/Loading';
 class DependentCreate extends React.Component
 {
@@ -98,6 +100,19 @@ class DependentCreate extends React.Component
         document.getElementById('dependent-create-form').reset();
     }
 
+    showCampaigns()
+    {
+        if(this.state.sessionUser.campaigns.length > 0)
+        {
+            return(
+                <CampaignGrid campaigns={this.state.sessionUser.campaigns} user={this.state.sessionUser} gridSize="12" showDisabled={true}/>
+            );
+        }
+        return(
+            <NoItem title="List Of Campaigns" text="No Campaigns Found" />
+        );
+    }
+
 
     render()
     {
@@ -176,7 +191,7 @@ class DependentCreate extends React.Component
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="card-ui"></div>
+                            {this.showCampaigns()}
                         </div>
                     </div>
                 </div>
