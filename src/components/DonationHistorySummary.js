@@ -5,25 +5,14 @@ const DonationHistorySummary = ({nCampaigns,totalAmount}) => {
     let [amount,setAmount] = useState(0);
 
     useEffect(() => {
-        const cInterval = setTimeout(function campaignsUpdate() {
+        const cInterval = setTimeout(() => {
             setCampaignCount(campaigns => campaigns < nCampaigns?campaigns+1:campaigns);
-            console.log('Campaigns=',campaigns);
-            console.log('N Campaigns=',nCampaigns);
-            if(campaigns < nCampaigns)
-            {
-                setTimeout(campaignsUpdate,100);
-            }
         },100);
         const aInterval = setInterval(() => {
-            if(amount >= totalAmount)
-            {
-                clearInterval(aInterval);
-                return;
-            }
-            setAmount(amount => amount+1);
+            setAmount(amount => amount < totalAmount?amount+1:amount);
         },100);
-        return () => {clearTimeout(cInterval); clearInterval(aInterval);}
-    },[campaigns]);
+        return () => {clearInterval(cInterval); clearInterval(aInterval);}
+    },[campaigns,amount]);
 
     return(
         <div className="container-fluid">
