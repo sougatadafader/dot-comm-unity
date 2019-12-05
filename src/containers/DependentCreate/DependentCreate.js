@@ -7,6 +7,7 @@ import InputControl from '../../components/InputControl';
 import CampaignGrid from '../../components/CampaignGrid';
 import NoItem from '../../components/NoItem';
 import Loading from '../../components/Loading';
+import Message from '../../components/Message';
 class DependentCreate extends React.Component
 {
     constructor(props)
@@ -23,10 +24,13 @@ class DependentCreate extends React.Component
                 imageUrl:'',
                 landmark:'',
                 zipcode:''
-            }
+            },
+            showMessage:false,
+            messageToShow:''
         }
 
         this.inputChanged = this.inputChanged.bind(this);
+        this.closeMessage = this.closeMessage.bind(this);
     }
 
 
@@ -86,6 +90,11 @@ class DependentCreate extends React.Component
         let createdObj = await RequestService.postRequest(urlEnd,this.state.selectedDependent);
         let dependents = this.state.dependents;
         dependents.push(createdObj);
+        
+        console.log(createdObj);
+        document.getElementById('dependent-create-form').reset();
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
         this.setState({
             dependents:dependents,
             selectedDependent:{
@@ -94,10 +103,10 @@ class DependentCreate extends React.Component
                 imageUrl:'',
                 landmark:'',
                 zipcode:''
-            }
+            },
+            showMessage:true,
+            messageToShow:'You have successfully created a dependent'
         });
-        console.log(createdObj);
-        document.getElementById('dependent-create-form').reset();
     }
 
     showCampaigns()
@@ -111,6 +120,25 @@ class DependentCreate extends React.Component
         return(
             <NoItem title="List Of Campaigns" text="No Campaigns Found" />
         );
+    }
+
+    showMessage()
+    {
+        if(this.state.showMessage)
+        {
+            return(
+                <Message message={this.state.messageToShow} closeMessage={this.closeMessage} />
+            );
+        }
+        return;
+    }
+
+    closeMessage()
+    {
+        this.setState({
+            showMessage:false,
+            messageToShow:''
+        });
     }
 
 
@@ -128,6 +156,7 @@ class DependentCreate extends React.Component
                 <div className="container space--top">
                     <div className="row">
                         <div className="col-lg-8">
+                            {this.showMessage()}
                             <div className="dependent-create-card card-ui">
                                 <h3 className="campaign-create-title">Create A Person In Need</h3>
                                 <form onSubmit={this.createDependent.bind(this)} id="dependent-create-form">
