@@ -3,18 +3,21 @@ import React,{useState,useEffect} from 'react';
 const DonationHistorySummary = ({nCampaigns,totalAmount,nCampaignTimer,totalAmountTimer}) => {
     let [campaigns,setCampaignCount] = useState(0);
     let [amount,setAmount] = useState(0);
+    let [isFinished,setIsFinished] = useState(false);
 
     useEffect(() => {
         const cInterval = setTimeout(function updateCampaign() {
             setCampaignCount(campaigns => campaigns < nCampaigns?campaigns+1:campaigns);
+            setIsFinished(isFinished => campaigns < nCampaigns || amount < totalAmount?false:true);
             setTimeout(updateCampaign,100);
-        },100);
+        },nCampaignTimer);
         const aInterval = setTimeout(function updateAmount() {
             setAmount(amount => amount < totalAmount?amount+1:amount);
+            setIsFinished(isFinished => (campaigns < nCampaigns || amount < totalAmount)?false:true);
             setTimeout(updateAmount,1);
-        },1);
+        },totalAmountTimer);
         return () => {clearTimeout(cInterval); clearTimeout(aInterval);}
-    },[]);
+    },[isFinished]);
 
     return(
         <div className="container-fluid">
