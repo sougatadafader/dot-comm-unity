@@ -33,6 +33,7 @@ class DependentEdit extends React.Component
         this.editThisDependent = this.editThisDependent.bind(this);
         this.inputChanged = this.inputChanged.bind(this);
         this.findDependent = this.findDependent.bind(this);
+        this.closeMessage = this.closeMessage.bind(this);
     }
 
 
