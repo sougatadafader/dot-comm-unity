@@ -36,6 +36,8 @@ export default class extends Component {
         });
     }
 
+
+
     render() {
 
         if(this.state.loading)
@@ -50,7 +52,7 @@ export default class extends Component {
                 <Header/>
                 <div className="container">
                     <div className="top-campaign-container">
-                        <h3 className="top-campaign-title">Top Campaigns</h3>
+                        <h3 className="top-campaign-title">Top Campaigns<a className="all-campaigns" href="/campaigns/all">View All Campaigns</a></h3>
                         <WithScrollbar campaigns={this.state.campaigns} user={this.state.sessionUser}/>
                     </div>
                 </div>

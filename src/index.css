@@ -937,5 +937,17 @@ button.donate-btn
   margin-top:40px;
 }
 
+.top-campaign-title
+{
+  position:relative;
+}
+
+.all-campaigns
+{
+  position: absolute;
+  top:0px;
+  right:5px;
+}
+
 
 

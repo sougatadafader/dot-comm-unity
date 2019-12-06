@@ -39,6 +39,9 @@ const images = [
 // Because this is an inframe, so the SSR mode doesn't not do well here.
 // It will work on real devices.
 const Simple = ({ deviceType,campaigns,user }) => {
+    let enabledCampaigns = campaigns.filter(function(campaign){
+        return campaign.enabled == true;
+    });
     return (
         <Carousel
             infinite={true}
@@ -50,7 +53,7 @@ const Simple = ({ deviceType,campaigns,user }) => {
             itemClass="image-item"
             responsive={responsive}
         >
-            {campaigns.map(campaign => {
+            {enabledCampaigns.map(campaign => {
                 return (
                     <CampaignSlide campaign={campaign} user={user}/>
                 );

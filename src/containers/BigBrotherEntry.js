@@ -13,6 +13,7 @@ import Loading from '../components/Loading';
 import UserProfile from '../containers/UserProfile/UserProfile';
 import ManageCampaigns from '../containers/ManageCampaigns/ManageCampaigns';
 import DonationHistory from '../containers/DonationHistory/DonationHistory';
+import AllCampaigns from '../containers/AllCampaigns';
 import Admin from "./AdminPanel/Admin";
 
 class BigBrotherEntry extends React.Component {
@@ -46,6 +47,7 @@ class BigBrotherEntry extends React.Component {
                         <Route exact path="/dependent/create" component={DependentCreate} />
                         <Route exact path="/campaign/create" component={CampaignCreate} />
                         <Route exact path="/campaigns/manage" component={ManageCampaigns} />
+                        <Route exact path="/campaigns/all" component={AllCampaigns} />
                         <Route exact path="/donations/history" component={DonationHistory} />
                         <Route path="/campaign/:campaignId/edit" render={props => <CampaignEdit {...props} />} />
                         <Route exact path="/loading" component={Loading} />
