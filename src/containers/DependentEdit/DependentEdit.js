@@ -37,7 +37,7 @@ class DependentEdit extends React.Component
 
     componentDidMount()
     {
-
+        this.loadData();
     }
 
     async loadData()

@@ -22,6 +22,10 @@ const CampaignGridSingle = ({campaign,user,gridSize,showDisabled}) => {
     }
     let editUrl = '/campaign/'+id+'/edit';
     let donations = campaign.donations;
+    if( donations == null )
+    {
+        donations = [];
+    }
     let totalDonation = 0;
     for(let i=0;i<donations.length;i++)
     {
