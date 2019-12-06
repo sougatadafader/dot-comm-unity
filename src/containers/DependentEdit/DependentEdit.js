@@ -46,7 +46,7 @@ class DependentEdit extends React.Component
         if(Object.keys(user).length > 0)
         {
             let depId = this.props.match.params.depId;
-            let depUrl = 'api/dependent/'+depId;
+            let depUrl = 'api/dependents/'+depId;
             let selectedDependent = await RequestService.getRequest(depUrl);
             let allDependentsUrl = 'api/user/'+user.id+'/dependents';
             let dependents = await RequestService.getRequest(allDependentsUrl);
