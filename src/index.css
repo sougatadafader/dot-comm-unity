@@ -972,5 +972,11 @@ button.donate-btn
   right:5px;
 }
 
+.ui.search>.results
+{
+  max-height:600px;
+  overflow-y:scroll;
+}
+
 
 
