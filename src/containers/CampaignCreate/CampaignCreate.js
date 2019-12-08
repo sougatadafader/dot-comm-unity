@@ -84,6 +84,13 @@ class CampaignCreate extends React.Component
     }
     inputChanged(evt)
     {
+        if(this.state.showMessage)
+        {
+            this.setState({
+                showMessage:false,
+                messageToShow:''
+            });
+        }
         const value = evt.target.value;
         const name = evt.target.name;
         let selectedCampaign = this.state.selectedCampaign;
@@ -95,6 +102,13 @@ class CampaignCreate extends React.Component
 
     dropdownChanged(evt)
     {
+        if(this.state.showMessage)
+        {
+            this.setState({
+                showMessage:false,
+                messageToShow:''
+            });
+        }
         const value = evt.target.value;
         const name = evt.target.name;
         let dependents = this.state.dependents;

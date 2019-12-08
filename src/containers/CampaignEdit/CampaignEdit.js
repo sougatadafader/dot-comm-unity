@@ -82,6 +82,13 @@ class CampaignEdit extends React.Component
 
     inputChanged(evt)
     {
+        if(this.state.showMessage)
+        {
+            this.setState({
+                showMessage:false,
+                messageToShow:''
+            });
+        }
         const value = evt.target.value;
         const name = evt.target.name;
         let selectedCampaign = this.state.selectedCampaign;
