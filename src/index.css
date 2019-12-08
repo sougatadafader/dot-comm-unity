@@ -932,9 +932,31 @@ button.donate-btn
   margin:0 auto !important;
 }
 
-.message-show
+.message-container
 {
   margin-top:40px;
+  overflow:hidden;
+}
+
+.message-show
+{
+  transform:translateX(-100%);
+  -webkit-transform:translateX(-100%);
+  -moz-transform:translateX(-100%);
+  -ms-transform:translateX(-100%);
+  animation:slideMessageIn 0.6s;
+  -webkit-animation:slideMessageIn 0.6s;
+}
+
+@keyframes slideMessageIn {
+
+  100% {
+    transform:translateX(0%);
+    -webkit-transform:translateX(0%);
+    -moz-transform:translateX(0%);
+    -ms-transform:translateX(0%);
+  }
+
 }
 
 .top-campaign-title

@@ -126,6 +126,8 @@ class CampaignEdit extends React.Component
         console.log("New Campaign Array",campaigns);
         let sessionUser = this.state.sessionUser;
         sessionUser.campaigns = campaigns;
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
         this.setState({
             sessionUser:sessionUser,
             showMessage:true,
