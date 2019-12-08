@@ -32,10 +32,10 @@ export default class extends Component {
         let urlEnd = 'api/campaign/top/10';
         let campaigns = await RequestService.getRequest(urlEnd);
         let user = await UserService.findUserInSession();
-        let likedCampaignUrl = 'api/liked/campaigns';
         let likedCampaigns = [];
         if(Object.keys(user).length > 0)
         {
+            let likedCampaignUrl = 'api/user/'+user.id+'/campaign/liked';
             likedCampaigns = await RequestService.getRequest(likedCampaignUrl);
         }
         this.setState({

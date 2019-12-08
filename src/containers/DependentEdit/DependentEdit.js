@@ -200,7 +200,7 @@ class DependentEdit extends React.Component
                                         val={this.state.selectedDependent.zipcode}
                                         inputChanged={this.inputChanged}
                                     />
-                                    <button type="submit" className="btn btn-primary">Edit</button>
+                                    <button type="submit" className="btn btn-primary">Save</button>
                                 </form>
                             </div>
                             <div className="dependent-list card-ui">

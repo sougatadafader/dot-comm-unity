@@ -247,7 +247,7 @@ class CampaignEdit extends React.Component
                                         val={this.state.selectedCampaign.enabled}
                                         booleanSelectChanged={this.booleanSelectChanged}
                                     />
-                                    <button type="submit" className="btn btn-primary">Edit</button>
+                                    <button type="submit" className="btn btn-primary">Save</button>
                                 </form>
                             </div>
                             {this.showCampaigns()}
