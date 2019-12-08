@@ -40,7 +40,7 @@ class AllCampaigns extends React.Component
         if(this.state.campaigns.length > 0)
         {
             return(
-                <CampaignGrid campaigns={this.state.campaigns} user={this.state.sessionUser} gridSize="4" />
+                <CampaignGrid campaigns={this.state.campaigns} user={this.state.sessionUser} gridSize="4" title="All Campaigns" />
             );
         }
         return(
