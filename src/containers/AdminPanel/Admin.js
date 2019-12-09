@@ -23,12 +23,27 @@ export default class Admin extends Component {
     }
     componentDidMount=()=>
     {
-        UserService.findAllUsers().then(
+        this.checkUser();
+        /*UserService.findAllUsers().then(
             users => this.setState({
                 users: users
             })
-        )
+        )*/
     };
+
+    async checkUser()
+    {
+        let user = await UserService.findUserInSession();
+        if(Object.keys(user).length > 0 && user.userRole == 'admin')
+        {
+            let users = await UserService.findAllUsers();
+            this.setState({
+                users:users
+            });
+            return;
+        }
+        window.location.href = '/';
+    }
 
     componentDidUpdate=()=>
     {
