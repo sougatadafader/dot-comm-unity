@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import DropdownSimple from './DropdownSimple'
-import {Button, Menu, Input,Popup, Dropdown} from 'semantic-ui-react'
+import {Button, Menu, Input,Popup, Dropdown} from 'semantic-ui-react';
+import MobileMenu from './MobileMenu';
 import UserService from "../services/UserService";
 import SearchComponent from './SearchComponent'
 class Header extends React.Component{
@@ -11,8 +12,10 @@ class Header extends React.Component{
         this.createCampaign = this.createCampaign.bind(this);
         this.state = {
             sessionUser:{},
-            currentHour:''
-        }
+            currentHour:'',
+            showMenu:false
+        };
+        this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     }
 
     componentWillMount() {
@@ -51,13 +54,27 @@ class Header extends React.Component{
         this.props.history.push(path);
     }
 
+    toggleMobileMenu(evt)
+    {
+        evt.preventDefault();
+        let showMenu = true;
+        if(this.state.showMenu)
+        {
+            showMenu = false;
+        }
+        this.setState({
+            showMenu:showMenu
+        });
+    }
+
     render(){
         let username = this.state.sessionUser.username;
         let role = this.state.sessionUser.userRole;
         return(
 	   <header className="bg-light main-header">
+
             <nav className="navbar navbar-expand-lg navbar-light header-pos-center">
-                <a className="mobile-menu-toggle" href="#"><i className="fa fa-bars"></i></a>
+                <a className="mobile-menu-toggle" href="#" onClick={this.toggleMobileMenu}><i className="fa fa-bars"></i></a>
                 <Link to={"/"} className=" navbar-brand" href="#">Big Bro</Link>
                 <SearchComponent/>
                 {(role ==='admin') ?
