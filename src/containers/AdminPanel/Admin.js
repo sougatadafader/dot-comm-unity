@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Header from "../../components/Header";
+import Loading from '../../components/Loading';
 import UserService from "../../services/UserService";
 import UserRow from "../../components/UserRow"
 import AdminService from "../../services/AdminService";
@@ -18,7 +19,8 @@ export default class Admin extends Component {
             selectedUser:{},
             isEdit:false,
             userBeingEdited:{},
-            updateComponent:false
+            updateComponent:false,
+            loading:true
         }
     }
     componentDidMount=()=>
@@ -38,6 +40,7 @@ export default class Admin extends Component {
         {
             let users = await UserService.findAllUsers();
             this.setState({
+                loading:false,
                 users:users
             });
             return;
@@ -163,6 +166,12 @@ export default class Admin extends Component {
 
     }
     render() {
+        if(this.state.loading)
+        {
+            return(
+                <Loading />
+            );
+        }
         return (
             <div className="container-fluid ml-0 mr-0 pl-0 pr-0">
                 <Header/>
