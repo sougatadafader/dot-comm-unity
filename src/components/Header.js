@@ -57,6 +57,7 @@ class Header extends React.Component{
         return(
 	   <header className="bg-light main-header">
             <nav className="navbar navbar-expand-lg navbar-light header-pos-center">
+                <a className="mobile-menu-toggle" href="#"><i className="fa fa-bars"></i></a>
                 <Link to={"/"} className=" navbar-brand" href="#">Big Bro</Link>
                 <SearchComponent/>
                 {(role ==='admin') ?

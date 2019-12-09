@@ -978,6 +978,17 @@ button.donate-btn
   max-height:600px;
   overflow-y:scroll;
 }
+.mobile-menu-toggle
+{
+  margin-right:5px;
+}
+@media all and (min-width:992px)
+{
+  .mobile-menu-toggle
+  {
+    display: none;
+  }
+}
 
 
 
