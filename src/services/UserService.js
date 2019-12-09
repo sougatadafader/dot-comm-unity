@@ -48,7 +48,7 @@ export default class UserService {
     }
 
     static findAllUsers =() => {
-        const url=baseUrl+"api/user";
+        const url=baseUrl+"api/users";
         return fetch(url,{
             credentials: 'include'
         }).then((res) => res.text())
