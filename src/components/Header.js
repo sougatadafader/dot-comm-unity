@@ -72,7 +72,7 @@ class Header extends React.Component{
         let role = this.state.sessionUser.userRole;
         return(
 	   <header className="bg-light main-header">
-
+           <MobileMenu showMenu={this.state.showMenu} />
             <nav className="navbar navbar-expand-lg navbar-light header-pos-center">
                 <a className="mobile-menu-toggle" href="#" onClick={this.toggleMobileMenu}><i className="fa fa-bars"></i></a>
                 <Link to={"/"} className=" navbar-brand" href="#">Big Bro</Link>
