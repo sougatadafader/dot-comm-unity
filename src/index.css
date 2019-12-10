@@ -991,6 +991,8 @@ button.donate-btn
   width:78vw;
   height:100vh;
   z-index: 5000;
+  overflow-y:scroll;
+  overflow-x:hidden;
   opacity:1;
   background:#1b1b1b;
   transform:translateX(-100%);
@@ -1017,7 +1019,7 @@ button.donate-btn
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 16px;
+  font-size: 2rem;
 }
 
 @media all and (min-width:992px)
