@@ -10,3 +10,6 @@
 
 ##  View Campaign
 ![View Campaign](https://github.com/sougatadafader/dot-comm-unity/blob/master/gifs/ViewCampaign.gif)
+
+## Like, Donate and View a Campaign
+![Like, Donate and View a Campaign](https://github.com/sougatadafader/dot-comm-unity/blob/master/gifs/Like_Donate_Unlike.gif)
