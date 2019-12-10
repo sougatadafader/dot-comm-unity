@@ -26,3 +26,6 @@ You can head to https://bigbro-client.herokuapp.com/ to get started.
 
 ## Donation History
 ![Donation History](https://github.com/sougatadafader/dot-comm-unity/blob/master/gifs/Donation_History.gif)
+
+## Responsiveness
+![Responsiveness](https://github.com/sougatadafader/dot-comm-unity/blob/master/gifs/Responsive_Website.gif)
