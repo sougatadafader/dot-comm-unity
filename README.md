@@ -1,5 +1,5 @@
 # What is Big-Bro?
-Big-Bro is an online platform for people who are blessed and are doing well in life to help other people who are sturggling to earn a meal. 
+Big-Bro is an online platform for people who are blessed and are doing well in life to help other people who are struggling to earn a meal. 
 
 # What is the concept of Big-Bro? 
 This project is aimed to help the helpless people living on the streets. My main idea for this project is to make the community more inclusive and provide a platform for people who are ready to help a proper platform. 
