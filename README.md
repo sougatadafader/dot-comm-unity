@@ -8,8 +8,8 @@
 ![Search Feature](https://github.com/sougatadafader/dot-comm-unity/blob/master/gifs/SearchFeature.gif)
 
 
-##  View Campaign
-![View Campaign](https://github.com/sougatadafader/dot-comm-unity/blob/master/gifs/ViewCampaign.gif)
-
-## Like, Donate and View a Campaign
+## View, Like, Donate in a Campaign and View a User
 ![Like, Donate and View a Campaign](https://github.com/sougatadafader/dot-comm-unity/blob/master/gifs/Like_Donate_Unlike.gif)
+
+## Donation History
+![Donation History](https://github.com/sougatadafader/dot-comm-unity/blob/master/gifs/Donation_History.gif)
