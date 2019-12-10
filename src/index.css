@@ -988,9 +988,9 @@ button.donate-btn
   position: fixed;
   top:0px;
   left:0px;
-  width:87vw;
+  width:78vw;
   height:100vh;
-  z-index: 5;
+  z-index: 5000;
   opacity:1;
   background:#1b1b1b;
   transform:translateX(-100%);
@@ -1001,6 +1001,23 @@ button.donate-btn
   -webkit-transition: all 0.6s ease;
   -moz-transition: all 0.6s ease;
   -ms-transition: all 0.6s ease;
+}
+
+.mobile-menu-container
+{
+  position: relative;
+}
+.mobile-menu-container *
+{
+  color: #fff !important;
+}
+
+.close-mobile-menu
+{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
 }
 
 @media all and (min-width:992px)
@@ -1016,10 +1033,6 @@ button.donate-btn
 }
 @media all and (max-width:991px)
 {
-  .d-flex
-  {
-    display: none !important;
-  }
   .mobile-menu
   {
     display: block;

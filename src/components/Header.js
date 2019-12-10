@@ -72,7 +72,7 @@ class Header extends React.Component{
         let role = this.state.sessionUser.userRole;
         return(
 	   <header className="bg-light main-header">
-           <MobileMenu showMenu={this.state.showMenu} />
+           <MobileMenu showMenu={this.state.showMenu} toggleMobileMenu={this.toggleMobileMenu} />
             <nav className="navbar navbar-expand-lg navbar-light header-pos-center">
                 <a className="mobile-menu-toggle" href="#" onClick={this.toggleMobileMenu}><i className="fa fa-bars"></i></a>
                 <Link to={"/"} className=" navbar-brand" href="#">Big Bro</Link>
@@ -80,7 +80,7 @@ class Header extends React.Component{
                 {(role ==='admin') ?
                     < Link to={"/admin"} className="nav-link bg-secondary rounded text-light ml-3" href="#">Admin Panel</Link>
                     :null}
-                <div className="collapse navbar-collapse d-flex flex-row-reverse bd-highlight" id="navbarNav">
+                <div className="collapse navbar-collapse flex-row-reverse bd-highlight" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             {/*<DropdownSimple/>*/}
